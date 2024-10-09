@@ -1,19 +1,18 @@
 function Info() {
     return (
-        <div className='h-screen w-full flex flex-col items-center justify-center bg-white text-black p-8'>
-            <div className='grid grid-cols-3 space-x-4 justify-items-center'>
-                <div className='bg-black rounded-full w-[250px] h-[500px]'>
-                    <img></img>
+        <div className='grid grid-rows-auto h-auto min-h-screen bg-white text-black'>
+            <div className='top-0 border border-black w-screen h-[50px]'></div>
+
+            <div className='flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-8 py-10'>
+                <div className='bg-black rounded-full w-[125px] h-[250px] md:w-[250px] md:h-[500px] justify-center'>
+                    {/* TODO add headshot here */}
                 </div>
                 <div className='col-span-2'>
-                    <h2 className='pb-20 text-secondary'>Info</h2>
-                    <p className='pb-5 font-bold uppercase text-2xl pr-4'><span className='text-secondary'>I’m a full stack developer with skills in UX.</span>Whether it’s designing inclusive user interfaces or enhancing back-end functionality, I love the challenge of creating solutions that are both elegant and impactful.</p>
+                    <h2 className='pb-10 text-secondary text-center md:text-left'>Info</h2>
+                    <p className='pb-5 font-bold uppercase text-2xl pr-4 max-w-[600px]'><span className='text-secondary'>I’m a full stack developer with skills in UX.</span> Whether it’s designing inclusive user interfaces or enhancing back-end functionality, I love the challenge of creating solutions that are both elegant and impactful.</p>
                 </div>
             </div>
 
-            <div className='grid grid-cols-3'>
-
-            </div>
         </div>
     )
 }
