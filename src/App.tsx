@@ -1,19 +1,21 @@
 import './App.css'
-import Contact from './components/Contact';
-import Experience from './components/Experience';
-import Info from './components/Info'
-import Landing from './components/Landing';
-import Skills from './components/Skills';
+import Contact from './views/Contact';
+import Experience from './views/Experience';
+import Footer from './components/Footer';
+import Info from './views/Info'
+import Landing from './views/Landing';
+import Skills from './views/Skills';
 
 
 function App() {
   return (
-    <div className='w-screen h-auto'>
+    <div className='h-auto w-screen'>
       <Landing />
       <Info />
       <Experience />
       <Skills />
       <Contact />
+      <Footer />
     </ div>
   )
 }
