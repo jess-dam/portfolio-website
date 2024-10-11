@@ -7,7 +7,7 @@ interface Props {
 function SectionContainer({ children, bgColor, textColor }: Props) {
   return (
     <div
-      className={`flex justify-center place-items-between min-h-screen w-full overflow-clip bg-${bgColor} text-${textColor}`}
+      className={`flex justify-center place-items-between min-h-screen w-full overflow-hidden bg-${bgColor} text-${textColor}`}
     >
       {children}
     </div>

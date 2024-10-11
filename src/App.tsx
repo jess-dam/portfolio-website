@@ -12,9 +12,9 @@ function App() {
       <Landing />
       <Info />
       <Experience />
-      <Skills />
+      {/* <Skills />
       <Contact />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
