@@ -12,7 +12,7 @@ function Skills() {
             <h2 className="p-10 pb-20">Interested In</h2>
           </div>
           <div className="col-span-6 md:col-span-3 row-span-3 bg-white rounded-xl border-black">
-            <h2 className="bottom-0 right-0 text-right p-10 pb-20">Hobbies</h2>
+            <h2 className="bottom-0 right-0 text-right p-10 pb-20">Currently Growing</h2>
           </div>
         </div>
       </div>
