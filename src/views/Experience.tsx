@@ -19,15 +19,15 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
 
   return (
     <div className={`w-full flex px-2 md:px-0 ${xAxisOffset}`}>
-      <div className={`grid grid-cols-4 items-center bg-white text-black rounded-full p-5 w-[350px] md:w-[600px]`}>
+      <div className={`grid grid-cols-4 gap-4 items-center bg-white text-black rounded-full p-5 w-[350px] md:w-[600px]`}>
           {
             // displays max two images
             imgs.length > 1 ? 
             <div className='flex flex-col col-span-1 p-5 items-center'> 
-              <img className="rounded-full p-2" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/> 
-              <img className="rounded-full p-2" src={imgs[1].url} alt={imgs[1].alt} width={70} height={70}/>
+              <img className="rounded-full m-2 shadow-xl" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/> 
+              <img className="rounded-full m-2 shadow-xl p-4" src={imgs[1].url} alt={imgs[1].alt} width={70} height={70}/>
             </div> :
-            <img className="rounded-full border" src={imgs[0].url} alt={imgs[0].alt} width={90} height={90}/>
+            <img className="rounded-full shadow-xl" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/>
           }
           
           <div className="col-span-3">
@@ -48,10 +48,22 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
 function Experience() {
   const items: TimelineItem[] = [
     {
-      imgs: [{ url: 'src/media/logos/esteem_charity_logo.jpeg', alt: 'Esteem logo' }],
-      timePeriod: '2018 - 2019',
-      roleTitle: 'Operations and Web Design Volunteer',
-      orgName: 'ESTEEM',
+      imgs: [{ url: 'src/media/logos/gwx.ico', alt: 'Greenworkx logo' }],
+      timePeriod: '2023 - 2024',
+      roleTitle: 'Product Engineer',
+      orgName: 'Greenworkx',
+    },
+    {
+      imgs: [{ url: 'src/media/logos/starlingbank.svg', alt: 'Starling Bank logo' }],
+      timePeriod: '2021 - 2023',
+      roleTitle: 'Software Engineer',
+      orgName: 'Starling Bank',
+    },
+    {
+      imgs: [{ url: 'src/media/logos/starlingbank.svg', alt: 'Starling Bank logo' }, { url: 'src/media/logos/multiverse.svg', alt: 'Multiverse logo' }],
+      timePeriod: '2019 - 2021',
+      roleTitle: 'Software Engineeering Apprenticeship',
+      orgName: 'Multiverse x Starling Bank',
     },
     {
       imgs: [{ url: 'src/media/logos/ideal_networks_ltd_logo.jpeg', alt: 'Ideal logo' }],
@@ -60,28 +72,16 @@ function Experience() {
       orgName: 'Ideal',
     },
     {
-      imgs: [{ url: 'src/media/logos/starlingbank_logo.jpeg', alt: 'Starling Bank logo' }, { url: 'src/media/logos/multiverse_logo.jpeg', alt: 'Multiverse logo' }],
-      timePeriod: '2019 - 2021',
-      roleTitle: 'Software Engineeering Apprenticeship',
-      orgName: 'Multiverse x Starling Bank',
-    },
-    {
-      imgs: [{ url: 'src/media/logos/starlingbank_logo.jpeg', alt: 'Starling Bank logo' }],
-      timePeriod: '2021 - 2023',
-      roleTitle: 'Software Engineer',
-      orgName: 'Starling Bank',
-    },
-    {
-      imgs: [{ url: 'src/media/logos/gwx.jpeg', alt: 'Greenworkx logo' }],
-      timePeriod: '2023 - 2024',
-      roleTitle: 'Product Engineer',
-      orgName: 'Greenworkx',
+      imgs: [{ url: 'src/media/logos/esteem_charity_logo.jpeg', alt: 'Esteem logo' }],
+      timePeriod: '2018 - 2019',
+      roleTitle: 'Operations and Web Design Volunteer',
+      orgName: 'ESTEEM',
     },
   ];
 
   return (
     <SectionContainer bgColor="black" textColor="white">
-      <h1 className="absolute z-0 py-20 md:pb-20 text-[2.5rem] md:text-[5rem] text-secondary font-climate-crisis">
+      <h1 className="absolute justify-self-start z-0 py-20 md:pb-20 text-[2.5rem] md:text-[5rem] text-secondary font-climate-crisis">
         Experience
       </h1>
       <div className='z-10 flex flex-col gap-14 max-w-[1100px] md:min-w-[60vw] py-8 mt-40 md:mt-30 min-h-screen'>

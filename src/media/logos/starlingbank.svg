@@ -1,0 +1,12 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1543 1544" width="1543" height="1544">
+	<title>sarlink-svg</title>
+	<style>
+		.s0 { fill: #6935d3 } 
+		.s1 { fill: #ffffff } 
+	</style>
+	<g id="Layer">
+		<path id="Layer" fill-rule="evenodd" class="s0" d="m771.4 1543c-426.6 0-771.4-344.8-771.4-771.5 0-426.6 344.8-771.4 771.4-771.4 426.6 0 771.4 344.8 771.4 771.4 0 426.7-344.8 771.5-771.4 771.5z"/>
+		<path id="Layer" fill-rule="evenodd" class="s1" d="m464.5 771.6v-42.9c0-266.3 216.6-482.9 482.9-482.9h42.8v175.1h-42.8c-169.7 0-307.8 138.1-307.8 307.8v42.9z"/>
+		<path id="Layer" fill-rule="evenodd" class="s1" d="m1078.3 771.5v42.9c0 266.2-216.6 482.9-482.9 482.9h-42.8v-175.1h42.8c169.7 0 307.8-138.1 307.8-307.8v-42.9z"/>
+	</g>
+</svg>
