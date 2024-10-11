@@ -19,7 +19,7 @@ function Info() {
             Hi 👋, I’m a <span className='text-accent'>full-stack developer</span> with a focus on <span className='text-accent'>front-end and UX</span>.
             </h2>
             <div className='py-8'>
-              <h2 className='py-4'>Currently Building With</h2>
+              <h2 className='py-4'>Currently Building Stuff With</h2>
               <div className='flex gap-8'>
                 <img src='assets/tools/typescript.svg' alt='TypeScript' height={40} width={40}/>
                 <img src='assets/tools/react.svg' alt='React.js' height={40} width={40}/>

@@ -27,7 +27,9 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
               <img className="rounded-full m-2 shadow-xl" src={imgs[0].url} alt={imgs[0].alt} width={50} height={50}/> 
               <img className="rounded-full m-2 shadow-xl md:p-2" src={imgs[1].url} alt={imgs[1].alt} width={50} height={50}/>
             </div> :
-            <img className="rounded-full shadow-xl" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/>
+            <div className='flex justify-end px-4'>
+              <img className="rounded-full shadow-xl" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/>
+            </div>
           }
           
           <div className="col-span-3">
