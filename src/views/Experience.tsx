@@ -50,31 +50,31 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
 function Experience() {
   const items: TimelineItem[] = [
     {
-      imgs: [{ url: 'assets/logos/gwx.ico' }],
+      imgs: [{ url: 'assets/images/gwx.ico' }],
       timePeriod: '2023 - 2024',
       roleTitle: 'Product Engineer',
       orgName: 'Greenworkx',
     },
     {
-      imgs: [{ url: 'assets/logos/starlingbank.svg' }],
+      imgs: [{ url: 'assets/images/starlingbank.svg' }],
       timePeriod: '2021 - 2023',
       roleTitle: 'Software Engineer',
       orgName: 'Starling Bank',
     },
     {
-      imgs: [{ url: 'assets/logos/starlingbank.svg' }, { url: 'public/assets/logos/multiverse.svg' }],
+      imgs: [{ url: 'assets/images/starlingbank.svg' }, { url: 'assets/images/multiverse.svg' }],
       timePeriod: '2019 - 2021',
       roleTitle: 'Software Engineeering Apprenticeship',
       orgName: 'Multiverse x Starling Bank',
     },
     {
-      imgs: [{ url: 'assets/logos/ideal_networks_ltd_logo.jpeg' }],
+      imgs: [{ url: 'assets/images/ideal_networks_ltd_logo.jpeg' }],
       timePeriod: '2019 - 2019',
       roleTitle: 'Summer Placement: Junior Database Analyst ',
       orgName: 'Ideal',
     },
     {
-      imgs: [{ url: 'assets/logos/esteem_charity_logo.jpeg' }],
+      imgs: [{ url: 'assets/images/esteem_charity_logo.jpeg' }],
       timePeriod: '2018 - 2019',
       roleTitle: 'Operations and Web Design Volunteer',
       orgName: 'ESTEEM',

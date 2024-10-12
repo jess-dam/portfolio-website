@@ -9,7 +9,7 @@ function Info() {
             {/* TODO add headshot here */}
             <div className='bg-white rounded-full w-[125px] h-[250px] md:w-[250px] md:h-[500px] justify-center' />
             <div className='flex flex-nowrap items-center'>
-              <img src='assets/icons/location.svg' alt='thing' height={20} width={20}/>
+              <img src='assets/images/location.svg' alt='thing' height={20} width={20}/>
               <label className='px-8 font-bold tracking-widest uppercase' aria-label="The city I'm based in">London, UK</label>
             </div>
           </div>
@@ -21,10 +21,10 @@ function Info() {
             <div className='py-8'>
               <h2 className='py-4'>Currently Building Stuff With</h2>
               <div className='flex gap-8'>
-                <img src='assets/tools/typescript.svg' alt='TypeScript' height={40} width={40}/>
-                <img src='assets/tools/react.svg' alt='React.js' height={40} width={40}/>
-                <img src='assets/tools/next-js.svg' alt='Next.js' height={40} width={40}/>
-                <img src='assets/tools/figma.svg' alt='Figma' height={30} width={30}/>
+                <img src='assets/images/typescript.svg' alt='TypeScript' height={40} width={40}/>
+                <img src='assets/images/react.svg' alt='React.js' height={40} width={40}/>
+                <img src='assets/images/next-js.svg' alt='Next.js' height={40} width={40}/>
+                <img src='assets/images/figma.svg' alt='Figma' height={30} width={30}/>
               </div>
             </div>
             <div>
