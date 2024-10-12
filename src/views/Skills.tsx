@@ -4,7 +4,7 @@ const SkillsCollection = ({ skills }: { skills: string[] }) => {
   return (
     <div className='flex flex-wrap gap-2 p-4 px-4 md:px-10'>
       { skills.map(skill => 
-        <label className='bg-primary text-white uppercase font-semibold text-sm md:text-md tracking-[7px] p-2 px-4 rounded-full'>
+        <label className='bg-primary text-white uppercase font-semibold text-sm md:text-md tracking-[4px] p-2 px-4 rounded-full'>
           {skill}
         </label>
       )}

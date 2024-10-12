@@ -8,7 +8,7 @@ export default {
         secondary: '#FFA462',
         accent: '#FFE485',
         black: '#000000',
-        white: '#ffffff',
+        white: '#FFFFFF',
       },
       fontFamily: {
         'climate-crisis': ['Climate Crisis', 'sans-serif'],
