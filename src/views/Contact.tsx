@@ -1,11 +1,12 @@
 import SectionContainer from '../components/SectionContainer';
+import { SECTION_REFS } from '../pageRefs';
 
 function Contact() {
   const linkedinUrl = 'https://www.linkedin.com/in/jess-dam-507485165/';
-  const githubUrl = '';
+  const githubUrl = 'https://github.com/jess-dam';
 
   return (
-    <SectionContainer bgColor="white" textColor="black">
+    <SectionContainer id={SECTION_REFS.CONTACT} bgColor="white" textColor="black">
       <div className="flex flex-col w-full place-content-center">
         <h1 className="align-left climate-crisis z-10 text-[3.5rem] md:text-[10rem] py-10 md:py-20 md:p-10">
           contact

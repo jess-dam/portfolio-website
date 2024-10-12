@@ -1,13 +1,14 @@
 import SectionContainer from '../components/SectionContainer';
+import { SECTION_REFS } from '../pageRefs';
 
 function Info() {
   return (
-    <SectionContainer bgColor="black" textColor="white">
+    <SectionContainer id={SECTION_REFS.INFO} bgColor="black" textColor="white">
       <div className="grid grid-rows-auto">
         <div className="flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-8 py-10">
           <div className='flex flex-col items-center gap-8'>
             {/* TODO add headshot here */}
-            <div className='bg-white rounded-full w-[125px] h-[250px] md:w-[250px] md:h-[500px] justify-center' />
+            <div className='bg-white rounded-full shadow-inner w-[125px] h-[250px] md:w-[250px] md:h-[500px] justify-center' />
             <div className='flex flex-nowrap items-center'>
               <img src='assets/images/location.svg' alt='thing' height={20} width={20}/>
               <label className='px-8 font-bold tracking-widest uppercase' aria-label="The city I'm based in">London, UK</label>

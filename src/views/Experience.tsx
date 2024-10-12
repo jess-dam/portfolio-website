@@ -1,4 +1,5 @@
 import SectionContainer from '../components/SectionContainer';
+import { SECTION_REFS } from '../pageRefs';
 
 
 interface TimelineImage {
@@ -82,7 +83,7 @@ function Experience() {
   ];
 
   return (
-    <SectionContainer bgColor="black" textColor="white">
+    <SectionContainer id={SECTION_REFS.EXPERIENCE} bgColor="black" textColor="white">
       <h1 className="absolute justify-self-start z-0 py-20 md:pb-20 text-[2.5rem] md:text-[5rem] text-secondary font-climate-crisis">
         Experience
       </h1>

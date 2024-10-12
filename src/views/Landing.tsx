@@ -1,6 +1,7 @@
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import SectionContainer from '../components/SectionContainer';
+import { SECTION_REFS } from '../pageRefs';
 
 function Landing() {
   const ref = useRef(null);
@@ -15,7 +16,7 @@ function Landing() {
   });
 
   return (
-    <SectionContainer bgColor="primary" textColor="white">
+    <SectionContainer id={SECTION_REFS.LANDING} bgColor="primary" textColor="white">
       <motion.div
         ref={ref}
         className="flex flex-col items-center justify-center"

@@ -1,10 +1,11 @@
 import SectionContainer from '../components/SectionContainer';
+import { SECTION_REFS } from '../pageRefs';
 
 const SkillsCollection = ({ skills }: { skills: string[] }) => {
   return (
     <div className='flex flex-wrap gap-2 p-4 px-4 md:px-10'>
       { skills.map(skill => 
-        <label className='bg-primary text-white uppercase font-semibold text-sm md:text-md tracking-[4px] p-2 px-4 rounded-full'>
+        <label className='bg-primary text-white shadow-md place-content-center uppercase font-semibold text-sm md:text-md tracking-[4px] p-2 px-4 rounded-full'>
           {skill}
         </label>
       )}
@@ -18,7 +19,7 @@ function Skills() {
   const growingSkills = ['Figma', 'Communicating Design Ideas', 'Designing for Accessibility'];
 
   return (
-    <SectionContainer bgColor="black" textColor="black">
+    <SectionContainer id={SECTION_REFS.SKILLS} bgColor="black" textColor="black">
       <div className="flex justify-center items-center bg-black p-2">
         <div className="grid grid-cols-6 grid-rows-5 py-5 md:px-5 gap-5 max-w-[95vw] h-auto">
           <div className="grid col-span-6 md:col-span-3 pb-10 row-span-6 bg-accent rounded-xl border-black">
