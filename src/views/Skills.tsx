@@ -20,7 +20,7 @@ function Skills() {
 
   return (
     <SectionContainer id={SECTION_REFS.SKILLS} bgColor="black" textColor="black">
-      <div className="flex justify-center items-center bg-black p-2">
+      <div className="flex justify-center items-center bg-black p-2 pb-10">
         <div className="grid grid-cols-6 grid-rows-5 py-5 md:px-5 gap-5 max-w-[95vw] h-auto">
           <div className="grid col-span-6 md:col-span-3 pb-10 row-span-6 bg-accent rounded-xl border-black">
             <h2 className="p-4 md:p-8">Strengths</h2>
@@ -35,9 +35,27 @@ function Skills() {
           </div>
           <div className="col-span-6 md:col-span-3 row-span-3 bg-white rounded-xl border-black">
             <h2 className="p-4 md:p-8">Interested In</h2>
+            <div className='flex flex-wrap gap-8 p-4 md:p-8'>
+              <div className='flex flex-col justify-center content-between gap-4'>
+                <img src='assets/images/doodles/ux.svg' width={100}/>
+                <label className='uppercase text-sm tracking-widest text-center'>UX</label>
+              </div>
+              <div className='flex flex-col justify-center content-between gap-4'>
+                <img src='assets/images/doodles/apidesign.svg' width={100}/>
+                <label className='uppercase text-sm tracking-widest text-center'>API Design</label>
+              </div>
+              <div className='flex flex-col justify-center content-between gap-4'>
+                <img src='assets/images/doodles/accessibility.svg' width={100} />
+                <label className='uppercase text-sm tracking-widest text-center'>Accessibility</label>
+              </div>
+              <div className='flex flex-col justify-center content-between gap-4'>
+                <img src='public/assets/images/doodles/sustainability.svg' width={100} />
+                <label className='uppercase text-sm tracking-widest text-center'>Sustainability</label>
+              </div>
+            </div>
           </div>
-          <div className="col-span-6 md:col-span-3 row-span-3 bg-white rounded-xl border-black">
-            <h2 className="bottom-0 right-0 text-right p-4 md:p-8">Currently Growing</h2>
+          <div className="col-span-6 md:col-span-3 row-span-3 pb-10 bg-white rounded-xl border-black">
+            <h2 className="bottom-0 right-0 p-4 md:p-8">Currently Growing</h2>
             <SkillsCollection skills={growingSkills} />
           </div>
         </div>
