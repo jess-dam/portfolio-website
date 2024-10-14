@@ -5,70 +5,70 @@
 
 @font-face {
   font-family: 'Climate Crisis';
-  src: url('assets/fonts/ClimateCrisis/ClimateCrisis-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/ClimateCrisis/ClimateCrisis-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-Regular.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-Regular.ttf');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-Bold.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-Bold.ttf');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-BoldItalic.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-BoldItalic.ttf');
   font-weight: bold;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-Italic.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-Italic.ttf');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-Light.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-Light.ttf');
   font-weight: lighter;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-LightItalic.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-LightItalic.ttf');
   font-weight: lighter;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-Medium.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-Medium.ttf');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-MediumItalic.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-MediumItalic.ttf');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-SemiBold.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-SemiBold.ttf');
   font-weight: 600;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf');
+  src: url('/assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf');
   font-weight: 600;
   font-style: italic;
 }

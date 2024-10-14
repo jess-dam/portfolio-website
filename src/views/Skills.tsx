@@ -37,19 +37,19 @@ function Skills() {
             <h2 className="p-4 md:p-8">Interested In</h2>
             <div className='flex flex-wrap gap-8 p-4 md:p-8'>
               <div className='flex flex-col justify-center content-between gap-4'>
-                <img src='assets/images/doodles/ux.svg' width={100}/>
+                <img src='/assets/images/doodles/ux.svg' alt='' width={100}/>
                 <label className='uppercase text-sm tracking-widest text-center'>UX</label>
               </div>
               <div className='flex flex-col justify-center content-between gap-4'>
-                <img src='assets/images/doodles/apidesign.svg' width={100}/>
+                <img src='/assets/images/doodles/apidesign.svg' alt='' width={100}/>
                 <label className='uppercase text-sm tracking-widest text-center'>API Design</label>
               </div>
               <div className='flex flex-col justify-center content-between gap-4'>
-                <img src='assets/images/doodles/accessibility.svg' width={100} />
+                <img src='/assets/images/doodles/accessibility.svg' alt='' width={100} />
                 <label className='uppercase text-sm tracking-widest text-center'>Accessibility</label>
               </div>
               <div className='flex flex-col justify-center content-between gap-4'>
-                <img src='public/assets/images/doodles/sustainability.svg' width={100} />
+                <img src='/assets/images/doodles/sustainability.svg' alt='' width={100} />
                 <label className='uppercase text-sm tracking-widest text-center'>Sustainability</label>
               </div>
             </div>
