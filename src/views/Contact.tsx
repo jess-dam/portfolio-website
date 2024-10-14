@@ -7,8 +7,8 @@ function Contact() {
 
   return (
     <SectionContainer id={SECTION_REFS.CONTACT} bgColor="white" textColor="black">
-      <div className="flex flex-col w-full place-content-evenly md:place-content-center">
-        <h1 className="text-center md:text-left climate-crisis z-10 text-[15vw] pb-5 md:py-20 md:p-10">
+      <div className="flex flex-col w-full place-content-evenly md:place-content-center max-w-[1500px] md:min-w-[60vw]">
+        <h1 className="text-center md:text-left climate-crisis z-10 text-[10vw] pb-5 md:py-20 md:p-10">
           Contact
         </h1>
         <div className="flex flex-col md:justify-start px-4 md:pl-10 z-0 gap-10">

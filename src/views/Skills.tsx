@@ -20,7 +20,7 @@ function Skills() {
 
   return (
     <SectionContainer id={SECTION_REFS.SKILLS} bgColor="black" textColor="black">
-      <div className="flex justify-center items-center bg-black p-2 pb-10">
+      <div className="flex justify-center items-center bg-black p-2 pb-10 max-w-[1500px] md:min-w-[60vw]">
         <div className="grid grid-cols-6 grid-rows-5 py-5 md:px-5 gap-5 max-w-[95vw] h-auto">
           <div className="grid col-span-6 md:col-span-3 pb-10 row-span-6 bg-accent rounded-xl border-black">
             <h2 className="p-4 md:p-8">Strengths</h2>
@@ -55,7 +55,7 @@ function Skills() {
             </div>
           </div>
           <div className="col-span-6 md:col-span-3 row-span-3 pb-10 bg-white rounded-xl border-black">
-            <h2 className="bottom-0 right-0 p-4 md:p-8">Currently Growing</h2>
+            <h2 className="bottom-0 right-0 p-4 md:p-8">Currently Growing In</h2>
             <SkillsCollection skills={growingSkills} />
           </div>
         </div>

@@ -20,7 +20,7 @@ function Landing() {
       >
         <div className="flex flex-col mb-20 items-center justify-center overflow-hidden w-[250px] md:w-[450px]">
           <img src='/assets/images/doodles/cat_on_laptop.svg' className='' width={300}/>
-          <h2 className='text-accent text-center'>Hello my name is</h2>
+          <h2 className='text-accent text-center'>Hello! my name is</h2>
           <motion.h1
             className="flex flex-wrap z-10 font-climate-crisis relative text-[4rem] md:text-[9rem] text-center align-center leading-[3rem] md:leading-[6.5rem]"
             style={{ y: textY }}
