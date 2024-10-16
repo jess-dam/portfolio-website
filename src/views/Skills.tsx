@@ -21,7 +21,7 @@ function Skills() {
   return (
     <SectionContainer id={SECTION_REFS.SKILLS} bgColor="black" textColor="black">
       <div className="flex justify-center items-center bg-black p-2 pb-10 max-w-[1500px] md:min-w-[60vw]">
-        <div className="grid grid-cols-6 grid-rows-5 py-5 md:px-5 gap-5 max-w-[95vw] h-auto">
+        <div className="grid grid-cols-6 grid-rows-5 py-5 md:px-5 gap-2 max-w-[95vw] h-auto">
           <div className="grid col-span-6 md:col-span-3 pb-10 row-span-6 bg-accent rounded-xl border-black">
             <h2 className="p-4 md:p-6">Strengths</h2>
             <SkillsCollection skills={strengths} />
@@ -35,20 +35,20 @@ function Skills() {
           </div>
           <div className="col-span-6 md:col-span-3 row-span-3 bg-white rounded-xl border-black">
             <h2 className="p-4 md:p-6">Interested In</h2>
-            <div className='flex flex-wrap content-start gap-8 p-4 md:p-8'>
-              <div className='flex flex-col justify-center content-between gap-4'>
+            <div className='grid grid-cols-4 justify-items-centerr gap-8 p-4 md:p-4'>
+              <div className='flex flex-col items-center gap-4'>
                 <img src='/assets/images/doodles/ux.svg' alt='' width={100}/>
                 <label className='uppercase text-sm tracking-widest text-center'>UX</label>
               </div>
-              <div className='flex flex-col justify-center content-between gap-4'>
+              <div className='flex flex-col items-center gap-4'>
                 <img src='/assets/images/doodles/apidesign.svg' alt='' width={100}/>
                 <label className='uppercase text-sm tracking-widest text-center'>API Design</label>
               </div>
-              <div className='flex flex-col justify-center content-between gap-4'>
+              <div className='flex flex-col items-center gap-4'>
                 <img src='/assets/images/doodles/accessibility.svg' alt='' width={100} />
                 <label className='uppercase text-sm tracking-widest text-center'>Accessibility</label>
               </div>
-              <div className='flex flex-col justify-center content-between gap-4'>
+              <div className='flex flex-col items-center gap-4'>
                 <img src='/assets/images/doodles/sustainability.svg' alt='' width={100} />
                 <label className='uppercase text-sm tracking-widest text-center'>Sustainability</label>
               </div>

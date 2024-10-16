@@ -20,7 +20,7 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
 
   return (
     <div className={`w-full flex px-2 md:px-0 ${xAxisOffset}`}>
-      <div className={`grid grid-cols-4 gap-4 items-center bg-white text-black rounded-full p-5 md:min-h-[210px] w-[350px] md:w-[600px]`}>
+      <div className={`grid grid-cols-4 gap-4 items-center bg-white text-black rounded-full p-5 md:min-h-[180px] w-[350px] md:w-[600px]`}>
           {
             // displays max two images
             imgs.length > 1 ? 
@@ -34,7 +34,7 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
           }
           
           <div className="col-span-3">
-            <label className="text-lg">{timePeriod}</label>
+            <label className="text-md">{timePeriod}</label>
             <h2 className="tracking-normal">
               {roleTitle}
             </h2>
@@ -87,7 +87,7 @@ function Experience() {
       <h1 className="absolute justify-self-start z-0 py-20 md:pb-20 text-[2.5rem] md:text-[5rem] text-secondary font-climate-crisis">
         Experience
       </h1>
-      <div className='z-10 flex flex-col gap-14 max-w-[1100px] md:min-w-[60vw] py-8 mt-40 md:mt-60 min-h-screen'>
+      <div className='z-10 flex flex-col gap-10 max-w-[1100px] md:min-w-[60vw] py-8 mt-40 md:mt-60 min-h-screen'>
         {
           items.map((role, index) => {
             return <TimelineCard index={index} role={role}  />
