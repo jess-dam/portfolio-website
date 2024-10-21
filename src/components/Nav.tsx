@@ -10,12 +10,12 @@ function Nav () {
     return (
         <div className='fixed w-full z-30 flex items-center text-white'>
             {/* Mobile Nav */}
-            <div className='md:hidden flex flex-col w-full px-4'>
+            <div className='md:hidden flex flex-col w-full px-4 pt-4'>
                 <div className='w-full flex content-center justify-between gap-8'>
                     <a href={'#' + SECTION_REFS.LANDING} className='text-secondary'>
-                        <h1 className='w-[50px] text-[1rem] text-center align-center p-2'>Jess Dam</h1>
+                        <h1 className='w-[50px] text-[1rem] text-center align-center p-4'>Jess Dam</h1>
                     </a>
-                    <div className='flex content-center justify-end bg-black w-[60vw] rounded-b-[30px] p-2 px-8'>
+                    <div className='flex content-center justify-end bg-black rounded-b-[30px] rounded-l-[30px] p-2 px-8'>
                         <button aria-label='Click for drop down menu' onClick={() => setIsMobileDropdownHidden(!isMobileDropdownHidden)}><img src='/assets/images/hamburger_menu.svg' alt='' width={25}/></button>
                     </div>
                 </div>
