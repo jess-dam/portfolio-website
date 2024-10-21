@@ -33,7 +33,7 @@ function Skills() {
             <SkillsCollection skills={softSkills} />
 
           </div>
-          <div className="h-fit row-start-3 col-span-6 md:col-span-3 xl:col-span-2 md:row-span-3 bg-white rounded-xl border-black text-primary p-6">
+          <div className="row-start-3 col-span-6 md:col-span-3 xl:col-span-2 md:row-span-3 bg-white rounded-xl border-black text-primary p-6">
             <h2>Interested In</h2>
             <div className='grid grid-cols-2 grid-rows-2 h-full place-items-center py-8 gap-8 p-4 md:p-8'>
               <div className='flex flex-col items-center gap-4 text-xs md:text-sm'>

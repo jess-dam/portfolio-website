@@ -24,9 +24,9 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
           {
             // displays max two images
             imgs.length > 1 ? 
-            <div className='md:col-span-2 flex flex-col md:flex-row p-5 content-center justify-start'> 
-              <img className="rounded-full m-2 shadow-xl bg-white" src={imgs[0].url} alt={imgs[0].alt} width={40} height={40}/> 
-              <img className="rounded-full m-2 shadow-xl md:p-2 bg-white" src={imgs[1].url} alt={imgs[1].alt} width={40} height={40}/>
+            <div className='relative pl-8 md:col-span-2 flex flex-col md:flex-row justify-self-center'> 
+              <img className="justify-center z-10 rounded-full m-2 p-2 shadow-xl bg-white" src={imgs[0].url} alt={imgs[0].alt} width={50}/> 
+              <img className="absolute right-10 rounded-full m-2 shadow-xl bg-white" src={imgs[1].url} alt={imgs[1].alt} width={45}/>
             </div> :
             <div className='flex px-4 content-center justify-start'>
               <img className="rounded-full shadow-xl bg-white" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/>
@@ -63,7 +63,7 @@ function Experience() {
       orgName: 'Starling Bank',
     },
     {
-      imgs: [{ url: '/assets/images/starlingbank.svg' }, { url: 'assets/images/multiverse.svg' }],
+      imgs: [{ url: 'assets/images/multiverse.svg' }, { url: '/assets/images/starlingbank.svg' }],
       timePeriod: '2019 - 2021',
       roleTitle: 'Software Engineeering Apprenticeship',
       orgName: 'Multiverse x Starling Bank',
