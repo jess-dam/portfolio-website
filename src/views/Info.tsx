@@ -5,12 +5,12 @@ import { SECTION_REFS } from '../pageRefs';
 const BuildTools = () => {
   return (
     <>
-      <h2 className='tracking-wide py-5'>
+      <h2 className='tracking-wide py-5 text-center md:text-left'>
       Hi 👋, I’m a <span className='text-accent'>full-stack developer</span> with a focus on <span className='text-accent'>front-end and UX</span>.
       </h2>
       <div className='py-10 flex flex-col'>
-        <h2>Currently Building Stuff With</h2>
-        <div className='flex flex-wrap gap-12 pt-10'>
+        <h2 className='text-center md:text-left'>Currently Building Stuff With</h2>
+        <div className='grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 max-w-[500px] gap-8 pt-10 md:pl-8 justify-items-center'>
           <img src='/assets/images/typescript.svg' alt='TypeScript' height={60} width={60}/>
           <img src='/assets/images/react.svg' alt='React.js' height={60} width={60}/>
           <img src='/assets/images/next-js.svg' alt='Next.js' height={60} width={60}/>
@@ -24,22 +24,22 @@ const BuildTools = () => {
 const Hobbies = () => {
   return (
     <div className='py-10'>
-      <h2>Hobbies</h2>
-      <div className='flex flex-wrap gap-10 pt-4'>
-        <div className='flex flex-col justify-center content-between gap-4'>
-          <img src='/assets/images/doodles/tkd.svg' alt='' width={120}/>
-          <label className='uppercase text-sm tracking-widest text-center'>Taekwondo</label>
-        </div>
-        <div className='flex flex-col justify-center content-between gap-4'>
-          <img src='/assets/images/doodles/art.svg' alt='' width={120}/>
+      <h2 className='text-center md:text-left'>Hobbies</h2>
+      <div className='grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-8 pt-4 max-w-[500px]'>
+        <div className='flex flex-col items-center gap-4'>
+          <img src='/assets/images/doodles/art.svg' alt='' width={80}/>
           <label className='uppercase text-sm tracking-widest text-center'>Art</label>
         </div>
-        <div className='flex flex-col justify-center content-between gap-4'>
-          <img src='/assets/images/doodles/boardgames.svg' alt='' width={100} className='pb-4' />
+        <div className='flex flex-col items-center gap-4'>
+          <img src='/assets/images/doodles/tkd.svg' alt='' width={80}/>
+          <label className='uppercase text-sm tracking-widest text-center'>Taekwondo</label>
+        </div>
+        <div className='flex flex-col items-center'>
+          <img src='/assets/images/doodles/boardgames.svg' alt='' width={60} className='pb-8' />
           <label className='uppercase text-sm tracking-widest text-center'>Board Games</label>
         </div>
-        <div className='flex flex-col justify-center content-between gap-4'>
-          <img src='/assets/images/doodles/diy.svg' alt='' width={80} className='pb-8'/>
+        <div className='flex flex-col items-center gap-4'>
+          <img src='/assets/images/doodles/diy.svg' alt='' width={50} className='pb-8'/>
           <label className='uppercase text-sm tracking-widest text-center'>DIY</label>
         </div>
       </div>
