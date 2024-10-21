@@ -20,25 +20,25 @@ const TimelineCard = ({ index, role }: { index: number, role: TimelineItem} ) =>
 
   return (
     <div className={`w-full flex px-2 md:px-0 ${xAxisOffset}`}>
-      <div className={`grid grid-cols-4 gap-4 items-center bg-black text-white rounded-full border border-white p-5 md:min-h-[180px] w-[350px] md:w-[500px]`}>
+      <div className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-black text-white rounded-full border border-white p-5 md:min-h-[150px] w-[350px] md:w-[600px]`}>
           {
             // displays max two images
             imgs.length > 1 ? 
-            <div className='flex flex-col col-span-1 p-5 items-center'> 
-              <img className="rounded-full m-2 shadow-xl" src={imgs[0].url} alt={imgs[0].alt} width={50} height={50}/> 
-              <img className="rounded-full m-2 shadow-xl md:p-2" src={imgs[1].url} alt={imgs[1].alt} width={50} height={50}/>
+            <div className='md:col-span-2 flex flex-col md:flex-row p-5 content-center justify-start'> 
+              <img className="rounded-full m-2 shadow-xl bg-white" src={imgs[0].url} alt={imgs[0].alt} width={40} height={40}/> 
+              <img className="rounded-full m-2 shadow-xl md:p-2 bg-white" src={imgs[1].url} alt={imgs[1].alt} width={40} height={40}/>
             </div> :
-            <div className='flex justify-end px-4'>
-              <img className="rounded-full shadow-xl" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/>
+            <div className='flex px-4 content-center justify-start'>
+              <img className="rounded-full shadow-xl bg-white" src={imgs[0].url} alt={imgs[0].alt} width={70} height={70}/>
             </div>
           }
           
-          <div className="col-span-3">
-            <label className="text-md">{timePeriod}</label>
-            <h2 className="tracking-normal">
+          <div className="col-span-2 md:col-span-3">
+            <label className="text-sm">{timePeriod}</label>
+            <h2 className="tracking-normal text-sm">
               {roleTitle}
             </h2>
-            <h3 className="tracking-normal font-medium">
+            <h3 className="tracking-normal font-medium text-sm">
               {orgName}
             </h3>
           </div>

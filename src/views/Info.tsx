@@ -4,11 +4,7 @@ import { SECTION_REFS } from '../pageRefs';
 
 const BuildTools = () => {
   return (
-    <>
-      <h2 className='tracking-wide py-5 text-center md:text-left'>
-      Hi 👋, I’m a <span className='text-accent'>full-stack developer</span> with a focus on <span className='text-accent'>front-end and UX</span>.
-      </h2>
-      <div className='py-10 flex flex-col'>
+      <div className='py-10 flex flex-col items-between'>
         <h2 className='text-center md:text-left'>Currently Building Stuff With</h2>
         <div className='grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 max-w-[500px] gap-8 pt-10 md:pl-8 justify-items-center'>
           <img src='/assets/images/typescript.svg' alt='TypeScript' height={60} width={60}/>
@@ -17,13 +13,12 @@ const BuildTools = () => {
           <img src='/assets/images/figma.svg' alt='Figma' height={40} width={40}/>
         </div>
       </div>
-    </>
   );
 }
 
 const Hobbies = () => {
   return (
-    <div className='py-10'>
+    <div className='flex flex-col py-10 items-between'>
       <h2 className='text-center md:text-left'>Hobbies</h2>
       <div className='grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-8 pt-4 max-w-[500px]'>
         <div className='flex flex-col items-center gap-4'>
@@ -39,7 +34,7 @@ const Hobbies = () => {
           <label className='uppercase text-sm tracking-widest text-center'>Board Games</label>
         </div>
         <div className='flex flex-col items-center gap-4'>
-          <img src='/assets/images/doodles/diy.svg' alt='' width={50} className='pb-8'/>
+          <img src='/assets/images/doodles/diy.svg' alt='' width={50} className='pb-6'/>
           <label className='uppercase text-sm tracking-widest text-center'>DIY</label>
         </div>
       </div>
@@ -65,6 +60,9 @@ function Info() {
           </div>
 
           <div className="col-span-2 flex flex-col justify-center">
+            <h2 className='tracking-wide py-5 text-center md:text-left'>
+              Hi 👋, I’m a <span className='text-accent'>full-stack developer</span> with a focus on <span className='text-accent'>front-end and UX</span>.
+            </h2>
             <BuildTools />
             <Hobbies />
           </div>
