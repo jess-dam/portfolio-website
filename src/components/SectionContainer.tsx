@@ -1,4 +1,9 @@
-import { motion, useAnimation, useInView } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useInView,
+} from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 interface Props {
@@ -25,17 +30,23 @@ function SectionContainer({
   }, [isInView]);
 
   return (
-    <motion.section
-      id={id}
-      className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor} ${roundedBorder ? 'rounded-t-xl z-10' : ''}`}
-      // ref={containerRef}
-      // animate={sectionFadeInAnimation}
-      // variants={{ hidden: {opacity: 0}, show: { opacity:1} }}
-      // initial='hidden'
-      // transition={{ duration: 1, ease: 'easeIn' }}
-    >
-      {children}
-    </motion.section>
+    <AnimatePresence>
+      <motion.section
+        id={id}
+        className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor} ${roundedBorder ? 'rounded-t-xl z-10' : ''}`}
+        key={id}
+        initial="initialState"
+        animate="animateState"
+        exit="exitState"
+        variants={{
+          initialState: { opacity: 0 },
+          animateState: { opacity: 1 },
+          exitState: {},
+        }}
+      >
+        {children}
+      </motion.section>
+    </AnimatePresence>
   );
 }
 
