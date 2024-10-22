@@ -16,31 +16,31 @@ function Contact() {
           Contact
         </h1>
 
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-20 px-8">
           <a
             href={githubUrl}
-            className="flex w-fit gap-8 bg-primary justify-start p-8 rounded-full hover:bg-black"
+            className="flex w-fit gap-8 bg-primary justify-start content-center p-8 rounded-full hover:bg-black h-fit"
           >
             <img
               src="/assets/images/github.svg"
               alt="Redirects to Github profile"
               width={30}
             />
-            <label className="content-center uppercase tracking-widest text-xs md:text-sm">
+            <label className="uppercase tracking-widest text-xs md:text-sm">
               See what I've been working on
             </label>
           </a>
 
           <a
             href={linkedinUrl}
-            className="flex w-fit gap-8 bg-primary justify-start p-8 rounded-full hover:bg-black"
+            className="flex w-fit gap-8 bg-primary justify-start content-center p-8 rounded-full hover:bg-black"
           >
             <img
               src="/assets/images/linkedin.svg"
               alt="Redirects to Linkedin profile"
               width={30}
             />
-            <label className="content-center uppercase tracking-widest text-xs md:text-sm">
+            <label className="uppercase tracking-widest text-xs md:text-sm">
               Let's Connect!
             </label>
           </a>
