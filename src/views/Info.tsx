@@ -1,5 +1,7 @@
+import { useEffect, useRef } from 'react';
 import SectionContainer from '../components/SectionContainer';
 import { SECTION_REFS } from '../pageRefs';
+import { motion, useAnimate, useInView } from 'framer-motion';
 
 
 const BuildTools = () => {
@@ -25,7 +27,7 @@ const Hobbies = () => {
           <img src='/assets/images/doodles/art.svg' alt='' width={80}/>
           <label className='uppercase text-sm tracking-widest text-center'>Art</label>
         </div>
-        <div className='flex flex-col items-center gap-4'>
+      <div className='flex flex-col items-center gap-4'>
           <img src='/assets/images/doodles/tkd.svg' alt='' width={80}/>
           <label className='uppercase text-sm tracking-widest text-center'>Taekwondo</label>
         </div>
@@ -43,8 +45,14 @@ const Hobbies = () => {
 }
 
 
-
 function Info() {
+  const [headlineRef, headlineAnimate] = useAnimate(); 
+  const headlineInView = useInView(headlineRef);
+
+  useEffect(() => {
+    
+  }, [headlineInView]);
+
   return (
     <SectionContainer id={SECTION_REFS.INFO} bgColor="black" textColor="white">
       <div className="grid grid-rows-auto md:px-8">
@@ -60,9 +68,9 @@ function Info() {
           </div>
 
           <div className="col-span-2 flex flex-col justify-center">
-            <h2 className='tracking-wide py-5 text-center md:text-left'>
-              Hi 👋, I’m a <span className='text-accent'>full-stack developer</span> with a focus on <span className='text-accent'>front-end and UX</span>.
-            </h2>
+            <motion.p ref={headlineRef} className='tracking-wide py-5 text-center md:text-left uppercase'>
+              Hi 👋, I’m a <span className='font-bold'>full-stack developer</span> with a focus on <span className='font-bold'>front-end and UX</span>.
+            </motion.p>
             <BuildTools />
             <Hobbies />
           </div>
