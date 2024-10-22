@@ -84,7 +84,7 @@ function Experience() {
 
   return (
     <SectionContainer id={SECTION_REFS.EXPERIENCE} bgColor="black" textColor="white">
-      <h1 className="absolute justify-self-start z-0 py-20 md:pb-20 text-[2.5rem] md:text-[5rem] text-secondary font-climate-crisis">
+      <h1 className="absolute justify-self-start z-0 py-20 md:pb-20 text-[2rem] md:text-[5rem] text-secondary font-climate-crisis">
         Experience
       </h1>
       <div className='z-10 flex flex-col gap-10 md:w-[60vw] md:max-w-[900px] py-8 mt-40 md:mt-60'>
