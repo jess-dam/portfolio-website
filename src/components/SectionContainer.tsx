@@ -22,11 +22,11 @@ function SectionContainer({ children, bgColor, textColor, id }: Props) {
   return (
     <motion.section
       id={id} className={`flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
-      ref={containerRef}
-      animate={sectionFadeInAnimation}
-      variants={{ hidden: {opacity: 0}, show: { opacity:1} }}
-      initial='hidden'
-      transition={{ duration: 1, ease: 'easeIn' }}
+      // ref={containerRef}
+      // animate={sectionFadeInAnimation}
+      // variants={{ hidden: {opacity: 0}, show: { opacity:1} }}
+      // initial='hidden'
+      // transition={{ duration: 1, ease: 'easeIn' }}
     >
       {children}
     </motion.section>

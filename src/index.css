@@ -91,14 +91,14 @@
 
 h1 {
   font-family: 'Climate Crisis';
-  font-size: 6rem;
+  font-size: 3rem;
   line-height: 100%;
 }
 
 h2,
 h3 {
   font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -106,9 +106,25 @@ h3 {
 
 h4 {
   font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   letter-spacing: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+  font-size: 6rem;
+}
+
+  h2,
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  h4 {
+    font-size: 1rem;
+  }
+
 }
 
 p {
