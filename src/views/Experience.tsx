@@ -1,6 +1,6 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { AnimatePresence, delay, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface TimelineImage {
   url: string;
