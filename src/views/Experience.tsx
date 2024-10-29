@@ -114,7 +114,7 @@ function Experience() {
     >
       <div className="flex flex-col items-center">
         <motion.h1
-          initial={{ opacity: 0, y: '-80%' }}
+          initial={{ opacity: 0, y: '-50%' }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.85,

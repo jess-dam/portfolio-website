@@ -56,7 +56,7 @@ function Landing() {
             initial={{
               y: '100%',
             }}
-            animate={{ y: 0 }}
+            whileInView={{ y: 0 }}
             transition={{ duration: 2, delay: 3, ease: 'easeInOut' }}
             src="/assets/images/doodles/cat_on_laptop.svg"
             className="absolute z-20 w-[130px] bottom-[30px] md:w-[250px]"

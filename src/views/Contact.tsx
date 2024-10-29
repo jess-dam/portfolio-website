@@ -28,33 +28,63 @@ function Contact() {
           </motion.h1>
         </div>
 
-        <div className="flex flex-col gap-20 px-8">
+        <div className="flex flex-col gap-10 px-8">
           <a
             href={githubUrl}
-            className="flex w-fit gap-8 bg-primary justify-start content-center p-8 rounded-full hover:bg-black h-fit"
+            className="flex w-fit gap-8 border border-black text-black justify-start content-center p-8 rounded-full hover:bg-black h-fit"
           >
             <img
               src="/assets/images/github.svg"
               alt="Redirects to Github profile"
               width={30}
             />
-            <label className="uppercase tracking-widest text-xs md:text-sm">
+            <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
               See what I've been working on
             </label>
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 34L34 14M34 14H14M34 14V34"
+                stroke="#FFA462"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </a>
 
           <a
             href={linkedinUrl}
-            className="flex w-fit gap-8 bg-primary justify-start content-center p-8 rounded-full hover:bg-black"
+            className="flex w-fit gap-8 border border-black text-black justify-between content-center p-8 rounded-full hover:bg-black"
           >
             <img
               src="/assets/images/linkedin.svg"
               alt="Redirects to Linkedin profile"
               width={30}
             />
-            <label className="uppercase tracking-widest text-xs md:text-sm">
+            <label className="uppercase tracking-widest flex items-center text-xs md:text-sm">
               Let's Connect!
             </label>
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 34L34 14M34 14H14M34 14V34"
+                stroke="#FFA462"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </a>
         </div>
       </div>
