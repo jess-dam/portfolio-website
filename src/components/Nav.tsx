@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import { SECTION_REFS } from '../pageRefs';
-import { easeInOut, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import {
+  easeInOut,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from 'framer-motion';
 
 function Nav() {
   const [isUsingMobileDropdown, setIsUsingMobileDropdown] =
     useState<boolean>(true);
 
-    const [isNavHidden, setIsNavHidden] = useState<boolean>(false);
+  const [isNavHidden, setIsNavHidden] = useState<boolean>(false);
 
   const linkedinUrl = 'https://www.linkedin.com/in/jess-dam-507485165/';
   const githubUrl = 'https://github.com/jess-dam';
@@ -18,11 +23,11 @@ function Nav() {
     // the user is scrolling up the page
     const previous = scrollY.getPrevious();
     if (previous && previous < latest) {
-        setIsNavHidden(true);
+      setIsNavHidden(true);
     } else {
-        setIsNavHidden(false);
+      setIsNavHidden(false);
     }
-  })
+  });
 
   return (
     <motion.div
@@ -30,8 +35,9 @@ function Nav() {
         visible: { y: 0 },
         hidden: { y: '-100%' },
       }}
+      initial="hidden"
       animate={isNavHidden ? 'hidden' : 'visible'}
-      transition={{ duration: 0.35, easeInOut }}
+      transition={{ duration: 0.5, easeInOut }}
       className="fixed w-full z-30 flex items-center text-white"
     >
       {/* Mobile Nav */}

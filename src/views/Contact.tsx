@@ -1,20 +1,32 @@
-import SectionContainer from '../components/SectionContainer';
+import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
+import { motion } from 'framer-motion';
 
 function Contact() {
   const linkedinUrl = 'https://www.linkedin.com/in/jess-dam-507485165/';
   const githubUrl = 'https://github.com/jess-dam';
 
   return (
-    <SectionContainer
+    <ContentSectionContainer
       id={SECTION_REFS.CONTACT}
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col w-full place-content-evenly md:place-content-center max-w-[1500px] md:min-w-[60vw] md:py-20 md:p-10">
-        <h1 className="text-center md:text-left text-[3rem] md:text-[9rem] z-10 md:pb-20 ">
-          Contact
-        </h1>
+      <div className="relative flex flex-col w-full place-content-evenly md:place-content-center max-w-[1500px] md:min-w-[60vw] md:py-20 md:p-10">
+        <div className="overflow-y-hidden">
+          <motion.h1
+            initial={{ opacity: 0, y: '-70%' }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              ease: 'easeInOut',
+            }}
+            exit={{ opacity: 0 }}
+            className="text-center md:text-left text-[3rem] md:text-[9rem] z-10 md:pb-20 "
+          >
+            Contact
+          </motion.h1>
+        </div>
 
         <div className="flex flex-col gap-20 px-8">
           <a
@@ -46,7 +58,7 @@ function Contact() {
           </a>
         </div>
       </div>
-    </SectionContainer>
+    </ContentSectionContainer>
   );
 }
 

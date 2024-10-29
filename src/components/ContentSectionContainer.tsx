@@ -14,7 +14,7 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-function SectionContainer({
+function ContentSectionContainer({
   id,
   children,
   bgColor,
@@ -34,20 +34,18 @@ function SectionContainer({
       <motion.section
         id={id}
         className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor} ${roundedBorder ? 'rounded-t-xl z-10' : ''}`}
-        key={id}
-        initial="initialState"
-        animate="animateState"
-        exit="exitState"
-        variants={{
-          initialState: { opacity: 0 },
-          animateState: { opacity: 1 },
-          exitState: {},
-        }}
+        initial={{ opacity: 0.8 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ ease: 'easeIn', duration: 0.8 }}
       >
-        {children}
+        <div
+          className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor} ${roundedBorder ? 'rounded-t-xl z-10' : ''}`}
+        >
+          {children}
+        </div>
       </motion.section>
     </AnimatePresence>
   );
 }
 
-export default SectionContainer;
+export default ContentSectionContainer;

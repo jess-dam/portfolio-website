@@ -1,4 +1,4 @@
-import SectionContainer from '../components/SectionContainer';
+import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
 
 const SkillsCollection = ({ skills }: { skills: string[] }) => {
@@ -38,7 +38,7 @@ function Skills() {
   ];
 
   return (
-    <SectionContainer
+    <ContentSectionContainer
       id={SECTION_REFS.SKILLS}
       bgColor="black"
       textColor="black"
@@ -102,7 +102,7 @@ function Skills() {
           </div>
         </div>
       </div>
-    </SectionContainer>
+    </ContentSectionContainer>
   );
 }
 

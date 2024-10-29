@@ -1,6 +1,6 @@
-import SectionContainer from '../components/SectionContainer';
+import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const BuildTools = () => {
   return (
@@ -8,32 +8,44 @@ const BuildTools = () => {
       <h2 className="text-center md:text-left">
         Currently Building Stuff With
       </h2>
-      <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 max-w-[500px] gap-16 md:gap-8 pt-10 justify-items-center">
-        <img
-          src="/assets/images/typescript.svg"
-          alt="TypeScript"
-          height={60}
-          width={60}
-        />
-        <img
-          src="/assets/images/react.svg"
-          alt="React.js"
-          height={60}
-          width={60}
-        />
-        <img
-          src="/assets/images/next-js.svg"
-          alt="Next.js"
-          height={60}
-          width={60}
-        />
-        <img
-          src="/assets/images/figma.svg"
-          alt="Figma"
-          height={40}
-          width={40}
-        />
-      </div>
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0.1 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            delay: 0.2,
+            duration: 2,
+            staggerChildren: 0.6,
+            ease: 'circIn',
+          }}
+          className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 max-w-[500px] gap-16 md:gap-8 pt-10 justify-items-center"
+        >
+          <img
+            src="/assets/images/typescript.svg"
+            alt="TypeScript"
+            height={60}
+            width={60}
+          />
+          <img
+            src="/assets/images/react.svg"
+            alt="React.js"
+            height={60}
+            width={60}
+          />
+          <img
+            src="/assets/images/next-js.svg"
+            alt="Next.js"
+            height={60}
+            width={60}
+          />
+          <img
+            src="/assets/images/figma.svg"
+            alt="Figma"
+            height={40}
+            width={40}
+          />
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
@@ -42,7 +54,17 @@ const Hobbies = () => {
   return (
     <div className="flex flex-col py-10 items-center md:items-stretch">
       <h2 className="text-center md:text-left">Hobbies</h2>
-      <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-8 pt-4 max-w-[500px]">
+      <motion.div
+        initial={{ opacity: 0.1 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          delay: 0.2,
+          duration: 2,
+          staggerChildren: 0.6,
+          ease: 'circIn',
+        }}
+        className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-8 pt-4 max-w-[500px]"
+      >
         <div className="flex flex-col items-center gap-4">
           <img src="/assets/images/doodles/art.svg" alt="" width={80} />
           <label className="uppercase text-sm tracking-widest text-center">
@@ -77,7 +99,7 @@ const Hobbies = () => {
             DIY
           </label>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -91,7 +113,7 @@ function Info() {
   // }, [headlineInView]);
 
   return (
-    <SectionContainer
+    <ContentSectionContainer
       id={SECTION_REFS.INFO}
       bgColor="black"
       textColor="white"
@@ -134,7 +156,7 @@ function Info() {
           </div>
         </div>
       </div>
-    </SectionContainer>
+    </ContentSectionContainer>
   );
 }
 
