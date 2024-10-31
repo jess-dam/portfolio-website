@@ -36,13 +36,13 @@ const TimelineCard = ({
               <img
                 className="justify-center z-10 rounded-full m-2 p-2 shadow-xl bg-white w-[40px] md:w-[50px]"
                 src={imgs[0].url}
-                alt={imgs[0].alt}
+                alt={imgs[0].alt ?? ''}
                 width={50}
               />
               <img
                 className="absolute right-10 rounded-full m-2 shadow-xl bg-white w-[35px] md:w-[45px]"
                 src={imgs[1].url}
-                alt={imgs[1].alt}
+                alt={imgs[1].alt ?? ''}
                 width={45}
               />
             </div>
@@ -51,7 +51,7 @@ const TimelineCard = ({
               <img
                 className="rounded-full shadow-xl bg-white w-[45px] md:w-[70px]"
                 src={imgs[0].url}
-                alt={imgs[0].alt}
+                alt={imgs[0].alt ?? ''}
                 width={70}
                 height={70}
               />
@@ -74,34 +74,34 @@ const TimelineCard = ({
 function Experience() {
   const items: TimelineItem[] = [
     {
-      imgs: [{ url: '/assets/images/gwx.ico' }],
+      imgs: [{ url: '/assets/images/gwx.ico', alt: 'Greenworkx Logo' }],
       timePeriod: '2023 - 2024',
       roleTitle: 'Product Engineer',
       orgName: 'Greenworkx',
     },
     {
-      imgs: [{ url: '/assets/images/starlingbank.svg' }],
+      imgs: [{ url: '/assets/images/starlingbank.svg', alt: 'Starling Bank Logo' }],
       timePeriod: '2021 - 2023',
       roleTitle: 'Software Engineer',
       orgName: 'Starling Bank',
     },
     {
       imgs: [
-        { url: 'assets/images/multiverse.svg' },
-        { url: '/assets/images/starlingbank.svg' },
+        { url: 'assets/images/multiverse.svg', alt: '' },
+        { url: '/assets/images/starlingbank.svg', alt: '' },
       ],
       timePeriod: '2019 - 2021',
       roleTitle: 'Software Engineeering Apprenticeship',
       orgName: 'Multiverse x Starling Bank',
     },
     {
-      imgs: [{ url: '/assets/images/ideal_networks_ltd_logo.jpeg' }],
+      imgs: [{ url: '/assets/images/ideal_networks_ltd_logo.jpeg', alt: 'Ideal Networks Logo' }],
       timePeriod: '2019 - 2019',
       roleTitle: 'Summer Placement: Junior Database Analyst ',
       orgName: 'Ideal',
     },
     {
-      imgs: [{ url: '/assets/images/esteem_charity_logo.jpeg' }],
+      imgs: [{ url: '/assets/images/esteem_charity_logo.jpeg', alt: 'Esteem Logo' }],
       timePeriod: '2018 - 2019',
       roleTitle: 'Operations and Web Design Volunteer',
       orgName: 'ESTEEM',
