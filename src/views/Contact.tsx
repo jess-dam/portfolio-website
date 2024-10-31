@@ -41,21 +41,7 @@ function Contact() {
             <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
               See what I've been working on
             </label>
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14 34L34 14M34 14H14M34 14V34"
-                stroke="#FFA462"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <TopRightArrow />
           </a>
 
           <a
@@ -70,26 +56,32 @@ function Contact() {
             <label className="uppercase tracking-widest flex items-center text-xs md:text-sm">
               Let's Connect!
             </label>
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14 34L34 14M34 14H14M34 14V34"
-                stroke="#FFA462"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <TopRightArrow />
           </a>
         </div>
       </div>
     </ContentSectionContainer>
   );
 }
+
+const TopRightArrow = () => {
+  return (
+    <svg
+      width={50}
+      height="48"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M14 34L34 14M34 14H14M34 14V34"
+        stroke="#FFA462"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
 
 export default Contact;

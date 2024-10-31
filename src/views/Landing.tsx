@@ -32,7 +32,7 @@ function Landing() {
           opacity: 0,
         }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 3, ease: 'easeInOut' }}
+        transition={{ duration: 2.5, ease: 'easeInOut' }}
         ref={ref}
         className="z-20 pt-10 pl-5 md:pl-10 flex flex-col items-stretch justify-center min-w-[300px] md:min-w-[710px]"
       >
@@ -46,7 +46,7 @@ function Landing() {
               opacity: 0,
             }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2.5, ease: 'easeInOut' }}
+            transition={{ duration: 2, ease: 'easeInOut' }}
             className="flex flex-wrap z-10 relative text-[5rem] md:text-[12rem] text-center align-center leading-[3rem] md:leading-[6.5rem]"
             style={{ y: textY }}
           >
@@ -57,19 +57,20 @@ function Landing() {
               y: '100%',
             }}
             whileInView={{ y: 0 }}
-            transition={{ duration: 2, delay: 3, ease: 'easeInOut' }}
+            transition={{ duration: 2, delay: 2, ease: 'easeInOut' }}
             src="/assets/images/doodles/cat_on_laptop.svg"
             className="absolute z-20 w-[130px] bottom-[30px] md:w-[250px]"
             width={300}
+            alt=''
           />
         </div>
         <div className="flex flex-wrap text-center justify-center gap-4 md:p-8 md:px-10 md:justify-between w-[250px] md:w-[700px] uppercase">
-          <h4 aria-label="Software Engineer" className="inline-block">
+          <h3 aria-label="Software Engineer" className="inline-block">
             Software Engineer
-          </h4>
-          <h4 aria-label="UX + Web Designer" className="inline-block">
+          </h3>
+          <h3 aria-label="UX + Web Designer" className="inline-block">
             UX + Web Designer
-          </h4>
+          </h3>
         </div>
       </motion.div>
 

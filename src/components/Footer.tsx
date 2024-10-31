@@ -6,17 +6,21 @@ function Footer() {
 
         <div>
           <h2>Made with</h2>
-          <ul>Typescript</ul>
-          <ul>React.JS</ul>
-          <ul>Vite</ul>
-          <ul>Vercel</ul>
-          <ul>Framer Motion</ul>
+          <ul>
+            <li>Typescript</li>
+            <li>React.JS</li>
+            <li>Vite</li>
+            <li>Vercel</li>
+            <li>Framer Motion</li>
+          </ul>
         </div>
 
         <div>
           <h2>Designed with</h2>
-          <ul>Figma</ul>
-          <ul>Infinite Design</ul>
+          <ul>
+            <li>Figma</li>
+            <li>Infinite Design</li>
+          </ul>
         </div>
 
         <div className="flex flex-col py-8 md:py-0 md:items-end md:text-right">

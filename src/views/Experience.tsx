@@ -25,22 +25,22 @@ const TimelineCard = ({
   const xAxisOffset = index % 2 != 0 ? 'justify-end' : 'justify-start';
 
   return (
-    <div className={`w-full flex px-2 md:px-0 ${xAxisOffset}`}>
+    <div className={`flex px-2 md:px-0 ${xAxisOffset}`}>
       <div
-        className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-black text-white rounded-full border border-white p-5 md:min-h-[150px] w-[350px] md:w-[600px]`}
+        className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-black text-white rounded-full border border-white p-5 px-2 max-w-[90vw] md:min-h-[150px] w-[350px] md:w-[600px]`}
       >
         {
           // displays max two images
           imgs.length > 1 ? (
             <div className="relative pl-8 md:col-span-2 flex flex-col md:flex-row justify-self-center">
               <img
-                className="justify-center z-10 rounded-full m-2 p-2 shadow-xl bg-white"
+                className="justify-center z-10 rounded-full m-2 p-2 shadow-xl bg-white w-[40px] md:w-[50px]"
                 src={imgs[0].url}
                 alt={imgs[0].alt}
                 width={50}
               />
               <img
-                className="absolute right-10 rounded-full m-2 shadow-xl bg-white"
+                className="absolute right-10 rounded-full m-2 shadow-xl bg-white w-[35px] md:w-[45px]"
                 src={imgs[1].url}
                 alt={imgs[1].alt}
                 width={45}
@@ -49,7 +49,7 @@ const TimelineCard = ({
           ) : (
             <div className="flex px-4 content-center justify-start">
               <img
-                className="rounded-full shadow-xl bg-white"
+                className="rounded-full shadow-xl bg-white w-[45px] md:w-[70px]"
                 src={imgs[0].url}
                 alt={imgs[0].alt}
                 width={70}
@@ -61,8 +61,10 @@ const TimelineCard = ({
 
         <div className="col-span-2 md:col-span-3">
           <label className="text-sm">{timePeriod}</label>
-          <h2 className="tracking-normal text-sm">{roleTitle}</h2>
-          <h3 className="tracking-normal font-medium text-sm">{orgName}</h3>
+          <h2 className="tracking-normal text-xs md:text-md">{roleTitle}</h2>
+          <h3 className="tracking-normal font-medium text-xs md:text-md">
+            {orgName}
+          </h3>
         </div>
       </div>
     </div>
@@ -125,7 +127,7 @@ function Experience() {
         >
           Experience
         </motion.h1>
-        <div className="z-10 flex flex-col gap-10 md:w-[60vw] md:max-w-[900px] py-8">
+        <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8">
           {items.map((role, index) => {
             return <TimelineCard index={index} role={role} />;
           })}
