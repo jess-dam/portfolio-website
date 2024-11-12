@@ -31,10 +31,10 @@ function Contact() {
         <div className="flex flex-col gap-10 px-8">
           <a
             href={githubUrl}
-            className="flex w-fit gap-8 border border-black text-black justify-start content-center p-8 rounded-full hover:bg-black h-fit"
+            className="flex w-fit gap-8 border border-black text-black bg-secondary justify-start content-center p-8 rounded-full hover:bg-black h-fit"
           >
             <img
-              src="/assets/images/github.svg"
+              src="/assets/images/github-black.svg"
               alt="Redirects to Github profile"
               width={30}
             />
@@ -46,10 +46,10 @@ function Contact() {
 
           <a
             href={linkedinUrl}
-            className="flex w-fit gap-8 border border-black text-black justify-between content-center p-8 rounded-full hover:bg-black"
+            className="flex w-fit gap-8 border border-black text-black bg-secondary justify-between content-center p-8 rounded-full hover:bg-black"
           >
             <img
-              src="/assets/images/linkedin.svg"
+              src="/assets/images/linkedin-black.svg"
               alt="Redirects to Linkedin profile"
               width={30}
             />
@@ -75,7 +75,7 @@ const TopRightArrow = () => {
     >
       <path
         d="M14 34L34 14M34 14H14M34 14V34"
-        stroke="#FFA462"
+        stroke="#000000"
         stroke-width="4"
         stroke-linecap="round"
         stroke-linejoin="round"

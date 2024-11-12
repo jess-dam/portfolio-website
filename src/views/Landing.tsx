@@ -21,7 +21,7 @@ function Landing() {
           y: '100%',
           opacity: 0.5,
         }}
-        whileInView={{ y: 0, opacity: 1 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.1, ease: 'easeInOut', delay: 1.5 }}
         className="z-0 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
       ></motion.div>

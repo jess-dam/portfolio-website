@@ -38,7 +38,7 @@ function Nav() {
       initial="hidden"
       animate={isNavHidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.5, easeInOut }}
-      className="fixed w-full z-30 flex items-center mix-blend-color-screen"
+      className="fixed w-full z-30 flex items-center"
     >
       {/* Mobile Nav */}
       <div className="md:hidden flex flex-col w-full px-4 pt-4">

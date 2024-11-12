@@ -24,19 +24,16 @@ function ContentSectionContainer({ id, children, bgColor, textColor }: Props) {
 
   return (
     <AnimatePresence>
-      <motion.section
+      <section
         id={id}
-        className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
-        initial={{ opacity: 0.8 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ ease: 'easeIn', duration: 0.8 }}
+        className={`pb-10 py-20 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
       >
         <div
           className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
         >
           {children}
         </div>
-      </motion.section>
+      </section>
     </AnimatePresence>
   );
 }

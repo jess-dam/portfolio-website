@@ -27,7 +27,7 @@ const TimelineCard = ({
   return (
     <div className={`flex px-2 md:px-0 ${xAxisOffset}`}>
       <div
-        className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-black text-white rounded-full border border-white p-5 px-2 max-w-[90vw] md:min-h-[150px] w-[350px] md:w-[600px]`}
+        className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-white text-black rounded-full border border-black p-5 px-2 max-w-[90vw] md:min-h-[150px] w-[350px] md:w-[600px]`}
       >
         {
           // displays max two images
@@ -60,9 +60,9 @@ const TimelineCard = ({
         }
 
         <div className="col-span-2 md:col-span-3">
-          <label className="text-sm">{timePeriod}</label>
-          <h2 className="tracking-normal text-xs md:text-md">{roleTitle}</h2>
-          <h3 className="tracking-normal font-medium text-xs md:text-md">
+          <label className="text-sm md:text-md">{timePeriod}</label>
+          <h2 className="tracking-normal text-sm md:text-lg">{roleTitle}</h2>
+          <h3 className="tracking-normal font-medium text-sm md:text-lg">
             {orgName}
           </h3>
         </div>
@@ -80,7 +80,9 @@ function Experience() {
       orgName: 'Greenworkx',
     },
     {
-      imgs: [{ url: '/assets/images/starlingbank.svg', alt: 'Starling Bank Logo' }],
+      imgs: [
+        { url: '/assets/images/starlingbank.svg', alt: 'Starling Bank Logo' },
+      ],
       timePeriod: '2021 - 2023',
       roleTitle: 'Software Engineer',
       orgName: 'Starling Bank',
@@ -95,13 +97,20 @@ function Experience() {
       orgName: 'Multiverse x Starling Bank',
     },
     {
-      imgs: [{ url: '/assets/images/ideal_networks_ltd_logo.jpeg', alt: 'Ideal Networks Logo' }],
+      imgs: [
+        {
+          url: '/assets/images/ideal_networks_ltd_logo.jpeg',
+          alt: 'Ideal Networks Logo',
+        },
+      ],
       timePeriod: '2019 - 2019',
       roleTitle: 'Summer Placement: Junior Database Analyst ',
       orgName: 'Ideal',
     },
     {
-      imgs: [{ url: '/assets/images/esteem_charity_logo.jpeg', alt: 'Esteem Logo' }],
+      imgs: [
+        { url: '/assets/images/esteem_charity_logo.jpeg', alt: 'Esteem Logo' },
+      ],
       timePeriod: '2018 - 2019',
       roleTitle: 'Operations and Web Design Volunteer',
       orgName: 'ESTEEM',
@@ -111,10 +120,10 @@ function Experience() {
   return (
     <ContentSectionContainer
       id={SECTION_REFS.EXPERIENCE}
-      bgColor="black"
-      textColor="white"
+      bgColor="white"
+      textColor="black"
     >
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col w-full">
         <motion.h1
           initial={{ opacity: 0, y: '-50%' }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -123,14 +132,16 @@ function Experience() {
             ease: 'easeInOut',
           }}
           exit={{ opacity: 0 }}
-          className="z-0 py-20 text-[2rem] md:text-[5rem] text-secondary font-climate-crisis"
+          className="z-0 py-20 text-[2rem] md:text-[5rem] font-climate-crisis justify-start text-left md:pl-[150px]"
         >
           Experience
         </motion.h1>
-        <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8">
-          {items.map((role, index) => {
-            return <TimelineCard index={index} role={role} />;
-          })}
+        <div className="flex flex-col items-center">
+          <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8">
+            {items.map((role, index) => {
+              return <TimelineCard index={index} role={role} />;
+            })}
+          </div>
         </div>
       </div>
     </ContentSectionContainer>

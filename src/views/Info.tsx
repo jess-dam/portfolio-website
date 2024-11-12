@@ -1,6 +1,20 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+
+interface ImageWithLabelContainerProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+const ImageWithLabelContainer = ({
+  children,
+}: ImageWithLabelContainerProps) => {
+  return (
+    <div className="grid auto-row content-between justify-items-center gap-2">
+      {children}
+    </div>
+  );
+};
 
 const BuildTools = () => {
   return (
@@ -8,44 +22,46 @@ const BuildTools = () => {
       <h2 className="text-center md:text-left">
         Currently Building Stuff With
       </h2>
-      <AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0.1 }}
-          whileInView={{ opacity: 1 }}
-          transition={{
-            delay: 0.2,
-            duration: 2,
-            staggerChildren: 0.6,
-            ease: 'circIn',
-          }}
-          className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 max-w-[500px] gap-16 md:gap-8 pt-10 justify-items-center"
-        >
+      <motion.div
+        initial={{ opacity: 0.1 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          delay: 0.2,
+          duration: 2,
+          staggerChildren: 0.6,
+          ease: 'circIn',
+        }}
+        className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-8 pt-4 max-w-[500px]"
+      >
+        <ImageWithLabelContainer>
           <img
             src="/assets/images/typescript.svg"
-            alt="TypeScript"
-            height={60}
+            alt="Typescript logo"
             width={60}
           />
-          <img
-            src="/assets/images/react.svg"
-            alt="React.js"
-            height={60}
-            width={60}
-          />
-          <img
-            src="/assets/images/next-js.svg"
-            alt="Next.js"
-            height={60}
-            width={60}
-          />
-          <img
-            src="/assets/images/figma.svg"
-            alt="Figma"
-            height={40}
-            width={40}
-          />
-        </motion.div>
-      </AnimatePresence>
+          <label className="uppercase text-sm tracking-widest text-center">
+            TypeScript
+          </label>
+        </ImageWithLabelContainer>
+        <ImageWithLabelContainer>
+          <img src="/assets/images/react.svg" alt="React logo" width={60} />
+          <label className="uppercase text-sm tracking-widest text-center">
+            React
+          </label>
+        </ImageWithLabelContainer>
+        <ImageWithLabelContainer>
+          <img src="/assets/images/next-js.svg" alt="Next.js logo" width={55} />
+          <label className="uppercase text-sm tracking-widest text-center">
+            Next
+          </label>
+        </ImageWithLabelContainer>
+        <ImageWithLabelContainer>
+          <img src="/assets/images/figma.svg" alt="Figma logo" width={40} />
+          <label className="uppercase text-sm tracking-widest text-center">
+            Figma
+          </label>
+        </ImageWithLabelContainer>
+      </motion.div>
     </div>
   );
 };
@@ -63,63 +79,68 @@ const Hobbies = () => {
           staggerChildren: 0.6,
           ease: 'circIn',
         }}
-        className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-8 pt-4 max-w-[500px]"
+        className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-4 pt-4 max-w-[500px]"
       >
-        <div className="flex flex-col items-center gap-4">
+        <ImageWithLabelContainer>
           <img src="/assets/images/doodles/art.svg" alt="" width={80} />
           <label className="uppercase text-sm tracking-widest text-center">
             Art
           </label>
-        </div>
-        <div className="flex flex-col items-center gap-4">
+        </ImageWithLabelContainer>
+        <ImageWithLabelContainer>
           <img src="/assets/images/doodles/tkd.svg" alt="" width={80} />
           <label className="uppercase text-sm tracking-widest text-center">
             Taekwondo
           </label>
-        </div>
-        <div className="flex flex-col items-center">
+        </ImageWithLabelContainer>
+        <ImageWithLabelContainer>
           <img
             src="/assets/images/doodles/boardgames.svg"
             alt=""
             width={60}
-            className="pb-8"
+            className=""
           />
           <label className="uppercase text-sm tracking-widest text-center">
             Board Games
           </label>
-        </div>
-        <div className="flex flex-col items-center gap-4">
+        </ImageWithLabelContainer>
+        <ImageWithLabelContainer>
           <img
             src="/assets/images/doodles/diy.svg"
             alt=""
-            width={50}
+            width={70}
             className="pb-6"
           />
           <label className="uppercase text-sm tracking-widest text-center">
             DIY
           </label>
-        </div>
+        </ImageWithLabelContainer>
       </motion.div>
     </div>
   );
 };
 
 function Info() {
-  // const [headlineRef, headlineAnimate] = useAnimate();
-  // const headlineInView = useInView(headlineRef);
-
-  // useEffect(() => {
-
-  // }, [headlineInView]);
-
   return (
     <ContentSectionContainer
       id={SECTION_REFS.INFO}
-      bgColor="black"
-      textColor="white"
+      bgColor="white"
+      textColor="black"
     >
-      <div className="grid grid-rows-auto md:px-8">
-        <div className="flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-10 py-10">
+      <div className="grid grid-rows-min md:px-8">
+        <motion.h1
+          // initial={{ opacity: 0, y: '-50%' }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // transition={{
+          //   duration: 0.85,
+          //   ease: 'easeInOut',
+          // }}
+          // exit={{ opacity: 0 }}
+          className="text-[5rem] pb-10 md:p-0 md:text-[8rem] leading-none h-fit self-end"
+        >
+          Hello!
+        </motion.h1>
+        <div className="flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-10 pb-10">
           <div className="flex flex-col items-center gap-8">
             <div>
               <img
@@ -146,9 +167,15 @@ function Info() {
 
           <div className="col-span-2 flex flex-col justify-center">
             <motion.p className="tracking-wide py-5 text-center md:text-left uppercase">
-              Hi 👋, I’m a{' '}
-              <span className="font-bold">full-stack developer</span> with a
-              focus on <span className="font-bold">front-end and UX</span>.
+              I’m a{' '}
+              <span className="font-bold bg-secondary rounded-lg">
+                full-stack developer
+              </span>{' '}
+              with a focus on{' '}
+              <span className="font-bold bg-secondary rounded-lg">
+                front-end and UX
+              </span>
+              .
             </motion.p>
             <BuildTools />
             <Hobbies />
