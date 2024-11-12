@@ -19,7 +19,7 @@ const ImageWithLabelContainer = ({
 const BuildTools = () => {
   return (
     <div className="py-10 flex flex-col items-center md:items-stretch">
-      <h2 className="text-center md:text-left">
+      <h2 className="text-center md:text-left py-2">
         Currently Building Stuff With
       </h2>
       <motion.div
@@ -127,7 +127,7 @@ function Info() {
       bgColor="white"
       textColor="black"
     >
-      <div className="grid grid-rows-min md:px-8">
+      <div className="grid grid-rows-min md:px-8 gap-12">
         <motion.h1
           // initial={{ opacity: 0, y: '-50%' }}
           // whileInView={{ opacity: 1, y: 0 }}
@@ -136,11 +136,11 @@ function Info() {
           //   ease: 'easeInOut',
           // }}
           // exit={{ opacity: 0 }}
-          className="text-[5rem] pb-10 md:p-0 md:text-[8rem] leading-none h-fit self-end"
+          className="text-[4rem] text-center p-10 md:p-0 md:text-[8rem] md:text-left leading-none h-fit self-end"
         >
           Hello!
         </motion.h1>
-        <div className="flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-10 pb-10">
+        <div className="flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-10 pb-10 h-fit">
           <div className="flex flex-col items-center gap-8">
             <div>
               <img
@@ -165,8 +165,8 @@ function Info() {
             </div>
           </div>
 
-          <div className="col-span-2 flex flex-col justify-center">
-            <motion.p className="tracking-wide py-5 text-center md:text-left uppercase">
+          <div className="col-span-2 flex flex-col justify-center content-start">
+            <motion.p className="tracking-wide pb-4 text-center md:text-left uppercase">
               I’m a{' '}
               <span className="font-bold bg-secondary rounded-lg">
                 full-stack developer

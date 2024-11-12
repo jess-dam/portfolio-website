@@ -44,7 +44,7 @@ function Skills() {
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col py-80 md:min-w-[70vw]">
+      <div className="flex flex-col py-80 md:w-[70vw] md:max-w-[1000px]">
         <h2 className="md:text-3xl md:px-10">Skills in</h2>
         <CarouselProvider
           className="w-full h-[400px] grid grid-cols-6 items-start"
@@ -87,7 +87,7 @@ interface SkillStackProps {
 const SkillStack = (props: SkillStackProps) => {
   const { title, skills } = props;
   return (
-    <div className="flex flex-col justify-center  w-full h-auto">
+    <div className="flex flex-col justify-center w-full h-auto">
       <h1 className="break-words text-wrap text-center text-[3rem] md:text-[5.2rem]">
         {title}
       </h1>
