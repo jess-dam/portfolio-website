@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: 'Climate Crisis';
-  src: url('/assets/fonts/ClimateCrisis/ClimateCrisis-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/ClimateCrisis/ClimateCrisis-Regular.ttf')
+    format('truetype');
 }
 
 @font-face {
@@ -73,7 +73,6 @@
   font-style: italic;
 }
 
-
 :root {
   font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -113,18 +112,17 @@ h4 {
 
 @media only screen and (min-width: 768px) {
   h1 {
-  font-size: 6rem;
-}
+    font-size: 6rem;
+  }
 
   h2,
   h3 {
     font-size: 1.1rem;
   }
-  
+
   h4 {
     font-size: 1rem;
   }
-
 }
 
 p {
@@ -133,12 +131,11 @@ p {
 
 a {
   font-weight: 600;
-  color: #ffffff;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #FFE485;
+  color: #ffe485;
 }
 
 body {

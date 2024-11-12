@@ -22,7 +22,7 @@ function Landing() {
           opacity: 0.5,
         }}
         whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.1, ease: 'easeInOut', delay: 2.5 }}
+        transition={{ duration: 1.1, ease: 'easeInOut', delay: 1.5 }}
         className="z-0 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
       ></motion.div>
 
@@ -32,7 +32,7 @@ function Landing() {
           opacity: 0,
         }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 2.5, ease: 'easeInOut' }}
+        transition={{ duration: 2.5, delay: 1.5, ease: 'easeInOut' }}
         ref={ref}
         className="z-20 pl-[50px] md:pl-[20vw] max-pl-[400px] flex flex-col items-start justify-center min-w-[300px] md:min-w-[710px]"
       >
@@ -52,12 +52,7 @@ function Landing() {
           >
             Jess Dam
           </motion.h1>
-          <motion.img
-            initial={{
-              y: '100%',
-            }}
-            whileInView={{ y: 0 }}
-            transition={{ duration: 2, delay: 2, ease: 'easeInOut' }}
+          <img
             src="/assets/images/doodles/cat_on_laptop.svg"
             className="absolute z-20 w-[80px] top-[72px] left-[185px] md:top-[102px] md:left-[560px] md:w-[250px]"
             width={300}

@@ -38,23 +38,23 @@ function Nav() {
       initial="hidden"
       animate={isNavHidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.5, easeInOut }}
-      className="fixed w-full z-30 flex items-center text-white"
+      className="fixed w-full z-30 flex items-center mix-blend-color-screen"
     >
       {/* Mobile Nav */}
       <div className="md:hidden flex flex-col w-full px-4 pt-4">
         <div className="w-full flex content-center justify-between gap-8">
-          <a href={'#' + SECTION_REFS.LANDING} className="text-secondary">
+          <a href={'#' + SECTION_REFS.LANDING} className="text-primary">
             <h1 className="w-[50px] text-[1rem] text-center align-center p-4">
               Jess Dam
             </h1>
           </a>
-          <div className="flex content-center justify-end bg-black rounded-b-[30px] rounded-l-[30px] p-2 px-6">
+          <div className="flex content-center justify-end p-2 px-4">
             <button
               aria-label="Click for drop down menu"
-              className="bg-black"
+              className=""
               onClick={() => setIsUsingMobileDropdown(!isUsingMobileDropdown)}
             >
-              <img src="/assets/images/hamburger_menu.svg" alt="" width={25} />
+              <HamburgerSVG />
             </button>
           </div>
         </div>
@@ -72,11 +72,11 @@ function Nav() {
       <div className="hidden md:flex w-full justify-between">
         <div className="flex items-center p-8 h-[70px] gap-8">
           <a href={'#' + SECTION_REFS.LANDING}>
-            <h1 className="w-[50px] text-[1rem] text-center text-secondary align-center">
+            <h1 className="w-[50px] text-[1rem] text-center text-primary align-center">
               Jess Dam
             </h1>
           </a>
-          <div className="flex h-[70px] px-16 gap-14 items-center text-bold uppercase tracking-widest text-md bg-black rounded-b-[50px]">
+          <div className="flex h-[70px] px-16 gap-14 items-center text-bold text-black uppercase tracking-widest text-md">
             <a href={'#' + SECTION_REFS.INFO}>Info</a>
             <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
             <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
@@ -107,3 +107,24 @@ function Nav() {
 }
 
 export default Nav;
+
+const HamburgerSVG = () => {
+  return (
+    <svg
+      className="mix-blend-color-screen"
+      width="31"
+      height="31"
+      viewBox="0 0 31 31"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.875 15.5H27.125M3.875 7.75H27.125M3.875 23.25H27.125"
+        stroke="#1E1E1E"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
