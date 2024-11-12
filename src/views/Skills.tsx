@@ -56,7 +56,7 @@ function Skills() {
             <img src="assets/images/icons/backarrow.svg" />
           </ButtonBack>
 
-          <Slider className="col-span-4 grid md:items-center h-[500px] md:h-[650px]">
+          <Slider className="col-span-4 grid md:items-center h-[700px] md:h-[650px]">
             <Slide index={0}>
               <SkillStack title="Front End" skills={frontEndSkills} />
             </Slide>
@@ -87,7 +87,7 @@ interface SkillStackProps {
 const SkillStack = (props: SkillStackProps) => {
   const { title, skills } = props;
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
+    <div className="flex flex-col justify-center items-center w-full h-auto">
       <h1 className="text-secondary break-words text-wrap text-[1.7rem] md:text-[5rem]">
         {title}
       </h1>
