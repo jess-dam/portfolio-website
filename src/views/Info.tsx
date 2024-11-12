@@ -117,7 +117,6 @@ function Info() {
       id={SECTION_REFS.INFO}
       bgColor="black"
       textColor="white"
-      roundedBorder={true}
     >
       <div className="grid grid-rows-auto md:px-8">
         <div className="flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-10 py-10">
