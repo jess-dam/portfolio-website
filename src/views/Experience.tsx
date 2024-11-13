@@ -137,7 +137,7 @@ function Experience() {
           Experience
         </motion.h1>
         <div className="relative flex flex-col items-center h-fit">
-          <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8 my-10 md:my-24">
+          <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8 my-10 md:my-28">
             {items.map((role, index) => {
               return <TimelineCard index={index} role={role} />;
             })}

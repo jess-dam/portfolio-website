@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <div className="relative w-full bg-white text-black overflow-clip">
-      <div className="z-20 grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-4 h-[300px] p-4 pb-6 md:p-10 gap-4 md:gap-10 uppercase">
+      <div className="relative z-20 grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-4 h-[300px] p-4 pb-6 md:p-10 gap-4 md:gap-10 uppercase">
         <h1 className="text-2xl md:text-4xl">Jess Dam 2024©</h1>
 
         <div>
