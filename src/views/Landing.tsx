@@ -27,6 +27,15 @@ function Landing() {
       ></motion.div>
 
       <motion.div
+        className="absolute z-20 bottom-[15vw] left-[20vw] bg-secondary rounded-full w-[300px] h-[280px] blur-3xl"
+        initial={{
+          opacity: 0,
+        }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 2.6, ease: 'easeIn' }}
+      />
+
+      <motion.div
         initial={{
           y: '-100%',
           opacity: 0,

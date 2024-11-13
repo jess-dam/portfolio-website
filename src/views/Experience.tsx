@@ -34,13 +34,13 @@ const TimelineCard = ({
           imgs.length > 1 ? (
             <div className="relative pl-8 md:col-span-2 flex flex-col md:flex-row justify-self-center">
               <img
-                className="justify-center z-10 rounded-full m-2 p-2 shadow-xl bg-white w-[40px] md:w-[50px]"
+                className="justify-center z-10 rounded-full m-2 p-2 shadow-sm border border-black bg-white w-[40px] md:w-[50px]"
                 src={imgs[0].url}
                 alt={imgs[0].alt ?? ''}
                 width={50}
               />
               <img
-                className="absolute right-10 rounded-full m-2 shadow-xl bg-white w-[35px] md:w-[45px]"
+                className="absolute right-10 rounded-full m-2 shadow-sm border border-black bg-white w-[35px] md:w-[45px]"
                 src={imgs[1].url}
                 alt={imgs[1].alt ?? ''}
                 width={45}
@@ -49,7 +49,7 @@ const TimelineCard = ({
           ) : (
             <div className="flex px-4 content-center justify-start">
               <img
-                className="rounded-full shadow-xl bg-white w-[45px] md:w-[70px]"
+                className="rounded-full shadow-sm border border-black bg-white w-[45px] md:w-[70px]"
                 src={imgs[0].url}
                 alt={imgs[0].alt ?? ''}
                 width={70}
@@ -123,7 +123,7 @@ function Experience() {
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full h-fit">
         <motion.h1
           initial={{ opacity: 0, y: '-50%' }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,12 +136,25 @@ function Experience() {
         >
           Experience
         </motion.h1>
-        <div className="flex flex-col items-center">
-          <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8">
+        <div className="relative flex flex-col items-center h-fit">
+          <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8 my-10 md:my-24">
             {items.map((role, index) => {
               return <TimelineCard index={index} role={role} />;
             })}
           </div>
+          <svg
+            className="absolute top-0 h-[900px] md:h-[1200px]"
+            width="29"
+            height="1700"
+            viewBox="0 0 29 1153"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line x1="15.5" y1="24.0009" x2="13.5" y2="1140" stroke="black" />
+            <circle cx="13.5" cy="1139.5" r="13.5" fill="black" />
+            <circle cx="15.5" cy="13.5" r="13.5" fill="black" />
+          </svg>
+          <h3 className="absolute bottom-[-30px] md:bottom-[-40px]">Present</h3>
         </div>
       </div>
     </ContentSectionContainer>
