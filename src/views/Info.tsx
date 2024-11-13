@@ -127,7 +127,7 @@ function Info() {
       bgColor="white"
       textColor="black"
     >
-      <div className="grid grid-rows-min md:px-8 gap-12">
+      <div className="grid grid-rows-min pt-20 md:px-8 gap-12">
         <motion.h1
           // initial={{ opacity: 0, y: '-50%' }}
           // whileInView={{ opacity: 1, y: 0 }}

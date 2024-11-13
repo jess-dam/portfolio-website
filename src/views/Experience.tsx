@@ -123,7 +123,7 @@ function Experience() {
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col w-full h-fit">
+      <div className="flex flex-col w-full h-fit py-20">
         <motion.h1
           initial={{ opacity: 0, y: '-50%' }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ function Experience() {
             ease: 'easeInOut',
           }}
           exit={{ opacity: 0 }}
-          className="z-0 py-20 text-[3rem] break-words md:text-[5rem] font-climate-crisis justify-start text-left md:pl-[20vw]"
+          className="z-0 text-[2.2rem] break-words md:text-[5rem] font-climate-crisis justify-start text-left md:pl-[20vw]"
         >
           Experience
         </motion.h1>

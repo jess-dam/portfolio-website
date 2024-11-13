@@ -44,7 +44,7 @@ function Skills() {
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col py-80 md:w-[70vw] md:max-w-[1000px]">
+      <div className="flex flex-col md:w-[70vw] md:max-w-[1000px]">
         <h2 className="md:text-3xl md:px-10">Skills in</h2>
         <CarouselProvider
           className="w-full h-[400px] grid grid-cols-6 items-start"

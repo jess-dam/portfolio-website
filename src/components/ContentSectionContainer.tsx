@@ -21,7 +21,7 @@ function ContentSectionContainer({ id, children, bgColor, textColor }: Props) {
     <AnimatePresence>
       <section
         id={id}
-        className={`pb-10 md:py-20 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
+        className={`pb-20 md:py-20 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
       >
         <div
           className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
