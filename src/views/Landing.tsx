@@ -27,7 +27,7 @@ function Landing() {
       ></motion.div>
 
       <motion.div
-        className="absolute z-20 bottom-[15vh] md:bottom-[20vh] left-[15vw] bg-secondary rounded-full w-[350px] h-[180px] md:h-[300px] blur-3xl"
+        className="absolute z-20 bottom-[25vh] md:bottom-[20vh] left-[15vw] bg-secondary rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
         initial={{
           opacity: 0,
         }}
