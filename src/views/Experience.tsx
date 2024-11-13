@@ -132,7 +132,7 @@ function Experience() {
             ease: 'easeInOut',
           }}
           exit={{ opacity: 0 }}
-          className="z-0 text-[2.2rem] break-words md:text-[5rem] font-climate-crisis justify-start text-left md:pl-[20vw]"
+          className="z-0 pb-10 md:pb-20 text-[2.2rem] break-words md:text-[5rem] font-climate-crisis justify-start text-left md:pl-[20vw]"
         >
           Experience
         </motion.h1>
