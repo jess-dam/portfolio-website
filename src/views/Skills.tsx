@@ -32,11 +32,7 @@ function Skills() {
     'Communicating Design Ideas',
     'Designing for Accessibility',
   ];
-  const nonTechSkills = [
-    'User Research',
-    'Project Management',
-    'Creative Designs',
-  ];
+  const nonTechSkills = ['User Research', 'Project Management'];
 
   return (
     <ContentSectionContainer
@@ -88,14 +84,14 @@ const SkillStack = (props: SkillStackProps) => {
   const { title, skills } = props;
   return (
     <div className="flex flex-col justify-center w-full h-auto">
-      <h1 className="break-words text-wrap text-center text-[3rem] md:text-[5.2rem]">
+      <h1 className="text-wrap break-words text-center text-[1.8rem] pt-4 md:pt-0 md:text-[5.2rem]">
         {title}
       </h1>
       <div className="gap-8 md:gap-10 grid grid-rows-auto mt-4 md:mt-14 items-center">
         {skills.map((skill) => {
           return (
             <div className="relative flex justify-center items-center">
-              <label className="z-10 uppercase tracking-widest font-semibold text-center md:text-2xl text-bold max-w-[300px]">
+              <label className="z-10 uppercase tracking-widest text-[0.8rem] md:text-[1rem] font-semibold text-center md:text-2xl text-bold max-w-[300px]">
                 {skill}
               </label>
               <svg
