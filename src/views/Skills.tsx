@@ -8,6 +8,7 @@ import {
   ButtonNext,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { motion } from 'framer-motion';
 
 function Skills() {
   const frontEndSkills = [
@@ -87,10 +88,20 @@ const SkillStack = (props: SkillStackProps) => {
       <h1 className="text-wrap break-words text-center text-[1.8rem] pt-4 md:pt-0 md:text-[5.2rem]">
         {title}
       </h1>
-      <div className="gap-8 md:gap-10 grid grid-rows-auto mt-4 md:mt-14 items-center">
-        {skills.map((skill) => {
+      <div className="gap-8 md:gap-10 grid grid-rows-auto mt-4 md:mt-14 items-center m-10">
+        {skills.map((skill, index) => {
           return (
-            <div className="relative flex justify-center items-center">
+            <motion.div
+              className="relative flex justify-center items-center"
+              initial={{ y: '-100%', opacity: 0 }}
+              whileInView={{ y: 0, opacity: 100 }}
+              transition={{
+                ease: 'easeInOut',
+                duration: 0.5,
+                delay: index * 0.08,
+              }}
+              exit={{ y: '-100%', opacity: 0 }}
+            >
               <label className="z-10 uppercase tracking-widest text-[0.8rem] md:text-[1rem] font-semibold text-center md:text-2xl text-bold max-w-[300px]">
                 {skill}
               </label>
@@ -109,7 +120,7 @@ const SkillStack = (props: SkillStackProps) => {
                   stroke-width="1.13701"
                 />
               </svg>
-            </div>
+            </motion.div>
           );
         })}
       </div>
