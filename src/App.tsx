@@ -10,12 +10,14 @@ import Nav from './components/Nav';
 function App() {
   return (
     <div className="h-auto w-screen">
-      <Nav />
-      <Landing />
-      <Info />
-      <Experience />
-      <Skills />
-      <Contact />
+      <main>
+        <Nav />
+        <Landing />
+        <Info />
+        <Experience />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

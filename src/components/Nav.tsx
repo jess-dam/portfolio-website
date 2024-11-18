@@ -30,7 +30,7 @@ function Nav() {
   });
 
   return (
-    <motion.div
+    <motion.nav
       variants={{
         visible: { y: 0 },
         hidden: { y: '-100%' },
@@ -58,14 +58,26 @@ function Nav() {
             </button>
           </div>
         </div>
-        <div
+        <motion.ul
           className={`${isUsingMobileDropdown ? 'hidden' : 'flex'} flex-col place-self-end w-[50vw] text-right mt-4 gap-4 text-bold uppercase tracking-widest text-sm bg-black p-4 rounded-xl`}
+          initial={{ opacity: 0, height: 0 }}
+          whileInView={{ opacity: 100, height: '100%' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ ease: 'circIn', duration: 0.5 }}
         >
-          <a href={'#' + SECTION_REFS.INFO}>Info</a>
-          <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
-          <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
-          <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
-        </div>
+          <li>
+            <a href={'#' + SECTION_REFS.INFO}>Info</a>
+          </li>
+          <li>
+            <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
+          </li>
+          <li>
+            <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
+          </li>
+          <li>
+            <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
+          </li>
+        </motion.ul>
       </div>
 
       {/* Desktop Nav */}
@@ -76,12 +88,21 @@ function Nav() {
               Jess Dam
             </h1>
           </a>
-          <div className="flex h-[70px] px-16 gap-14 items-center text-bold text-black uppercase tracking-widest text-md">
-            <a href={'#' + SECTION_REFS.INFO}>Info</a>
-            <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
-            <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
-            <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
-          </div>
+
+          <ul className="flex h-[70px] px-16 gap-14 items-center text-bold text-black uppercase tracking-widest text-md">
+            <li>
+              <a href={'#' + SECTION_REFS.INFO}>Info</a>
+            </li>
+            <li>
+              <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
+            </li>
+            <li>
+              <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
+            </li>
+            <li>
+              <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
+            </li>
+          </ul>
         </div>
 
         <div className="flex items-center gap-8 px-8">
@@ -102,7 +123,7 @@ function Nav() {
           </a>
         </div>
       </div>
-    </motion.div>
+    </motion.nav>
   );
 }
 

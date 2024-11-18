@@ -18,11 +18,20 @@ function Landing() {
     >
       <motion.div
         initial={{
+          borderRadius: '50%',
+          opacity: 0,
           y: '100%',
-          opacity: 0.5,
+          // height: '70%',
+          // width: '70%',
         }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.1, ease: 'easeInOut', delay: 0.8 }}
+        animate={{
+          opacity: [0.5, 1],
+          borderRadius: ['20%', 0],
+          y: 0,
+          // height: '100%',
+          // width: '100%',
+        }}
+        transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.2 }}
         className="z-0 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
       ></motion.div>
 
@@ -37,7 +46,7 @@ function Landing() {
 
       <motion.div
         initial={{
-          y: '-100%',
+          y: '100%',
           opacity: 0,
         }}
         animate={{ y: 0, opacity: 1 }}
@@ -51,7 +60,7 @@ function Landing() {
           </h2>
           <motion.h1
             initial={{
-              y: '-100%',
+              y: '100%',
               opacity: 0,
             }}
             animate={{ y: 0, opacity: 1 }}

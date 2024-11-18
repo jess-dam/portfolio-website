@@ -94,7 +94,7 @@ const SkillStack = (props: SkillStackProps) => {
             <motion.div
               className="relative flex justify-center items-center"
               initial={{ y: '-100%', opacity: 0 }}
-              whileInView={{ y: 0, opacity: 100 }}
+              animate={{ y: 0, opacity: 100 }}
               transition={{
                 ease: 'easeInOut',
                 duration: 0.5,
