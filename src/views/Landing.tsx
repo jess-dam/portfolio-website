@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTime, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { SECTION_REFS } from '../pageRefs';
 
@@ -9,7 +9,15 @@ function Landing() {
     target: ref,
     offset: ['start start', 'end start'],
   });
-  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
+  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '250%']);
+
+  const distance = 300;
+  const time = useTime();
+  const blurY = useTransform(() => Math.sin(time.get() / 1000) * distance);
+  const blurX = useTransform(() => Math.sin(time.get() / 1200) * distance);
+
+  const blur2Y = useTransform(() => Math.sin(time.get() / 1500) * distance);
+  const blur2X = useTransform(() => Math.sin(time.get() / 1300) * distance);
 
   return (
     <div
@@ -37,11 +45,38 @@ function Landing() {
 
       <motion.div
         className="absolute z-20 bottom-[25vh] md:bottom-[20vh] left-[15vw] bg-secondary rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
+        style={{ x: blurX, y: blurY }}
         initial={{
           opacity: 0,
         }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 1.5, ease: 'easeIn' }}
+        animate={{
+          scale: [1, 1.5, 1, 1, 1.5, 1],
+          opacity: [0, 0.5, 0.5, 1, 0.5, 1, 0],
+        }}
+        transition={{
+          duration: 10,
+          delay: 0.5,
+          ease: 'easeIn',
+          repeat: Infinity,
+        }}
+      />
+
+      <motion.div
+        className="absolute z-20 bottom-[25vh] md:bottom-[80vh] right-[15vw] bg-secondary bg-gradient-to-t from-pri rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
+        style={{ x: blur2X, y: blur2Y }}
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          scale: [1, 1.5, 1, 1, 1.5, 1],
+          opacity: [0, 0.5, 0.8, 0.5, 1, 1, 0],
+        }}
+        transition={{
+          duration: 10,
+          delay: 0.5,
+          ease: 'easeIn',
+          repeat: Infinity,
+        }}
       />
 
       <motion.div
@@ -72,7 +107,7 @@ function Landing() {
           </motion.h1>
           <img
             src="/assets/images/doodles/cat_on_laptop.svg"
-            className="absolute z-20 w-[80px] top-[72px] left-[185px] md:top-[102px] md:left-[560px] md:w-[250px]"
+            className="absolute z-20 w-[80px] top-[69px] left-[185px] md:top-[102px] md:left-[560px] md:w-[250px]"
             width={300}
             alt=""
           />
@@ -83,11 +118,6 @@ function Landing() {
           </h3>
         </div>
       </motion.div>
-
-      {/* <area
-          alt=""
-          className="z-0 absolute bottom-0 bg-secondary opacity-70 blur-3xl w-[80%] h-[400px] rounded-full"
-        /> */}
     </div>
   );
 }

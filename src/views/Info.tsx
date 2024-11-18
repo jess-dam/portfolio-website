@@ -166,17 +166,22 @@ function Info() {
           </div>
 
           <div className="col-span-2 flex flex-col justify-center content-start">
-            <motion.p className="tracking-wide pb-4 text-center md:text-left uppercase">
+            <p className="tracking-wide pb-4 text-center md:text-left uppercase">
               I’m a{' '}
-              <span className="font-bold bg-secondary rounded-lg">
+              <motion.span
+                className="font-bold bg-secondary rounded-lg"
+                // initial={{ background: 0 }}
+                // whileInView={{ backgroundSize: '100%' }}
+                // transition={{ duration: 1, ease: 'easeIn' }}
+              >
                 full-stack developer
-              </span>{' '}
+              </motion.span>{' '}
               with a focus on{' '}
               <span className="font-bold bg-secondary rounded-lg">
                 front-end and UX
               </span>
               .
-            </motion.p>
+            </p>
             <BuildTools />
             <Hobbies />
           </div>

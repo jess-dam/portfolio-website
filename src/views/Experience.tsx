@@ -1,6 +1,7 @@
+import { useRef } from 'react';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface TimelineImage {
   url: string;
@@ -24,10 +25,25 @@ const TimelineCard = ({
   const { imgs, timePeriod, roleTitle, orgName } = role;
   const xAxisOffset = index % 2 != 0 ? 'justify-end' : 'justify-start';
 
+  // animation
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ['start start', 'end start'],
+  // });
+  // const experienceVisibility = useTransform(
+  //   scrollYProgress,
+  //   [0, 1],
+  //   ['0%', '100%'],
+  // );
+
   return (
     <div className={`flex px-2 md:px-0 ${xAxisOffset}`}>
-      <div
+      <motion.div
+        // ref={ref}
+        // style={{ opacity: experienceVisibility }}
         className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-white text-black rounded-full border border-black p-5 px-2 max-w-[90vw] md:min-h-[150px] w-[350px] md:w-[600px]`}
+        initial={{ opacity: 0.5 }}
+        whileInView={{ opacity: 1 }}
       >
         {
           // displays max two images
@@ -66,7 +82,7 @@ const TimelineCard = ({
             {orgName}
           </h3>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
