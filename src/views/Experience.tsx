@@ -1,7 +1,6 @@
-import { useRef } from 'react';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface TimelineImage {
   url: string;
