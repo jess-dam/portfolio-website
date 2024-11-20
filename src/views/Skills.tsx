@@ -49,11 +49,20 @@ function Skills() {
           naturalSlideHeight={65}
           totalSlides={4}
         >
-          <ButtonBack className="mt-10" aria-label="back button">
+          <ButtonBack
+            className="mt-10 col-start-1 col-end-1"
+            aria-label="Previous skill stack"
+          >
             <img src="assets/images/icons/backarrow.svg" />
           </ButtonBack>
+          <ButtonNext
+            className="mt-10 col-start-6 col-end-6"
+            aria-label="Next skill stack"
+          >
+            <img src="assets/images/icons/nextarrow.svg" />
+          </ButtonNext>
 
-          <Slider className="col-span-4 grid md:items-center mt-[30px] md:mt-0 h-[500px] md:h-[800px]">
+          <Slider className="row-start-1 col-start-2 col-end-6 grid content-start md:items-center mt-[30px] md:mt-0 h-[500px] md:h-[850px]">
             <Slide index={0}>
               <SkillStack title="Front End" skills={frontEndSkills} />
             </Slide>
@@ -67,9 +76,6 @@ function Skills() {
               <SkillStack title="Progress" skills={growingSkills} />
             </Slide>
           </Slider>
-          <ButtonNext className="mt-10" aria-label="Next button">
-            <img src="assets/images/icons/nextarrow.svg" />
-          </ButtonNext>
         </CarouselProvider>
       </div>
     </ContentSectionContainer>
@@ -84,8 +90,8 @@ interface SkillStackProps {
 const SkillStack = (props: SkillStackProps) => {
   const { title, skills } = props;
   return (
-    <div className="flex flex-col justify-center w-full h-auto">
-      <h1 className="text-wrap break-words text-center text-[1.8rem] pt-4 md:pt-0 md:text-[5.2rem]">
+    <div className="flex flex-col justify-center content-start w-full h-fit">
+      <h1 className="text-wrap break-words text-center text-[1.8rem] pt-4 md:mt-10 md:pt-0 md:text-[3.4rem] lg:text-[4rem]">
         {title}
       </h1>
       <div className="gap-8 md:gap-10 grid grid-rows-auto mt-4 md:mt-14 items-center m-10">
@@ -94,7 +100,7 @@ const SkillStack = (props: SkillStackProps) => {
             <motion.div
               className="relative flex justify-center items-center"
               initial={{ y: '-100%', opacity: 0 }}
-              animate={{ y: 0, opacity: 100 }}
+              whileInView={{ y: 0, opacity: 100 }}
               transition={{
                 ease: 'easeInOut',
                 duration: 0.5,

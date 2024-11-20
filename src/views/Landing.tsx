@@ -26,7 +26,7 @@ function Landing() {
     >
       <motion.div
         initial={{
-          borderRadius: '50%',
+          borderRadius: '30%',
           opacity: 0,
           y: '100%',
           // height: '70%',
@@ -34,7 +34,7 @@ function Landing() {
         }}
         animate={{
           opacity: [0.5, 1],
-          borderRadius: ['20%', 0],
+          borderRadius: ['40%', 0],
           y: 0,
           // height: '100%',
           // width: '100%',
@@ -50,7 +50,7 @@ function Landing() {
           opacity: 0,
         }}
         animate={{
-          scale: [1, 1.5, 1, 1, 1.5, 1],
+          scale: [1, 1.5, 1, 1, 2, 1],
           opacity: [0, 0.5, 0.5, 1, 0.5, 1, 0],
         }}
         transition={{

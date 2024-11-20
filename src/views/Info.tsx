@@ -129,13 +129,6 @@ function Info() {
     >
       <div className="grid grid-rows-min pt-20 md:px-8 gap-12">
         <motion.h1
-          // initial={{ opacity: 0, y: '-50%' }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // transition={{
-          //   duration: 0.85,
-          //   ease: 'easeInOut',
-          // }}
-          // exit={{ opacity: 0 }}
           className="text-[4rem] text-center p-10 md:p-0 md:text-[8rem] md:text-left leading-none h-fit self-end"
         >
           Hello!
@@ -170,11 +163,11 @@ function Info() {
               I’m a{' '}
               <motion.span
                 className="font-bold bg-secondary rounded-lg"
-                // initial={{ background: 0 }}
-                // whileInView={{ backgroundSize: '100%' }}
-                // transition={{ duration: 1, ease: 'easeIn' }}
+                initial={{ background: 0 }}
+                whileInView={{ backgroundSize: '100%' }}
+                transition={{ duration: 1, ease: 'easeIn', delay: 1 }}
               >
-                full-stack developer
+                full-stack software developer
               </motion.span>{' '}
               with a focus on{' '}
               <span className="font-bold bg-secondary rounded-lg">
