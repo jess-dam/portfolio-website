@@ -29,44 +29,54 @@ function Contact() {
         </div>
 
         <div className="flex flex-col gap-10 px-8">
-          <a
-            href={githubUrl}
-            className="flex w-fit gap-8 border border-black text-black bg-secondary justify-start content-center p-8 rounded-full hover:bg-black h-fit"
-          >
-            <img
-              src="/assets/images/github-black.svg"
-              alt="Redirects to Github profile"
-              width={30}
-            />
-            <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
-              See what I've been working on
-            </label>
-            <TopRightArrow />
-          </a>
+          <ContactButton
+            label="See what I've been working on"
+            redirectLink={githubUrl}
+            icon={{
+              src: '/assets/images/github-black.svg',
+              altTag: 'Redirects to GitHub profile',
+            }}
+          />
 
-          <a
-            href={linkedinUrl}
-            className="flex w-fit gap-8 border border-black text-black bg-secondary justify-between content-center p-8 rounded-full hover:bg-black"
-          >
-            <img
-              src="/assets/images/linkedin-black.svg"
-              alt="Redirects to Linkedin profile"
-              width={30}
-            />
-            <label className="uppercase tracking-widest flex items-center text-xs md:text-sm">
-              Let's Connect!
-            </label>
-            <TopRightArrow />
-          </a>
+          <ContactButton
+            label="Let's Connect!"
+            redirectLink={linkedinUrl}
+            icon={{
+              src: '/assets/images/linkedin-black.svg',
+              altTag: 'Redirects to LinkedIn profile',
+            }}
+          />
         </div>
       </div>
     </ContentSectionContainer>
   );
 }
 
+interface ContactButtonProps {
+  redirectLink: string;
+  label: string;
+  icon?: { src: string; altTag: string };
+}
+
+const ContactButton = ({ redirectLink, label, icon }: ContactButtonProps) => {
+  return (
+    <a
+      href={redirectLink}
+      className="flex w-fit gap-8 border border-black text-black bg-secondary justify-start content-center p-8 rounded-full hover:bg-black h-fit"
+    >
+      <img src={icon?.src} alt={icon?.altTag} width={30} />
+      <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
+        {label}
+      </label>
+      <TopRightArrow />
+    </a>
+  );
+};
+
 const TopRightArrow = () => {
   return (
     <svg
+      className="hover:text-secondary fill-current"
       width={50}
       height="48"
       viewBox="0 0 48 48"

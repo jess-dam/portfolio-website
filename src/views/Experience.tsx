@@ -27,11 +27,8 @@ const TimelineCard = ({
 
   return (
     <div className={`flex px-2 md:px-0 ${xAxisOffset}`}>
-      <motion.div
+      <div
         className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-white text-black rounded-full border border-black p-5 px-2 max-w-[90vw] md:min-h-[150px] w-[350px] md:w-[600px]`}
-        initial={{ opacity: 0.5 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
       >
         {
           // displays max two images
@@ -70,7 +67,7 @@ const TimelineCard = ({
             {orgName}
           </h3>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -93,8 +90,8 @@ function Experience() {
     },
     {
       imgs: [
-        { url: 'assets/images/multiverse.svg', alt: '' },
-        { url: '/assets/images/starlingbank.svg', alt: '' },
+        { url: 'assets/images/multiverse.svg', alt: 'Multiverse Logo' },
+        { url: '/assets/images/starlingbank.svg', alt: 'Starling Bank Logo' },
       ],
       timePeriod: '2019 - 2021',
       roleTitle: 'Software Engineeering Apprenticeship',
@@ -134,18 +131,9 @@ function Experience() {
       textColor="black"
     >
       <div ref={timelineRef} className="flex flex-col w-full h-fit py-20">
-        <motion.h1
-          initial={{ opacity: 0, y: '-50%' }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.85,
-            ease: 'easeInOut',
-          }}
-          exit={{ opacity: 0 }}
-          className="z-0 pb-10 md:pb-20 text-[2.2rem] break-words md:text-[5rem] font-climate-crisis justify-start text-left md:pl-[20vw]"
-        >
+        <h1 className="z-0 pb-10 md:pb-20 text-[2.2rem] break-words md:text-[5rem] font-climate-crisis justify-start text-left md:pl-[20vw]">
           Experience
-        </motion.h1>
+        </h1>
         <div className="relative flex flex-col items-center h-fit">
           <div className="z-10 flex flex-col gap-10 px-2 md:w-[60vw] md:max-w-[900px] py-8 my-10 md:my-28">
             {items.map((role, index) => {
@@ -176,7 +164,12 @@ function Experience() {
             <circle cx="15.5" cy="13.5" r="13.5" fill="black" />
             <circle cx="13.5" cy="1139.5" r="13.5" fill="black" />
           </svg>
-          <h3 aria-hidden='true' className="absolute bottom-[-30px] md:bottom-[-40px]">Present</h3>
+          <h3
+            aria-hidden="true"
+            className="absolute bottom-[-30px] md:bottom-[-40px]"
+          >
+            Present
+          </h3>
         </div>
       </div>
     </ContentSectionContainer>
