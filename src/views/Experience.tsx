@@ -1,6 +1,7 @@
+import { useRef } from 'react';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { motion } from 'framer-motion';
+import { easeIn, motion, useScroll } from 'framer-motion';
 
 interface TimelineImage {
   url: string;
@@ -24,25 +25,13 @@ const TimelineCard = ({
   const { imgs, timePeriod, roleTitle, orgName } = role;
   const xAxisOffset = index % 2 != 0 ? 'justify-end' : 'justify-start';
 
-  // animation
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ['start start', 'end start'],
-  // });
-  // const experienceVisibility = useTransform(
-  //   scrollYProgress,
-  //   [0, 1],
-  //   ['0%', '100%'],
-  // );
-
   return (
     <div className={`flex px-2 md:px-0 ${xAxisOffset}`}>
       <motion.div
-        // ref={ref}
-        // style={{ opacity: experienceVisibility }}
         className={`grid grid-cols-3 md:grid-cols-6 gap-4 items-center bg-white text-black rounded-full border border-black p-5 px-2 max-w-[90vw] md:min-h-[150px] w-[350px] md:w-[600px]`}
         initial={{ opacity: 0.5 }}
         whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 1 }}
       >
         {
           // displays max two images
@@ -132,13 +121,19 @@ function Experience() {
     },
   ];
 
+  // animation
+  const timelineRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+  });
+
   return (
     <ContentSectionContainer
       id={SECTION_REFS.EXPERIENCE}
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col w-full h-fit py-20">
+      <div ref={timelineRef} className="flex flex-col w-full h-fit py-20">
         <motion.h1
           initial={{ opacity: 0, y: '-50%' }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -157,7 +152,9 @@ function Experience() {
               return <TimelineCard index={index} role={role} />;
             })}
           </div>
+
           <svg
+            aria-hidden="true"
             className="absolute top-0 h-[900px] md:h-[1200px]"
             width="29"
             height="1700"
@@ -165,11 +162,21 @@ function Experience() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <line x1="15.5" y1="24.0009" x2="13.5" y2="1140" stroke="black" />
-            <circle cx="13.5" cy="1139.5" r="13.5" fill="black" />
+            <motion.line
+              // initial={{ opacity: 0, pathLength: 0 }}
+              // whileInView={{ opacity: 1, pathLength: 1 }}
+              transition={{ delay: 0.2, duration: 3, ease: easeIn }}
+              style={{ pathLength: scrollYProgress }}
+              x1="15.5"
+              y1="24.0009"
+              x2="13.5"
+              y2="1140"
+              stroke="black"
+            />
             <circle cx="15.5" cy="13.5" r="13.5" fill="black" />
+            <circle cx="13.5" cy="1139.5" r="13.5" fill="black" />
           </svg>
-          <h3 className="absolute bottom-[-30px] md:bottom-[-40px]">Present</h3>
+          <h3 aria-hidden='true' className="absolute bottom-[-30px] md:bottom-[-40px]">Present</h3>
         </div>
       </div>
     </ContentSectionContainer>

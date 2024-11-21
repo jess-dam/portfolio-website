@@ -22,7 +22,7 @@ function Landing() {
   return (
     <div
       id={SECTION_REFS.LANDING}
-      className="relative flex justify-start h-screen w-full overflow-clip bg-black text-black"
+      className="relative flex justify-start h-screen w-full overflow-clip text-black"
     >
       <motion.div
         initial={{
@@ -40,7 +40,7 @@ function Landing() {
           // width: '100%',
         }}
         transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.2 }}
-        className="z-0 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
+        className="z-0 absolute top-0 h-[100vh] w-full flex justify-center"
       ></motion.div>
 
       <motion.div

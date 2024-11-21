@@ -94,10 +94,11 @@ const SkillStack = (props: SkillStackProps) => {
       <h1 className="text-wrap break-words text-center text-[1.8rem] pt-4 md:mt-10 md:pt-0 md:text-[3.4rem] lg:text-[4rem]">
         {title}
       </h1>
-      <div className="gap-8 md:gap-10 grid grid-rows-auto mt-4 md:mt-14 items-center m-10">
+      <ul className="gap-8 md:gap-10 grid grid-rows-auto mt-4 md:mt-14 items-center m-10">
         {skills.map((skill, index) => {
           return (
-            <motion.div
+            <motion.li
+              aria-aria-describedby="skill-label"
               className="relative flex justify-center items-center"
               initial={{ y: '-100%', opacity: 0 }}
               whileInView={{ y: 0, opacity: 100 }}
@@ -108,10 +109,14 @@ const SkillStack = (props: SkillStackProps) => {
               }}
               exit={{ y: '-100%', opacity: 0 }}
             >
-              <label className="z-10 uppercase tracking-widest text-[0.8rem] md:text-[1rem] font-semibold text-center md:text-2xl text-bold max-w-[300px]">
+              <label
+                id="skill-label"
+                className="z-10 uppercase tracking-widest text-[0.8rem] md:text-[1rem] font-semibold text-center md:text-2xl text-bold max-w-[300px]"
+              >
                 {skill}
               </label>
               <svg
+                aria-hidden="true"
                 className="absolute top-2 md:top-4 z-0 w-[150px] md:w-[360px]"
                 width="361"
                 height="44"
@@ -126,10 +131,10 @@ const SkillStack = (props: SkillStackProps) => {
                   stroke-width="1.13701"
                 />
               </svg>
-            </motion.div>
+            </motion.li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };

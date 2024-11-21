@@ -43,7 +43,10 @@ function Nav() {
       {/* Mobile Nav */}
       <div className="md:hidden flex flex-col w-full px-4 pt-4">
         <div className="w-full flex content-center justify-between gap-8">
-          <a href={'#' + SECTION_REFS.LANDING} className="text-primary">
+          <a
+            href={'#' + SECTION_REFS.LANDING}
+            className="text-primary dark:text-secondary"
+          >
             <h1 className="w-[50px] text-[1rem] text-center align-center p-4">
               Jess Dam
             </h1>

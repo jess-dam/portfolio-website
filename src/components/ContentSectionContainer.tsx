@@ -8,7 +8,7 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-function ContentSectionContainer({ id, children, bgColor, textColor }: Props) {
+function ContentSectionContainer({ id, children }: Props) {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: false });
   const sectionFadeInAnimation = useAnimation();
@@ -21,10 +21,10 @@ function ContentSectionContainer({ id, children, bgColor, textColor }: Props) {
     <AnimatePresence>
       <section
         id={id}
-        className={`pb-20 md:py-20 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
+        className={`pb-20 md:py-20 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden`}
       >
         <div
-          className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden bg-${bgColor} text-${textColor}`}
+          className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden`}
         >
           {children}
         </div>
