@@ -22,7 +22,7 @@ function Nav() {
     // Compare the previous y coordinates to the current ones to check if
     // the user is scrolling up the page
     const previous = scrollY.getPrevious();
-    if (previous && previous < latest) {
+    if (previous && previous + 1 < latest) {
       setIsNavHidden(true);
     } else {
       setIsNavHidden(false);
@@ -62,7 +62,7 @@ function Nav() {
           </div>
         </div>
         <motion.ul
-          className={`${isUsingMobileDropdown ? 'hidden' : 'flex'} flex-col place-self-end w-[50vw] text-right mt-4 gap-4 text-bold uppercase tracking-widest text-sm bg-black p-4 rounded-xl`}
+          className={`${isUsingMobileDropdown ? 'hidden' : 'flex'} flex-col place-self-end w-fit text-right mt-4 gap-4 text-bold uppercase tracking-widest text-sm bg-black text-white p-4 px-10 rounded-xl`}
           initial={{ opacity: 0, height: 0 }}
           whileInView={{ opacity: 100, height: '100%' }}
           exit={{ opacity: 0, height: 0 }}
