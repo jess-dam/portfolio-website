@@ -22,7 +22,7 @@ function Contact() {
               ease: 'easeInOut',
             }}
             exit={{ opacity: 0 }}
-            className="text-center md:text-left text-[3rem] md:text-[9rem] z-10 md:pb-20 "
+            className="text-center md:text-left text-[3rem] md:text-[6rem] lg:text-[9rem] z-10 md:pb-20 "
           >
             Contact
           </motion.h1>

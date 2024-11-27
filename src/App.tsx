@@ -6,6 +6,7 @@ import Info from './views/Info';
 import Landing from './views/Landing';
 import Skills from './views/Skills';
 import Nav from './components/Nav';
+import Interests from './views/Interests';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Info />
         <Experience />
         <Skills />
+        <Interests />
         <Contact />
       </main>
       <Footer />

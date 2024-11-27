@@ -26,18 +26,14 @@ function Landing() {
     >
       <motion.div
         initial={{
-          borderRadius: '30%',
+          borderRadius: '50%',
           opacity: 0,
           y: '100%',
-          // height: '70%',
-          // width: '70%',
         }}
         animate={{
           opacity: [0.5, 1],
-          borderRadius: ['40%', 0],
+          borderRadius: 0,
           y: 0,
-          // height: '100%',
-          // width: '100%',
         }}
         transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.2 }}
         className="z-0 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
@@ -87,7 +83,7 @@ function Landing() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 2.5, ease: 'easeInOut' }}
         ref={ref}
-        className="z-20 pl-[50px] md:pl-[20vw] max-pl-[400px] flex flex-col items-start justify-center min-w-[300px] md:min-w-[710px]"
+        className="z-20 pl-[50px] lg:pl-[20vw] max-pl-[400px] flex flex-col items-start justify-center min-w-[300px] md:min-w-[710px]"
       >
         <div className="relative flex flex-col overflow-hidden w-[270px] md:w-[800px] pb-2 md:pb-10">
           <h2 className="text-primary pb-4 md:pb-10 text-[0.8rem] md:text-[1.2rem]">
@@ -100,14 +96,14 @@ function Landing() {
             }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 2, ease: 'easeInOut' }}
-            className="flex flex-wrap z-10 relative text-[4rem] md:text-[12rem] leading-[3rem] md:leading-[6.5rem]"
+            className="flex flex-wrap z-10 relative text-[4rem] md:text-[10rem] lg:text-[12rem] leading-[3rem] md:leading-[6.5rem]"
             style={{ y: textY }}
           >
             Jess Dam
           </motion.h1>
           <img
             src="/assets/images/doodles/cat_on_laptop.svg"
-            className="absolute z-20 w-[80px] top-[69px] left-[185px] md:top-[102px] md:left-[560px] md:w-[250px]"
+            className="absolute z-20 w-[90px] top-[56px] left-[185px] md:top-[80px] md:left-[460px] lg:top-[92px] lg:left-[560px] md:w-[250px]"
             width={300}
             alt=""
           />

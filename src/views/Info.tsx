@@ -1,20 +1,7 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
+import { ImageWithLabelContainer } from '../components/ImageWIthLabelContainer';
 import { SECTION_REFS } from '../pageRefs';
 import { motion } from 'framer-motion';
-
-interface ImageWithLabelContainerProps {
-  children: JSX.Element | JSX.Element[];
-}
-
-const ImageWithLabelContainer = ({
-  children,
-}: ImageWithLabelContainerProps) => {
-  return (
-    <div className="grid auto-row content-between justify-items-center gap-2">
-      {children}
-    </div>
-  );
-};
 
 const BuildTools = () => {
   return (

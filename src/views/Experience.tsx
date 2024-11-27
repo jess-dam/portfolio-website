@@ -131,7 +131,7 @@ function Experience() {
       textColor="black"
     >
       <div ref={timelineRef} className="flex flex-col w-full h-fit py-20">
-        <h1 className="z-0 pb-10 md:pb-20 text-[2.2rem] break-words md:text-[5rem] font-climate-crisis justify-start text-center md:text-left md:pl-[20vw]">
+        <h1 className="z-0 pb-10 md:pb-20 text-[2.2rem] break-words md:text-[5rem] font-climate-crisis justify-start text-center lg:text-left lg:pl-[20vw]">
           Experience
         </h1>
         <div className="relative flex flex-col items-center h-fit">
