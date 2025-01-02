@@ -81,7 +81,7 @@ function Landing() {
           opacity: 0,
         }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 2.5, ease: 'easeInOut' }}
+        transition={{ duration: 2, ease: 'easeInOut' }}
         ref={ref}
         className="z-20 pl-[50px] lg:pl-[20vw] max-pl-[400px] flex flex-col items-start justify-center min-w-[300px] md:min-w-[710px]"
       >
