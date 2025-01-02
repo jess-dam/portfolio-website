@@ -26,7 +26,7 @@ function Landing() {
     >
       <motion.div
         initial={{
-          borderRadius: '50%',
+          borderRadius: '60%',
           opacity: 0,
           y: '100%',
         }}

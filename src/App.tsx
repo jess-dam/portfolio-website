@@ -11,8 +11,8 @@ import Interests from './views/Interests';
 function App() {
   return (
     <div className="h-auto w-screen">
-      <main>
-        <Nav />
+      <Nav />
+      <main id="main">
         <Landing />
         <Info />
         <Experience />

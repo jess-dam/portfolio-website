@@ -42,8 +42,11 @@ function Nav() {
     >
       {/* Mobile Nav */}
       <div className="md:hidden flex flex-col w-full px-4 pt-4">
+        <a href="#main" className="skip-to-main-content-link">
+          Skip to main content
+        </a>
         <div className="w-full flex content-center justify-between gap-8">
-          <a href={'#' + SECTION_REFS.LANDING} className="text-primary">
+          <a href={'#' + SECTION_REFS.LANDING}>
             <h1 className="w-[50px] text-[1rem] text-center align-center p-4">
               Jess Dam
             </h1>
@@ -82,9 +85,12 @@ function Nav() {
 
       {/* Desktop Nav */}
       <div className="hidden md:flex w-full justify-between">
+        <a href="#main" className="skip-to-main-content-link">
+          Skip to main content
+        </a>
         <div className="flex items-center p-8 h-[70px] gap-8">
           <a href={'#' + SECTION_REFS.LANDING}>
-            <h1 className="w-[50px] text-[1rem] text-center text-primary align-center">
+            <h1 className="w-[50px] text-[1rem] text-center align-center">
               Jess Dam
             </h1>
           </a>
@@ -141,7 +147,7 @@ const HamburgerSVG = () => {
     >
       <path
         d="M3.875 15.5H27.125M3.875 7.75H27.125M3.875 23.25H27.125"
-        stroke="#1E1E1E"
+        stroke="#000000"
         stroke-width="3"
         stroke-linecap="round"
         stroke-linejoin="round"

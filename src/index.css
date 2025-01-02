@@ -116,6 +116,24 @@ button {
   border: 1px solid black;
   border-radius: 30px;
   font-size: small;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.skip-to-main-content-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  opacity: 0;
+}
+.skip-to-main-content-link:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
 }
 
 @media only screen and (min-width: 768px) {

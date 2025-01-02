@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 function Skills() {
-  type SkillStack = 'Front End' | 'Back End' | 'Non-Tech' | 'Progress';
+  type SkillStack = 'Front End' | 'Back End' | 'Non-Tech' | 'Learning';
 
   const [selectedSkillStack, setSelectedSkillStack] =
     useState<SkillStack>('Front End');
@@ -27,7 +27,7 @@ function Skills() {
       'Kubernetes',
     ],
     'Non-Tech': ['User Research', 'Project Management'],
-    Progress: [
+    Learning: [
       'Figma',
       'Communicating Design Ideas',
       'Designing for Accessibility',
@@ -41,7 +41,8 @@ function Skills() {
       textColor="black"
     >
       <div className="flex flex-col md:w-[70vw] md:max-w-[1000px] ">
-        <div className="flex justify-center gap-4 md:gap-8 py-8 md:py-20 overflow-y-scroll">
+        <h2 className="md:text-3xl text-center">Skills</h2>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8 py-2 md:py-6">
           {Object.keys(skillStacks).map((skillStackKey) => (
             <button
               className={
@@ -56,7 +57,7 @@ function Skills() {
             </button>
           ))}
         </div>
-        <h2 className="md:text-3xl">Skills in</h2>
+
         <SkillStack
           key={selectedSkillStack}
           title={selectedSkillStack}
@@ -83,7 +84,7 @@ const SkillStack = (props: SkillStackProps) => {
           ease: 'easeInOut',
           duration: 1,
         }}
-        className="text-wrap break-words text-[2.5rem] pt-4 md:mt-10 md:pt-0 md:text-[3.4rem] lg:text-[4rem]"
+        className="text-center text-wrap break-words text-[2.5rem] pt-8 md:mt-10 md:text-[3.4rem] lg:text-[4rem]"
       >
         {title}
       </motion.h1>
