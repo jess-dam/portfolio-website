@@ -40,7 +40,7 @@ function Skills() {
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col md:w-[70vw] md:max-w-[1000px] ">
+      <div className="flex flex-col self-center">
         <h2 className="md:text-3xl text-center">Skills</h2>
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 py-2 md:py-6">
           {Object.keys(skillStacks).map((skillStackKey) => (
@@ -76,7 +76,7 @@ interface SkillStackProps {
 const SkillStack = (props: SkillStackProps) => {
   const { title, skills } = props;
   return (
-    <div className="flex flex-col justify-center content-start w-full h-fit">
+    <div className="flex flex-col justify-center content-center w-full h-fit">
       <motion.h1
         initial={{ y: '-10%', opacity: 0 }}
         animate={{ y: 0, opacity: 100 }}

@@ -24,7 +24,7 @@ function ContentSectionContainer({ id, children }: Props) {
         className={`pb-20 md:py-20 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden`}
       >
         <div
-          className={`pb-10 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden`}
+          className={`pb-10 flex justify-center content-center min-h-screen w-full lg:max-w-[1000px] px-4 overflow-hidden`}
         >
           {children}
         </div>

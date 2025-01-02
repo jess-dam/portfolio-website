@@ -12,8 +12,8 @@ function Contact() {
       bgColor="white"
       textColor="black"
     >
-      <div className="relative flex flex-col w-full place-content-evenly md:place-content-center max-w-[1500px] md:min-w-[60vw] md:py-20 md:p-10">
-        <div className="overflow-y-hidden">
+      <div className="relative flex flex-col w-full place-content-evenly md:place-content-center md:py-20 md:p-10">
+        <div className="">
           <motion.h1
             initial={{ opacity: 0, y: '-70%' }}
             whileInView={{ opacity: 1, y: 0 }}

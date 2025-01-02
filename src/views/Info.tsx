@@ -114,7 +114,7 @@ function Info() {
       bgColor="white"
       textColor="black"
     >
-      <div className="grid grid-rows-min pt-20 md:px-8 gap-12">
+      <div className="grid grid-rows-min pt-20 md:px-8 gap-12 lg:gap-18">
         <motion.h1 className="text-[4rem] text-center p-10 md:p-0 md:text-[8rem] md:text-left leading-none h-fit self-end">
           Hello!
         </motion.h1>
