@@ -61,9 +61,9 @@ const TimelineCard = ({
         }
 
         <div className="col-span-2 md:col-span-3">
-          <label className="text-sm md:text-md">{timePeriod}</label>
+          <span className="text-sm md:text-md">{timePeriod}</span>
           <h2 className="tracking-normal text-sm md:text-lg">{roleTitle}</h2>
-          <h3 className="tracking-normal font-medium text-sm md:text-lg">
+          <h3 className="tracking-normal text-wrap font-medium text-md md:text-lg">
             {orgName}
           </h3>
         </div>

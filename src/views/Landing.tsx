@@ -22,8 +22,18 @@ function Landing() {
   return (
     <div
       id={SECTION_REFS.LANDING}
-      className="relative flex justify-start h-screen w-full overflow-clip text-black bg-black"
+      className="relative flex place-content-center h-screen w-full overflow-clip text-black bg-black"
     >
+      <motion.img
+        src="/assets/images/doodles/cat_on_laptop_white.svg"
+        className="absolute z-0 w-[90px] md:w-[200px] top-[45vh] md:top-[40vh]"
+        width={300}
+        alt=""
+        initial={{ opacity: 0 }}
+        animate={{ opacity: ['100%', '80%', '100%', '100%', '50%', 0] }}
+        transition={{ duration: 4, ease: 'easeInOut' }}
+      />
+
       <motion.div
         initial={{
           borderRadius: '60%',
@@ -35,8 +45,8 @@ function Landing() {
           borderRadius: 0,
           y: 0,
         }}
-        transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.2 }}
-        className="z-0 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
+        transition={{ duration: 2, ease: 'easeInOut', delay: 1.8 }}
+        className="z-10 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
       ></motion.div>
 
       <motion.div
@@ -51,7 +61,7 @@ function Landing() {
         }}
         transition={{
           duration: 10,
-          delay: 0.5,
+          delay: 2.5,
           ease: 'easeIn',
           repeat: Infinity,
         }}
@@ -69,8 +79,8 @@ function Landing() {
         }}
         transition={{
           duration: 10,
-          delay: 0.5,
-          ease: 'easeIn',
+          delay: 2.5,
+          ease: 'backInOut',
           repeat: Infinity,
         }}
       />
@@ -81,9 +91,9 @@ function Landing() {
           opacity: 0,
         }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 2, ease: 'easeInOut' }}
+        transition={{ duration: 2, delay: 2, ease: 'easeInOut' }}
         ref={ref}
-        className="z-20 pl-[50px] lg:pl-[20vw] max-pl-[400px] flex flex-col items-start justify-center min-w-[300px] md:min-w-[710px]"
+        className="z-20 flex flex-col items-start justify-center min-w-[300px] md:min-w-[710px]"
       >
         <div className="relative flex flex-col overflow-hidden w-[270px] md:w-[800px] pb-2 md:pb-10">
           <h2 className="text-primary pb-4 md:pb-10 text-[0.8rem] md:text-[1.2rem]">
@@ -95,7 +105,7 @@ function Landing() {
               opacity: 0,
             }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2, ease: 'easeInOut' }}
+            transition={{ duration: 2, delay: 2.3, ease: 'easeInOut' }}
             className="flex flex-wrap z-10 relative text-[4rem] md:text-[10rem] lg:text-[12rem] leading-[3rem] md:leading-[6.5rem]"
             style={{ y: textY }}
           >
