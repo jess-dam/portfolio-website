@@ -9,31 +9,38 @@ import {
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 function Skills() {
-  const frontEndSkills = [
-    'TypeScript',
-    'React.js',
-    'Next.js',
-    'Figma',
-    'Tailwind',
-    'Framer Motion',
-  ];
-  const backEndSkills = [
-    'Java',
-    'Python',
-    'PostgreSQL',
-    'TeamCity',
-    'Docker',
-    'AWS EC2',
-    'Kubernetes',
-  ];
-  const growingSkills = [
-    'Figma',
-    'Communicating Design Ideas',
-    'Designing for Accessibility',
-  ];
-  const nonTechSkills = ['User Research', 'Project Management'];
+  type SkillStack = 'Front End' | 'Back End' | 'Non-Tech' | 'Progress';
+
+  const [selectedSkillStack, setSelectedSkillStack] =
+    useState<SkillStack>('Front End');
+  const skillStacks: Record<SkillStack, string[]> = {
+    'Front End': [
+      'TypeScript',
+      'React.js',
+      'Next.js',
+      'Figma',
+      'Tailwind',
+      'Framer Motion',
+    ],
+    'Back End': [
+      'Java',
+      'Python',
+      'PostgreSQL',
+      'TeamCity',
+      'Docker',
+      'AWS',
+      'Kubernetes',
+    ],
+    'Non-Tech': ['User Research', 'Project Management'],
+    Progress: [
+      'Figma',
+      'Communicating Design Ideas',
+      'Designing for Accessibility',
+    ],
+  };
 
   return (
     <ContentSectionContainer
@@ -41,42 +48,28 @@ function Skills() {
       bgColor="white"
       textColor="black"
     >
-      <div className="flex flex-col md:w-[70vw] md:max-w-[1000px]">
-        <h2 className="md:text-3xl md:px-10">Skills in</h2>
-        <CarouselProvider
-          className="w-full h-[400px] grid grid-cols-6 items-start"
-          naturalSlideWidth={60}
-          naturalSlideHeight={65}
-          totalSlides={4}
-        >
-          <ButtonBack
-            className="mt-10 col-start-1 col-end-1"
-            aria-label="Previous skill stack"
-          >
-            <img src="assets/images/icons/backarrow.svg" />
-          </ButtonBack>
-          <ButtonNext
-            className="mt-10 col-start-6 col-end-6"
-            aria-label="Next skill stack"
-          >
-            <img src="assets/images/icons/nextarrow.svg" />
-          </ButtonNext>
-
-          <Slider className="row-start-1 col-start-2 col-end-6 grid content-start md:items-center mt-[30px] md:mt-0 h-[500px] md:h-[850px]">
-            <Slide index={0}>
-              <SkillStack title="Front End" skills={frontEndSkills} />
-            </Slide>
-            <Slide index={1}>
-              <SkillStack title="Back End" skills={backEndSkills} />
-            </Slide>
-            <Slide index={2}>
-              <SkillStack title="Non-Tech" skills={nonTechSkills} />
-            </Slide>
-            <Slide index={3}>
-              <SkillStack title="Progress" skills={growingSkills} />
-            </Slide>
-          </Slider>
-        </CarouselProvider>
+      <div className="flex flex-col md:w-[70vw] md:max-w-[1000px] ">
+        <div className="flex justify-center gap-4 md:gap-8 py-8 md:py-20 overflow-y-scroll">
+          {Object.keys(skillStacks).map((skillStackKey) => (
+            <button
+              className={
+                skillStackKey == selectedSkillStack ? 'bg-black text-white' : ''
+              }
+              disabled={skillStackKey == selectedSkillStack}
+              aria-label="Click to discover the list for this skill set"
+              key={`${skillStackKey}-button`}
+              onClick={() => setSelectedSkillStack(skillStackKey as SkillStack)}
+            >
+              {skillStackKey}
+            </button>
+          ))}
+        </div>
+        <h2 className="md:text-3xl">Skills in</h2>
+        <SkillStack
+          key={selectedSkillStack}
+          title={selectedSkillStack}
+          skills={skillStacks[selectedSkillStack]}
+        />
       </div>
     </ContentSectionContainer>
   );
@@ -91,17 +84,25 @@ const SkillStack = (props: SkillStackProps) => {
   const { title, skills } = props;
   return (
     <div className="flex flex-col justify-center content-start w-full h-fit">
-      <h1 className="text-wrap break-words text-center text-[1.8rem] pt-4 md:mt-10 md:pt-0 md:text-[3.4rem] lg:text-[4rem]">
+      <motion.h1
+        initial={{ y: '-10%', opacity: 0 }}
+        animate={{ y: 0, opacity: 100 }}
+        transition={{
+          ease: 'easeInOut',
+          duration: 1,
+        }}
+        className="text-wrap break-words text-[2.5rem] pt-4 md:mt-10 md:pt-0 md:text-[3.4rem] lg:text-[4rem]"
+      >
         {title}
-      </h1>
-      <ul className="gap-8 md:gap-10 grid grid-rows-auto mt-4 md:mt-14 items-center m-10">
+      </motion.h1>
+      <ul className="gap-8 md:gap-10 grid grid-rows-auto mt-16 md:mt-20 items-center m-10">
         {skills.map((skill, index) => {
           return (
             <motion.li
               aria-aria-describedby="skill-label"
               className="relative flex justify-center items-center"
               initial={{ y: '-100%', opacity: 0 }}
-              whileInView={{ y: 0, opacity: 100 }}
+              animate={{ y: 0, opacity: 100 }}
               transition={{
                 ease: 'easeInOut',
                 duration: 0.5,
@@ -111,13 +112,13 @@ const SkillStack = (props: SkillStackProps) => {
             >
               <label
                 id="skill-label"
-                className="z-10 uppercase tracking-widest text-[0.8rem] md:text-[1rem] font-semibold text-center md:text-2xl text-bold max-w-[300px]"
+                className="z-10 uppercase tracking-widest text-[0.9rem] md:text-[1rem] font-semibold text-center md:text-2xl text-bold max-w-[300px]"
               >
                 {skill}
               </label>
               <svg
                 aria-hidden="true"
-                className="absolute top-2 md:top-4 z-0 w-[150px] md:w-[360px]"
+                className="absolute top-2 md:top-4 z-0 w-[200px] md:w-[360px]"
                 width="361"
                 height="44"
                 viewBox="0 0 361 44"

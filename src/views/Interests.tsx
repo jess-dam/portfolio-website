@@ -4,9 +4,9 @@ import { ImageWithLabelContainer } from '../components/ImageWIthLabelContainer';
 function Interests() {
   return (
     <ContentSectionContainer>
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 mt-40">
         <h3 className="flex justify-center p-10">Interests</h3>
-        <ul className="grid grid-cols-2 grid-rows-2 w-[85vw] h-[50vh] md:grid-cols-4 md:grid-rows-1 gap-6 md:gap-20 pt-4 font-semibold uppercase tracking-widest">
+        <ul className="grid grid-cols-2 grid-rows-2 w-[80vw] h-[50vh] md:grid-cols-4 md:grid-rows-1 gap-6 md:gap-20 text-sm md:text-md pt-4 font-semibold uppercase tracking-widest">
           <li>
             <ImageWithLabelContainer>
               <img

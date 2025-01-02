@@ -51,7 +51,7 @@ function Nav() {
           <div className="flex content-center justify-end p-2 px-4">
             <button
               aria-label="Click for drop down menu"
-              className=""
+              className="bg-transparent border-none"
               onClick={() => setIsUsingMobileDropdown(!isUsingMobileDropdown)}
             >
               <HamburgerSVG />
