@@ -51,7 +51,7 @@ function Nav() {
               Jess Dam
             </h1>
           </a>
-          <div className="flex content-center justify-end p-2 px-4">
+          <div className="flex content-center justify-end">
             <button
               aria-label="Click for drop down menu"
               className="bg-transparent border-none"
@@ -138,17 +138,16 @@ export default Nav;
 const HamburgerSVG = () => {
   return (
     <svg
-      className="mix-blend-color-screen"
-      width="31"
-      height="31"
-      viewBox="0 0 31 31"
+      width="41"
+      height="38"
+      viewBox="0 0 41 38"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M3.875 15.5H27.125M3.875 7.75H27.125M3.875 23.25H27.125"
-        stroke="#000000"
-        stroke-width="3"
+        d="M34.1668 9.5H17.0835M34.1668 19H6.8335M34.1668 28.5H23.9168"
+        stroke="black"
+        stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
