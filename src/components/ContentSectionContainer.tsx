@@ -21,10 +21,10 @@ function ContentSectionContainer({ id, children }: Props) {
     <AnimatePresence>
       <section
         id={id}
-        className={`pb-20 md:py-20 flex justify-center place-items-between min-h-screen w-full px-4 overflow-hidden`}
+        className={`grid grid-cols-12 justify-items-stretch m-4 md:m-8 pb-20 md:py-20 place-items-between min-h-screen overflow-hidden`}
       >
         <div
-          className={`pb-10 flex justify-center content-center min-h-screen w-full lg:max-w-[1000px] px-4 overflow-hidden`}
+          className={`pb-10 flex col-span-12 content-center min-h-screen overflow-hidden`}
         >
           {children}
         </div>

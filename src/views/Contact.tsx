@@ -12,7 +12,7 @@ function Contact() {
       bgColor="white"
       textColor="black"
     >
-      <div className="relative flex flex-col w-full place-content-evenly md:place-content-center md:py-20 md:p-10">
+      <div className="relative flex flex-col w-full place-content-evenly md:place-content-center">
         <div className="">
           <motion.h1
             initial={{ opacity: 0, y: '-70%' }}
@@ -62,7 +62,7 @@ const ContactButton = ({ redirectLink, label, icon }: ContactButtonProps) => {
   return (
     <a
       href={redirectLink}
-      className="flex w-fit gap-8 border border-black text-black bg-secondary justify-start content-center p-8 rounded-full hover:bg-black h-fit"
+      className="flex w-fit gap-8 border border-primary text-primary bg-accent justify-start content-center p-8 rounded-full hover:bg-primary hover:text-accent hover:border-primary h-fit"
     >
       <img src={icon?.src} alt={icon?.altTag} width={30} />
       <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
@@ -76,7 +76,7 @@ const ContactButton = ({ redirectLink, label, icon }: ContactButtonProps) => {
 const TopRightArrow = () => {
   return (
     <svg
-      className="hover:text-secondary fill-current"
+      className="hover:text-accent fill-current"
       width={50}
       height="48"
       viewBox="0 0 48 48"
