@@ -95,7 +95,7 @@ function Landing() {
         ref={ref}
         className="z-20 p-10 grid justify-start items-end grid-cols-2 grid-rows-2 min-w-[300px] md:min-w-[710px] h-auto"
       >
-        <div className="relative col-start-1 row-start-2 flex flex-col overflow-hidden w-[270px] md:w-[800px] h-auto">
+        <div className="relative col-start-1 row-start-2 flex flex-col overflow-hidden w-[270px] md:w-[550px] lg:w-[800px] h-[150px] md:h-[250px]">
           <motion.div
             initial={{
               y: '100%',
@@ -104,21 +104,24 @@ function Landing() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 2, delay: 2.3, ease: 'easeInOut' }}
             style={{ y: textY }}
-            className=""
+            className="h-full grid items-stretch"
           >
             <div>
-              <h1 className="flex flex-wrap z-10 relative text-[4rem] md:text-[10rem] lg:text-[12rem] leading-[3rem] md:leading-[6.5rem]">
+              <h1 className="flex flex-wrap z-10 relative text-[4rem] md:text-[7rem] lg:text-[9rem] leading-[3rem] md:leading-[6.5rem]">
                 Jess Dam
               </h1>
               <img
                 src="/assets/images/doodles/cat_on_laptop.svg"
-                className="absolute z-20 w-[90px] top-[35px] left-[185px] md:top-[40px] md:left-[460px] lg:top-[55px] lg:left-[560px] md:w-[250px]"
+                className="absolute z-20 w-[90px] top-[35px] left-[185px] md:left-[300px] md:top-[40px] lg:top-[35px] lg:left-[400px] md:w-[250px]"
                 width={300}
                 alt=""
               />
             </div>
-            <div className="flex flex-wrap text-right justify-start items-end gap-4 uppercase">
-              <h3 aria-label="Software Engineer" className="text-xs md:text-lg">
+            <div className="flex flex-wrap justify-start items-end gap-4">
+              <h3
+                aria-label="Software Engineer"
+                className="z-30 text-lg md:text-2xl text-secondary font-homemade-apple pb-8 pl-4"
+              >
                 Software Engineer
               </h3>
             </div>

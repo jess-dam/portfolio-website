@@ -9,6 +9,12 @@
 }
 
 @font-face {
+  font-family: 'Homemade Apple';
+  src: url('/assets/fonts/HomemadeApple/HomemadeApple-Regular.ttf')
+    format('truetype');
+}
+
+@font-face {
   font-family: 'Poppins';
   src: url('/assets/fonts/Poppins/Poppins-Regular.ttf');
   font-weight: normal;
@@ -96,11 +102,10 @@ h1 {
 
 h2,
 h3 {
-  font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Homemade Apple', Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   font-size: 0.9rem;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 5px;
 }
 
 h4 {
@@ -143,7 +148,7 @@ button:hover {
   opacity: 1;
 }
 
-@media only screen and (min-width: 768px) { 
+@media only screen and (min-width: 768px) {
   h1 {
     font-size: 6rem;
   }
