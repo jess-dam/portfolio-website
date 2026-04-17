@@ -112,7 +112,9 @@ h4 {
   font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-wrap: wrap;
 }
 
 button {
