@@ -33,7 +33,8 @@ export function AnimatedCounter({
     }
 
     const controls = animate(from, to, {
-      duration: 1.5,
+      duration: 1.8,
+      delay: 0.4,
       ease: 'easeOut',
       ...animateOptions,
       onUpdate(latest) {

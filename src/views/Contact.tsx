@@ -14,19 +14,9 @@ function Contact() {
     >
       <div className="col-span-12 relative flex flex-col w-full place-content-evenly md:place-content-center">
         <div className="">
-          <motion.h1
-            initial={{ opacity: 0, y: '-70%' }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: 'easeInOut',
-            }}
-            viewport={{ amount: 'all' }}
-            exit={{ opacity: 0 }}
-            className="text-center md:text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 "
-          >
+          <h1 className="text-center md:text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 ">
             Contact
-          </motion.h1>
+          </h1>
         </div>
 
         <div className="flex flex-col gap-10 px-8">
