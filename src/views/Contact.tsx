@@ -21,6 +21,7 @@ function Contact() {
               duration: 0.8,
               ease: 'easeInOut',
             }}
+            viewport={{ amount: 'all' }}
             exit={{ opacity: 0 }}
             className="text-center md:text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 "
           >

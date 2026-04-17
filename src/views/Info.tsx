@@ -1,15 +1,16 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
 import moment from 'moment';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 
 const FIRST_COMMIT_DATE = '23/10/2019';
 
-const calcYearsMonthsSinceFirstCommit = () => {
+const getYearsSinceFirstCommit = (): number => {
   let today = moment(moment.now());
   let firstCommit = moment(FIRST_COMMIT_DATE, 'DD/MM/YYYYY');
 
   let yearsElapsed = today.diff(firstCommit, 'years');
-  return `${yearsElapsed} Years`;
+  return yearsElapsed;
 };
 
 function Info() {
@@ -40,7 +41,9 @@ function Info() {
 
         <div className="bg-primary text-background p-2 lg:p-4 flex flex-col place-content-between">
           <h4>Programming professionally for</h4>
-          <h4>{calcYearsMonthsSinceFirstCommit()}</h4>
+          <h4>
+            <AnimatedCounter from={0} to={getYearsSinceFirstCommit()} /> Years
+          </h4>
         </div>
 
         <div className="bg-secondary text-background p-2 lg:p-4 col-span-2 flex flex-col place-content-between">
@@ -52,7 +55,7 @@ function Info() {
           </ul>
         </div>
 
-        <div className="bg-accent2 text-secondary p-2 lg:p-4 col-start-2 md:col-start-4 flex flex-col place-content-between">
+        <div className="bg-accent2 text-primary p-2 lg:p-4 col-start-2 md:col-start-4 flex flex-col place-content-between">
           <h4>Working across</h4>
           <ul className="info-detail">
             <li>Climate</li>

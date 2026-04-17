@@ -195,7 +195,7 @@ a {
 }
 
 a:hover {
-  color: theme('colors.accent');
+  color: theme('colors.secondary');
 }
 
 body {

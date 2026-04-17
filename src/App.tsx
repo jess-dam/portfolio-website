@@ -1,6 +1,6 @@
 import './App.css';
 import Contact from './views/Contact';
-import Experience from './views/Experience';
+import EngineeringSkills from './views/EngineeringSkills';
 import Footer from './components/Footer';
 import Info from './views/Info';
 import Landing from './views/Landing';
@@ -13,7 +13,7 @@ function App() {
       <main id="main">
         <Landing />
         <Info />
-        <Experience />
+        <EngineeringSkills />
         <Contact />
       </main>
       <Footer />

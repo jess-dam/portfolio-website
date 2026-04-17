@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { easeIn, motion, useScroll } from 'framer-motion';
+import { useScroll } from 'framer-motion';
 
 interface SkillSetProps {
   skillSetOrder: string;
@@ -28,7 +28,7 @@ const SkillSet = ({ skillSetOrder, title, skills }: SkillSetProps) => {
   );
 };
 
-function Experience() {
+function EngineeringSkills() {
   // animation
   const skillsRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -37,7 +37,7 @@ function Experience() {
 
   return (
     <ContentSectionContainer
-      id={SECTION_REFS.EXPERIENCE}
+      id={SECTION_REFS.SKILLS}
       bgColor="white"
       textColor="black"
     >
@@ -98,4 +98,4 @@ function Experience() {
   );
 }
 
-export default Experience;
+export default EngineeringSkills;

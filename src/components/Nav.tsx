@@ -82,9 +82,6 @@ function Nav() {
                 <a href={'#' + SECTION_REFS.INFO}>Info</a>
               </li>
               <li>
-                <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
-              </li>
-              <li>
                 <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
               </li>
               <li>
@@ -113,9 +110,6 @@ function Nav() {
           <ul className="flex h-[70px] px-16 gap-14 items-center text-bold text-primary uppercase tracking-widest text-md">
             <li>
               <a href={'#' + SECTION_REFS.INFO}>Info</a>
-            </li>
-            <li>
-              <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
             </li>
             <li>
               <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
