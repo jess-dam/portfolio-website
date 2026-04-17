@@ -30,9 +30,9 @@ const SkillSet = ({ skillSetOrder, title, skills }: SkillSetProps) => {
 
 function Experience() {
   // animation
-  const timelineRef = useRef(null);
+  const skillsRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: timelineRef,
+    target: skillsRef,
   });
 
   return (
@@ -42,9 +42,10 @@ function Experience() {
       textColor="black"
     >
       <div
-        ref={timelineRef}
+        ref={skillsRef}
         className="col-span-12 md:col-start-1 md:col-span-10"
       >
+        <h1 className="pb-8">Skills</h1>
         <SkillSet
           skillSetOrder="01"
           title="Languages"

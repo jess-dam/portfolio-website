@@ -38,7 +38,6 @@ function Footer() {
           </a>
         </div>
       </div>
-      <div className="absolute z-0 bottom-[-150px] left-[-40px] bg-accent rounded-full w-[600px] h-[300px] blur-3xl opacity-80" />
     </footer>
   );
 }

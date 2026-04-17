@@ -1,5 +1,16 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
+import moment from 'moment';
+
+const FIRST_COMMIT_DATE = '23/10/2019';
+
+const calcYearsMonthsSinceFirstCommit = () => {
+  let today = moment(moment.now());
+  let firstCommit = moment(FIRST_COMMIT_DATE, 'DD/MM/YYYYY');
+
+  let yearsElapsed = today.diff(firstCommit, 'years');
+  return `${yearsElapsed} Years`;
+};
 
 function Info() {
   return (
@@ -15,27 +26,39 @@ function Info() {
           </h4>
         </div>
 
-        <div className="bg-accent text-primary p-2 lg:p-4 col-start-1 md:col-start-3 flex flex-col content-between">
+        <div className="bg-accent text-primary p-2 lg:p-4 col-start-1 md:col-start-3 flex flex-col place-content-between">
           <h4>Based in</h4>
-          <h4>London</h4>
+          <div className="flex flex-row flex-wrap">
+            <img
+              src="/assets/images/map_pin.svg"
+              width={20}
+              className="pr-2 md:w-30"
+            ></img>
+            <h4>London, UK</h4>
+          </div>
         </div>
 
-        <div className="bg-primary text-background p-2 lg:p-4 col-start-2 flex flex-col content-between">
+        <div className="bg-primary text-background p-2 lg:p-4 flex flex-col place-content-between">
           <h4>Programming professionally for</h4>
-          <h4>5+ years</h4>
+          <h4>{calcYearsMonthsSinceFirstCommit()}</h4>
         </div>
 
-        <div className="bg-secondary text-background p-2 lg:p-4 col-span-2">
-          <h4>
-            Skilled in building <br /> APIs <br /> Web Interfaces <br /> Machine
-            Learning Pipelines
-          </h4>
+        <div className="bg-secondary text-background p-2 lg:p-4 col-span-2 flex flex-col place-content-between">
+          <h4>Skilled at building</h4>
+          <ul className="info-detail">
+            <li>APIs</li>
+            <li>Web Interfaces</li>
+            <li>Machine Learning Pipelines</li>
+          </ul>
         </div>
 
-        <div className="bg-accent2 text-secondary p-2 lg:p-4 col-start-2 md:col-start-4">
-          <h4>
-            Working across <br /> Climate <br /> Finance <br /> Social Impact
-          </h4>
+        <div className="bg-accent2 text-secondary p-2 lg:p-4 col-start-2 md:col-start-4 flex flex-col place-content-between">
+          <h4>Working across</h4>
+          <ul className="info-detail">
+            <li>Climate</li>
+            <li>Finance</li>
+            <li>Social Impact</li>
+          </ul>
         </div>
       </div>
     </ContentSectionContainer>
