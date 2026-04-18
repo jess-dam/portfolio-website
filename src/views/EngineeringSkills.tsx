@@ -1,20 +1,17 @@
-import { useRef } from 'react';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface SkillSetProps {
   skillSetOrder: string;
   title: string;
   skills: string[];
-  isExpanded: boolean;
 }
 
 const SkillSet = ({
   skillSetOrder,
   title,
   skills,
-  isExpanded,
 }: SkillSetProps) => {
   return (
     <motion.div className="border border-t-2 border-b-0 border-r-0 border-l-0 border-secondary p-2 py-4">
@@ -36,11 +33,11 @@ const SkillSet = ({
 
 function EngineeringSkills() {
   // animation
-  const skillsRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: skillsRef,
-  });
-  console.log('scroll', scrollYProgress);
+  // const skillsRef = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: skillsRef,
+  // });
+  // console.log('scroll', scrollYProgress);
 
   return (
     <ContentSectionContainer
@@ -49,7 +46,6 @@ function EngineeringSkills() {
       textColor="black"
     >
       <div
-        ref={skillsRef}
         className="col-span-12 md:col-start-1 md:col-span-10"
       >
         <h1 className="pb-8">Skills</h1>
@@ -57,7 +53,6 @@ function EngineeringSkills() {
           skillSetOrder="01"
           title="Languages"
           skills={['TypeScript', 'Python', 'Java', 'SQL', 'Javascript', 'C#']}
-          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="02"
@@ -70,7 +65,6 @@ function EngineeringSkills() {
             'NodeJS',
             'Spring Boot',
           ]}
-          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="03"
@@ -84,7 +78,6 @@ function EngineeringSkills() {
             'rasterio',
             'geopandas',
           ]}
-          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="04"
@@ -97,13 +90,11 @@ function EngineeringSkills() {
             'Kubernetes',
             'Git',
           ]}
-          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="05"
           title="AI Tooling"
           skills={['Claude Code', 'Codex']}
-          isExpanded={true}
         />
       </div>
     </ContentSectionContainer>

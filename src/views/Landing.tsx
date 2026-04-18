@@ -1,7 +1,6 @@
 import { motion, useScroll, useTime, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { SECTION_REFS } from '../pageRefs';
-import { AnimatedElementReveal } from '../components/AnimatedElementReveal';
 
 function Landing() {
   // Main heading fixed scroll variables
@@ -27,7 +26,7 @@ function Landing() {
     >
       {/* <div className="z-10 absolute top-0 h-[100vh] w-full flex justify-center bg-background"></div> */}
 
-      {/* <motion.div
+      <motion.div
         className="absolute z-20 bottom-[25vh] md:bottom-[20vh] left-[15vw] bg-accent rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
         style={{ x: blurX, y: blurY }}
         initial={{
@@ -45,7 +44,7 @@ function Landing() {
         }}
       >
         <img src="public/assets/images/cutouts/coot.png" width={300} />
-      </motion.div> */}
+      </motion.div>
 
       <motion.div
         className="absolute z-30 bottom-[25vh] md:bottom-[80vh] right-[15vw]blur-3xl"

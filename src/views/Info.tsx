@@ -2,9 +2,7 @@ import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
 import moment from 'moment';
 import { AnimatedCounter } from '../components/AnimatedCounter';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-
+import { motion } from 'framer-motion';
 const FIRST_COMMIT_DATE = '23/10/2019';
 
 const getYearsSinceFirstCommit = (): number => {

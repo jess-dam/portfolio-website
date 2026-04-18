@@ -1,6 +1,5 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { motion } from 'framer-motion';
 
 function Contact() {
   const linkedinUrl = 'https://www.linkedin.com/in/jess-dam-507485165/';
