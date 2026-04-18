@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { SECTION_REFS } from '../pageRefs';
 import {
+  AnimatePresence,
   easeInOut,
   motion,
   useMotionValueEvent,
@@ -9,7 +10,7 @@ import {
 
 function Nav() {
   const [isUsingMobileDropdown, setIsUsingMobileDropdown] =
-    useState<boolean>(true);
+    useState<boolean>(false);
 
   const [isNavHidden, setIsNavHidden] = useState<boolean>(false);
 
@@ -22,7 +23,7 @@ function Nav() {
     // Compare the previous y coordinates to the current ones to check if
     // the user is scrolling up the page
     const previous = scrollY.getPrevious();
-    if (previous && previous + 1 < latest) {
+    if (previous && previous < latest) {
       setIsNavHidden(true);
     } else {
       setIsNavHidden(false);
@@ -47,40 +48,48 @@ function Nav() {
         </a>
         <div className="w-full flex content-center justify-between gap-8">
           <a href={'#' + SECTION_REFS.LANDING}>
-            <h1 className="w-[50px] text-[1rem] text-center align-center p-4">
-              Jess Dam
-            </h1>
+            <img
+              src="/assets/images/doodles/cat_on_laptop.svg"
+              className="w-[50px] top-[35px] left-[185px] md:top-[40px] md:left-[460px] lg:top-[55px] lg:left-[560px]"
+              width={5}
+              alt=""
+            />
           </a>
           <div className="flex content-center justify-end">
             <button
               aria-label="Click for drop down menu"
-              className="bg-transparent border-none"
+              className="text-primary bg-transparent border-none"
               onClick={() => setIsUsingMobileDropdown(!isUsingMobileDropdown)}
             >
               <HamburgerSVG />
             </button>
           </div>
         </div>
-        <motion.ul
-          className={`${isUsingMobileDropdown ? 'hidden' : 'flex'} flex-col place-self-end w-fit text-right mt-4 gap-4 text-bold uppercase tracking-widest text-sm bg-black text-white p-4 px-10 rounded-xl`}
-          initial={{ opacity: 0, height: 0 }}
-          whileInView={{ opacity: 100, height: '100%' }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ ease: 'circIn', duration: 0.5 }}
-        >
-          <li>
-            <a href={'#' + SECTION_REFS.INFO}>Info</a>
-          </li>
-          <li>
-            <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
-          </li>
-          <li>
-            <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
-          </li>
-          <li>
-            <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
-          </li>
-        </motion.ul>
+        <AnimatePresence initial={false}>
+          {isUsingMobileDropdown && (
+            <motion.ul
+              className={`flex-col bg-background text-primary rounded-md h-auto place-self-end w-fit text-right mt-4 gap-4 text-bold uppercase tracking-widest text-sm p-4 px-10 `}
+              initial={{ opacity: 0, scaleY: 0.5 }}
+              animate={{ opacity: 1, scaleY: 1 }}
+              exit={{ opacity: 0, scaleY: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+            >
+              <li>
+                <a href={'#' + SECTION_REFS.INFO}>Info</a>
+              </li>
+              <li>
+                <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
+              </li>
+              <li>
+                <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
+              </li>
+            </motion.ul>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Desktop Nav */}
@@ -90,17 +99,17 @@ function Nav() {
         </a>
         <div className="flex items-center p-8 h-[70px] gap-8">
           <a href={'#' + SECTION_REFS.LANDING}>
-            <h1 className="w-[50px] text-[1rem] text-center align-center">
-              Jess Dam
-            </h1>
+            <img
+              src="/assets/images/doodles/cat_on_laptop.svg"
+              className="w-[50px] top-[35px] left-[185px] md:top-[40px] md:left-[460px] lg:top-[55px] lg:left-[560px]"
+              width={5}
+              alt=""
+            />
           </a>
 
-          <ul className="flex h-[70px] px-16 gap-14 items-center text-bold text-black uppercase tracking-widest text-md">
+          <ul className="flex h-[70px] px-16 gap-14 items-center text-bold text-primary uppercase tracking-widest text-md">
             <li>
               <a href={'#' + SECTION_REFS.INFO}>Info</a>
-            </li>
-            <li>
-              <a href={'#' + SECTION_REFS.EXPERIENCE}>Experience</a>
             </li>
             <li>
               <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
@@ -146,7 +155,7 @@ const HamburgerSVG = () => {
     >
       <path
         d="M34.1668 9.5H17.0835M34.1668 19H6.8335M34.1668 28.5H23.9168"
-        stroke="black"
+        className="stroke-current"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"

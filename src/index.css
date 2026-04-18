@@ -9,6 +9,12 @@
 }
 
 @font-face {
+  font-family: 'Homemade Apple';
+  src: url('/assets/fonts/HomemadeApple/HomemadeApple-Regular.ttf')
+    format('truetype');
+}
+
+@font-face {
   font-family: 'Poppins';
   src: url('/assets/fonts/Poppins/Poppins-Regular.ttf');
   font-weight: normal;
@@ -79,8 +85,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: black;
-  background-color: #ffffff;
+  color: theme('colors.primary');
+  background-color: theme('colors.background');
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -96,28 +102,51 @@ h1 {
 
 h2,
 h3 {
-  font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Homemade Apple', Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   font-size: 0.9rem;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 5px;
 }
 
 h4 {
   font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   font-weight: bold;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-wrap: wrap;
+}
+
+.info-detail {
+  font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-wrap: wrap;
+}
+
+@media only screen and (min-width: 768px) {
+  .info-detail {
+    font-size: 1rem;
+  }
 }
 
 button {
   padding: 8px;
-  background-color: white;
-  border: 1px solid black;
+  color: theme('colors.primary');
+  background-color: theme('colors.accent');
+  border: 1px solid theme('colors.primary');
   border-radius: 30px;
   font-size: small;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+button:hover {
+  background-color: theme('colors.primary');
+  color: theme('colors.accent');
+  border: 1px solid theme('colors.accent');
 }
 
 .skip-to-main-content-link {
@@ -166,7 +195,7 @@ a {
 }
 
 a:hover {
-  color: #ffa462;
+  color: theme('colors.secondary');
 }
 
 body {
@@ -174,21 +203,3 @@ body {
   display: flex;
   place-items: center;
 }
-/* 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #ffa462;
-  }
-  button {
-    background-color: #ffa462;
-  }
-
-  button:hover {
-    color: #ffa462;
-    background-color: #000000;
-  }
-} */

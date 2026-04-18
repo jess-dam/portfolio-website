@@ -22,35 +22,12 @@ function Landing() {
   return (
     <div
       id={SECTION_REFS.LANDING}
-      className="relative flex place-content-center h-screen w-full overflow-clip text-black bg-black"
+      className="relative flex place-content-center h-screen w-full overflow-clip text-primary"
     >
-      <motion.img
-        src="/assets/images/doodles/cat_on_laptop_white.svg"
-        className="absolute z-0 w-[90px] md:w-[200px] top-[45vh] md:top-[40vh]"
-        width={300}
-        alt=""
-        initial={{ opacity: 0 }}
-        animate={{ opacity: ['100%', '80%', '100%', '100%', '50%', 0] }}
-        transition={{ duration: 4, ease: 'easeInOut' }}
-      />
+      {/* <div className="z-10 absolute top-0 h-[100vh] w-full flex justify-center bg-background"></div> */}
 
       <motion.div
-        initial={{
-          borderRadius: '60%',
-          opacity: 0,
-          y: '100%',
-        }}
-        animate={{
-          opacity: [0.5, 1],
-          borderRadius: 0,
-          y: 0,
-        }}
-        transition={{ duration: 2, ease: 'easeInOut', delay: 1.8 }}
-        className="z-10 absolute top-0 h-[100vh] w-full flex justify-center bg-white"
-      ></motion.div>
-
-      <motion.div
-        className="absolute z-20 bottom-[25vh] md:bottom-[20vh] left-[15vw] bg-secondary rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
+        className="absolute z-20 bottom-[25vh] md:bottom-[20vh] left-[15vw] bg-accent rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
         style={{ x: blurX, y: blurY }}
         initial={{
           opacity: 0,
@@ -65,17 +42,15 @@ function Landing() {
           ease: 'easeIn',
           repeat: Infinity,
         }}
-      />
+      >
+        <img src="public/assets/images/cutouts/coot.png" width={300} />
+      </motion.div>
 
       <motion.div
-        className="absolute z-20 bottom-[25vh] md:bottom-[80vh] right-[15vw] bg-secondary bg-gradient-to-t from-pri rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
+        className="absolute z-30 bottom-[25vh] md:bottom-[80vh] right-[15vw]blur-3xl"
         style={{ x: blur2X, y: blur2Y }}
         initial={{
           opacity: 0,
-        }}
-        animate={{
-          scale: [1, 1.5, 1, 1, 1.5, 1],
-          opacity: [0, 0.5, 0.8, 0.5, 1, 1, 0],
         }}
         transition={{
           duration: 10,
@@ -83,47 +58,47 @@ function Landing() {
           ease: 'backInOut',
           repeat: Infinity,
         }}
-      />
-
-      <motion.div
-        initial={{
-          y: '100%',
-          opacity: 0,
-        }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 2, delay: 2, ease: 'easeInOut' }}
-        ref={ref}
-        className="z-20 flex flex-col items-start justify-center min-w-[300px] md:min-w-[710px]"
       >
-        <div className="relative flex flex-col overflow-hidden w-[270px] md:w-[800px] pb-2 md:pb-10">
-          <h2 className="text-primary pb-4 md:pb-10 text-[0.8rem] md:text-[1.2rem]">
-            Hello! my name is
-          </h2>
-          <motion.h1
-            initial={{
-              y: '100%',
-              opacity: 0,
-            }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2, delay: 2.3, ease: 'easeInOut' }}
-            className="flex flex-wrap z-10 relative text-[4rem] md:text-[10rem] lg:text-[12rem] leading-[3rem] md:leading-[6.5rem]"
-            style={{ y: textY }}
-          >
-            Jess Dam
-          </motion.h1>
-          <img
-            src="/assets/images/doodles/cat_on_laptop.svg"
-            className="absolute z-20 w-[90px] top-[56px] left-[185px] md:top-[80px] md:left-[460px] lg:top-[92px] lg:left-[560px] md:w-[250px]"
-            width={300}
-            alt=""
-          />
-        </div>
-        <div className="flex flex-wrap text-right justify-end items-end gap-4 md:justify-end w-[210px] md:w-[615px] uppercase">
-          <h3 aria-label="Software Engineer" className="text-xs md:text-lg">
-            Software Engineer
-          </h3>
-        </div>
+        <img src="/assets/images/cutouts/coot.png" width={300} />
       </motion.div>
+
+      <div
+        ref={ref}
+        className="overflow-hidden z-20 p-10 grid justify-start items-end grid-cols-2 grid-rows-2 min-w-[300px] md:min-w-[710px] h-auto"
+      >
+        <div className="relative col-start-1 row-start-2 flex flex-col overflow-hidden w-[270px] md:w-[550px] lg:w-[800px] h-[150px] md:h-[250px]">
+          <motion.div
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: 1,
+              ease: 'easeInOut',
+            }}
+            style={{ y: textY }}
+            className="h-full grid items-stretch"
+          >
+            <div>
+              <motion.h1 className="flex flex-wrap z-10 relative text-[4rem] md:text-[7rem] lg:text-[9rem] leading-[3rem] md:leading-[6.5rem]">
+                Jess Dam
+              </motion.h1>
+              <img
+                src="/assets/images/doodles/cat_on_laptop.svg"
+                className="absolute z-20 w-[90px] top-[35px] left-[185px] md:left-[300px] md:top-[40px] lg:top-[35px] lg:left-[400px] md:w-[250px]"
+                width={300}
+                alt=""
+              />
+            </div>
+            <div className="flex flex-wrap justify-start items-end gap-4">
+              <h3
+                aria-label="Software Engineer"
+                className="z-30 text-lg md:text-2xl text-secondary font-homemade-apple pb-8 pl-4"
+              >
+                Software Engineer
+              </h3>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,12 +1,10 @@
 import './App.css';
 import Contact from './views/Contact';
-import Experience from './views/Experience';
+import EngineeringSkills from './views/EngineeringSkills';
 import Footer from './components/Footer';
 import Info from './views/Info';
 import Landing from './views/Landing';
-import Skills from './views/Skills';
 import Nav from './components/Nav';
-import Interests from './views/Interests';
 
 function App() {
   return (
@@ -15,9 +13,7 @@ function App() {
       <main id="main">
         <Landing />
         <Info />
-        <Experience />
-        <Skills />
-        <Interests />
+        <EngineeringSkills />
         <Contact />
       </main>
       <Footer />

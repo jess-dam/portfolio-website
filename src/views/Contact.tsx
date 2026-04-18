@@ -1,6 +1,5 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import { motion } from 'framer-motion';
 
 function Contact() {
   const linkedinUrl = 'https://www.linkedin.com/in/jess-dam-507485165/';
@@ -12,20 +11,11 @@ function Contact() {
       bgColor="white"
       textColor="black"
     >
-      <div className="relative flex flex-col w-full place-content-evenly md:place-content-center md:py-20 md:p-10">
+      <div className="col-span-12 relative flex flex-col w-full place-content-evenly md:place-content-center">
         <div className="">
-          <motion.h1
-            initial={{ opacity: 0, y: '-70%' }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: 'easeInOut',
-            }}
-            exit={{ opacity: 0 }}
-            className="text-center md:text-left text-[3rem] md:text-[6rem] lg:text-[9rem] z-10 md:pb-20 "
-          >
+          <h1 className="text-center md:text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 ">
             Contact
-          </motion.h1>
+          </h1>
         </div>
 
         <div className="flex flex-col gap-10 px-8">
@@ -62,7 +52,7 @@ const ContactButton = ({ redirectLink, label, icon }: ContactButtonProps) => {
   return (
     <a
       href={redirectLink}
-      className="flex w-fit gap-8 border border-black text-black bg-secondary justify-start content-center p-8 rounded-full hover:bg-black h-fit"
+      className="flex w-fit gap-8 border border-primary text-primary bg-accent justify-start content-center p-8 rounded-full hover:bg-primary hover:text-accent hover:border-primary h-fit"
     >
       <img src={icon?.src} alt={icon?.altTag} width={30} />
       <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
@@ -76,7 +66,7 @@ const ContactButton = ({ redirectLink, label, icon }: ContactButtonProps) => {
 const TopRightArrow = () => {
   return (
     <svg
-      className="hover:text-secondary fill-current"
+      className="hover:text-accent fill-current"
       width={50}
       height="48"
       viewBox="0 0 48 48"

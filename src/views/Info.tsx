@@ -1,111 +1,53 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
-import { ImageWithLabelContainer } from '../components/ImageWIthLabelContainer';
 import { SECTION_REFS } from '../pageRefs';
+import moment from 'moment';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 import { motion } from 'framer-motion';
+const FIRST_COMMIT_DATE = '23/10/2019';
 
-const BuildTools = () => {
-  return (
-    <div className="py-10 flex flex-col items-center md:items-stretch">
-      <h2 className="text-center md:text-left py-2">
-        Currently Building Stuff With
-      </h2>
-      <motion.div
-        initial={{ opacity: 0.1 }}
-        whileInView={{ opacity: 1 }}
-        transition={{
-          delay: 0.2,
-          duration: 2,
-          staggerChildren: 0.6,
-          ease: 'circIn',
-        }}
-        className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-8 pt-4 max-w-[500px]"
-      >
-        <ImageWithLabelContainer>
-          <img
-            src="/assets/images/typescript.svg"
-            alt="Typescript logo"
-            width={60}
-          />
-          <label className="uppercase text-sm tracking-widest text-center">
-            TypeScript
-          </label>
-        </ImageWithLabelContainer>
-        <ImageWithLabelContainer>
-          <img src="/assets/images/react.svg" alt="React logo" width={60} />
-          <label className="uppercase text-sm tracking-widest text-center">
-            React
-          </label>
-        </ImageWithLabelContainer>
-        <ImageWithLabelContainer>
-          <img src="/assets/images/next-js.svg" alt="Next.js logo" width={55} />
-          <label className="uppercase text-sm tracking-widest text-center">
-            Next
-          </label>
-        </ImageWithLabelContainer>
-        <ImageWithLabelContainer>
-          <img src="/assets/images/figma.svg" alt="Figma logo" width={40} />
-          <label className="uppercase text-sm tracking-widest text-center">
-            Figma
-          </label>
-        </ImageWithLabelContainer>
-      </motion.div>
-    </div>
-  );
+const getYearsSinceFirstCommit = (): number => {
+  let today = moment(moment.now());
+  let firstCommit = moment(FIRST_COMMIT_DATE, 'DD/MM/YYYYY');
+
+  let yearsElapsed = today.diff(firstCommit, 'years');
+  return yearsElapsed;
 };
 
-const Hobbies = () => {
-  return (
-    <div className="flex flex-col py-10 items-center md:items-stretch">
-      <h2 className="text-center md:text-left">Hobbies</h2>
-      <motion.div
-        initial={{ opacity: 0.1 }}
-        whileInView={{ opacity: 1 }}
-        transition={{
-          delay: 0.2,
-          duration: 2,
-          staggerChildren: 0.6,
-          ease: 'circIn',
-        }}
-        className="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1 gap-4 pt-4 max-w-[500px]"
-      >
-        <ImageWithLabelContainer>
-          <img src="/assets/images/doodles/art.svg" alt="" width={80} />
-          <label className="uppercase text-sm tracking-widest text-center">
-            Art
-          </label>
-        </ImageWithLabelContainer>
-        <ImageWithLabelContainer>
-          <img src="/assets/images/doodles/tkd.svg" alt="" width={80} />
-          <label className="uppercase text-sm tracking-widest text-center">
-            Taekwondo
-          </label>
-        </ImageWithLabelContainer>
-        <ImageWithLabelContainer>
-          <img
-            src="/assets/images/doodles/boardgames.svg"
-            alt=""
-            width={60}
-            className=""
-          />
-          <label className="uppercase text-sm tracking-widest text-center">
-            Board Games
-          </label>
-        </ImageWithLabelContainer>
-        <ImageWithLabelContainer>
-          <img
-            src="/assets/images/doodles/diy.svg"
-            alt=""
-            width={70}
-            className="pb-6"
-          />
-          <label className="uppercase text-sm tracking-widest text-center">
-            DIY
-          </label>
-        </ImageWithLabelContainer>
-      </motion.div>
-    </div>
-  );
-};
+interface InfoBoxProps {
+  children: JSX.Element | JSX.Element[];
+  bgColor: string;
+  color: string;
+  colStart?: number;
+  colSpan?: number;
+}
+
+const InfoBox = ({
+  children,
+  bgColor,
+  color,
+  colSpan,
+  colStart,
+}: InfoBoxProps) => (
+  <div
+    className={`overflow-hidden ${colSpan && `col-span-${colSpan}`} ${colStart && `col-start-2 md:col-start-${colStart}`}`}
+  >
+    <motion.div
+      variants={{
+        initial: { opacity: 0, y: '-40%' },
+        reveal: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: '-40%' },
+      }}
+      transition={{
+        duration: 0.4,
+        ease: 'easeInOut',
+      }}
+      viewport={{ amount: 'all' }}
+      className={`bg-${bgColor} text-${color} p-2 lg:p-4 h-full flex flex-col place-content-between`}
+    >
+      {children}
+    </motion.div>
+  </div>
+);
 
 function Info() {
   return (
@@ -114,52 +56,57 @@ function Info() {
       bgColor="white"
       textColor="black"
     >
-      <div className="grid grid-rows-min pt-20 md:px-8 gap-12 lg:gap-18">
-        <motion.h1 className="text-[4rem] text-center p-10 md:p-0 md:text-[8rem] md:text-left leading-none h-fit self-end">
-          Hello!
-        </motion.h1>
-        <div className="flex justify-center items-center flex-wrap md:flex-nowrap flex-col md:flex-row align-middle space-x-4 gap-10 pb-10 h-fit">
-          <div className="flex flex-col items-center gap-8">
-            <div>
-              <img
-                src="/assets/images/headshot.jpg"
-                alt="A picture of me"
-                className="object-cover rounded-full shadow-inner w-[125px] h-[250px] md:w-[250px] md:h-[500px] justify-center"
-              />
-            </div>
-            <div className="flex flex-nowrap items-center">
-              <img
-                src="/assets/images/location.svg"
-                alt=""
-                height={20}
-                width={20}
-              />
-              <label
-                className="px-8 font-bold tracking-widest uppercase"
-                aria-label="The city I'm based in"
-              >
-                London, UK
-              </label>
-            </div>
-          </div>
+      <motion.div
+        initial="initial"
+        whileInView="reveal"
+        exit="exit"
+        transition={{ staggerChildren: 0.08 }}
+        className="overflow-hidden self-center text-wrap max-w-[1200px] col-span-12 lg:col-start-2 lg:col-span-10 grid grid-flow-row auto-rows-fr grid-cols-2 md:grid-cols-4 md:grid-rows-2 md:min-h-[500px] gap-4 content-stretch xs:pt-8 py-4"
+      >
+        <InfoBox bgColor="primary" color="background">
+          <h4>
+            Hi! <br /> I'm a Full Stack Engineer
+          </h4>
+        </InfoBox>
 
-          <div className="col-span-2 flex flex-col justify-center content-start">
-            <p className="tracking-wide pb-4 text-center md:text-left uppercase">
-              I’m a{' '}
-              <motion.span className="font-bold bg-secondary rounded-lg">
-                full-stack software developer
-              </motion.span>{' '}
-              with a focus on{' '}
-              <span className="font-bold bg-secondary rounded-lg">
-                front-end and UX
-              </span>
-              .
-            </p>
-            <BuildTools />
-            <Hobbies />
+        {/* <div className="bg-accent text-primary p-2 lg:p-4 col-start-1 md:col-start-3 flex flex-col place-content-between"> */}
+        <InfoBox bgColor="accent" color="primary" colStart={3}>
+          <h4>Based in</h4>
+          <div className="flex flex-row flex-wrap">
+            <img
+              src="/assets/images/map_pin.svg"
+              width={20}
+              className="pr-2 md:w-30"
+            ></img>
+            <h4>London, UK</h4>
           </div>
-        </div>
-      </div>
+        </InfoBox>
+
+        <InfoBox bgColor="primary" color="background">
+          <h4>Programming professionally for</h4>
+          <h4>
+            <AnimatedCounter from={0} to={getYearsSinceFirstCommit()} /> Years
+          </h4>
+        </InfoBox>
+
+        <InfoBox bgColor="secondary" color="background" colSpan={2}>
+          <h4>Skilled at building</h4>
+          <ul className="info-detail">
+            <li>APIs</li>
+            <li>Web Interfaces</li>
+            <li>Machine Learning Pipelines</li>
+          </ul>
+        </InfoBox>
+
+        <InfoBox bgColor="accent2" color="primary" colStart={4}>
+          <h4>Working across</h4>
+          <ul className="info-detail">
+            <li>Climate</li>
+            <li>Finance</li>
+            <li>Social Impact</li>
+          </ul>
+        </InfoBox>
+      </motion.div>
     </ContentSectionContainer>
   );
 }
