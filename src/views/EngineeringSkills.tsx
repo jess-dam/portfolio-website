@@ -1,12 +1,6 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValue,
-} from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface SkillSetProps {
   skillSetOrder: string;
@@ -57,20 +51,18 @@ const SkillSet = ({
 
 function EngineeringSkills() {
   // animation
-  const skillsRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: skillsRef,
-  });
-  const motion = useMotionValue(scrollYProgress);
+  // const skillsRef = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: skillsRef,
+  // });
 
-  const [activeSkillSet, setActiveSkillSet] = useState(0);
+  // const [activeSkillSet, setActiveSkillSet] = useState(0);
 
-  useEffect(() => {
-    console.log('scroll', scrollYProgress);
-    console.log('motion', motion);
-    let progress = (scrollYProgress.get() / 
-    // setActiveSkillSet();
-  }, [scrollYProgress, useMotionValue]);
+  // useEffect(() => {
+  //   console.log('scroll', scrollYProgress);
+  //   console.log('motion', motion);
+  //   // setActiveSkillSet();
+  // }, [scrollYProgress, useMotionValue]);
 
   return (
     <ContentSectionContainer
