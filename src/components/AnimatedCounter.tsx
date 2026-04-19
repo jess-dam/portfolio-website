@@ -47,5 +47,5 @@ export function AnimatedCounter({
     };
   }, [ref, inView, from, to]);
 
-  return <span className="font-mono" ref={ref} />;
+  return <span className="font-mono font-bold" ref={ref} />;
 }

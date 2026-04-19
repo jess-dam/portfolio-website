@@ -13,12 +13,19 @@ const getYearsSinceFirstCommit = (): number => {
   return yearsElapsed;
 };
 
+/** Tailwind must see full class names in source; `md:${dynamic}` is not scanned. */
+const COL_START_MD_CLASSES: Record<3 | 4, string> = {
+  3: 'col-start-2 md:col-start-3',
+  4: 'col-start-2 md:col-start-4',
+};
+
 interface InfoBoxProps {
   children: JSX.Element | JSX.Element[];
   bgColor: string;
   color: string;
-  colStart?: number;
-  colSpan?: number;
+  /** Grid column start at `md` (1-based). Mobile uses `col-start-2` for alignment with the 2-col layout. */
+  colStartMd?: 3 | 4;
+  colSpan?: string;
 }
 
 const InfoBox = ({
@@ -26,28 +33,32 @@ const InfoBox = ({
   bgColor,
   color,
   colSpan,
-  colStart,
-}: InfoBoxProps) => (
-  <div
-    className={`overflow-hidden ${colSpan && `col-span-${colSpan}`} ${colStart && `col-start-2 md:col-start-${colStart}`}`}
-  >
-    <motion.div
-      variants={{
-        initial: { opacity: 0, y: '-40%' },
-        reveal: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: '-40%' },
-      }}
-      transition={{
-        duration: 0.4,
-        ease: 'easeInOut',
-      }}
-      viewport={{ amount: 'all' }}
-      className={`bg-${bgColor} text-${color} p-2 lg:p-4 h-full flex flex-col place-content-between`}
+  colStartMd,
+}: InfoBoxProps) => {
+  const colStartClass =
+    colStartMd != null ? COL_START_MD_CLASSES[colStartMd] : '';
+  return (
+    <div
+      className={`overflow-hidden ${colSpan ?? ''} ${colStartClass}`.trim()}
     >
-      {children}
-    </motion.div>
-  </div>
-);
+      <motion.div
+        variants={{
+          initial: { opacity: 0, y: '-40%' },
+          reveal: { opacity: 1, y: 0 },
+          exit: { opacity: 0, y: '-40%' },
+        }}
+        transition={{
+          duration: 0.4,
+          ease: 'easeInOut',
+        }}
+        viewport={{ amount: 'all' }}
+        className={`${bgColor} ${color} p-2 lg:p-4 h-full flex flex-col place-content-between`}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+};
 
 function Info() {
   return (
@@ -63,14 +74,13 @@ function Info() {
         transition={{ staggerChildren: 0.08 }}
         className="overflow-hidden self-center text-wrap max-w-[1200px] col-span-12 lg:col-start-2 lg:col-span-10 grid grid-flow-row auto-rows-fr grid-cols-2 md:grid-cols-4 md:grid-rows-2 md:min-h-[500px] gap-4 content-stretch xs:pt-8 py-4"
       >
-        <InfoBox bgColor="primary" color="background">
+        <InfoBox bgColor="bg-primary" color="text-background">
           <h4>
             Hi! <br /> I'm a Full Stack Engineer
           </h4>
         </InfoBox>
 
-        {/* <div className="bg-accent text-primary p-2 lg:p-4 col-start-1 md:col-start-3 flex flex-col place-content-between"> */}
-        <InfoBox bgColor="accent" color="primary" colStart={3}>
+        <InfoBox bgColor="bg-accent" color="text-primary" colStartMd={3}>
           <h4>Based in</h4>
           <div className="flex flex-row flex-wrap">
             <img
@@ -82,14 +92,18 @@ function Info() {
           </div>
         </InfoBox>
 
-        <InfoBox bgColor="primary" color="background">
+        <InfoBox bgColor="bg-primary" color="text-background">
           <h4>Programming professionally for</h4>
           <h4>
             <AnimatedCounter from={0} to={getYearsSinceFirstCommit()} /> Years
           </h4>
         </InfoBox>
 
-        <InfoBox bgColor="secondary" color="background" colSpan={2}>
+        <InfoBox
+          bgColor="bg-secondary"
+          color="text-background"
+          colSpan="col-span-2"
+        >
           <h4>Skilled at building</h4>
           <ul className="info-detail">
             <li>APIs</li>
@@ -98,7 +112,7 @@ function Info() {
           </ul>
         </InfoBox>
 
-        <InfoBox bgColor="accent2" color="primary" colStart={4}>
+        <InfoBox bgColor="bg-accent2" color="text-primary" colStartMd={4}>
           <h4>Working across</h4>
           <ul className="info-detail">
             <li>Climate</li>

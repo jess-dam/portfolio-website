@@ -28,14 +28,14 @@ function Landing() {
 
       <motion.div
         className="absolute z-20 bottom-[25vh] md:bottom-[20vh] left-[15vw] bg-accent rounded-full w-[350px] h-[150px] md:h-[300px] blur-3xl"
-        style={{ x: blurX, y: blurY }}
+        // style={{ x: blurX, y: blurY }}
         initial={{
           opacity: 0,
         }}
-        animate={{
-          scale: [1, 1.5, 1, 1, 2, 1],
-          opacity: [0, 0.5, 0.5, 1, 0.5, 1, 0],
-        }}
+        // animate={{
+        //   scale: [1, 1.5, 1, 1, 2, 1],
+        //   opacity: [0, 0.5, 0.5, 1, 0.5, 1, 0],
+        // }}
         transition={{
           duration: 10,
           delay: 2.5,
@@ -43,7 +43,7 @@ function Landing() {
           repeat: Infinity,
         }}
       >
-        <img src="public/assets/images/cutouts/coot.png" width={300} />
+        <img src="/assets/images/cutouts/coot.png" width={300} />
       </motion.div>
 
       <motion.div
