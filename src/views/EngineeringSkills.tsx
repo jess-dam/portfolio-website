@@ -89,7 +89,7 @@ function EngineeringSkills() {
             'NodeJS',
             'Spring Boot',
           ]}
-          isExpanded={false}
+          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="03"
@@ -116,13 +116,13 @@ function EngineeringSkills() {
             'Kubernetes',
             'Git',
           ]}
-          isExpanded={false}
+          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="05"
           title="AI Tooling"
           skills={['Claude Code', 'Codex']}
-          isExpanded={false}
+          isExpanded={true}
         />
       </div>
     </ContentSectionContainer>
