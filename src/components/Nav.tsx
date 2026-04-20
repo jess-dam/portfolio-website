@@ -56,38 +56,40 @@ function Nav() {
             />
           </a>
           <div className="flex content-center justify-end">
-            <button
+            <a
               aria-label="Click for drop down menu"
-              className="text-primary bg-transparent border-none"
+              className="group text-primary bg-transparent border-none"
               onClick={() => setIsUsingMobileDropdown(!isUsingMobileDropdown)}
             >
-              <HamburgerSVG />
-            </button>
+              <HamburgerIcon />
+            </a>
           </div>
         </div>
         <AnimatePresence initial={false}>
           {isUsingMobileDropdown && (
-            <motion.ul
-              className={`flex-col bg-background text-primary rounded-md h-auto place-self-end w-fit text-right mt-4 gap-4 text-bold uppercase tracking-widest text-sm p-4 px-10 `}
-              initial={{ opacity: 0, scaleY: 0.5 }}
-              animate={{ opacity: 1, scaleY: 1 }}
-              exit={{ opacity: 0, scaleY: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-                ease: [0, 0.71, 0.2, 1.01],
-              }}
-            >
-              <li>
-                <a href={'#' + SECTION_REFS.INFO}>Info</a>
-              </li>
-              <li>
-                <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
-              </li>
-              <li>
-                <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
-              </li>
-            </motion.ul>
+            <div className="overflow-hidden">
+              <motion.ul
+                className={`flex-col bg-background text-primary rounded-md h-auto place-self-end w-fit text-right mt-4 gap-4 text-bold uppercase tracking-widest text-sm p-4 px-10 `}
+                initial={{ opacity: 0, y: '-100%' }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: '-100%' }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.5,
+                  ease: [0, 0.71, 0.2, 1.01],
+                }}
+              >
+                <li className="py-2">
+                  <a href={'#' + SECTION_REFS.INFO}>Info</a>
+                </li>
+                <li className="py-2">
+                  <a href={'#' + SECTION_REFS.SKILLS}>Skills</a>
+                </li>
+                <li className="py-2">
+                  <a href={'#' + SECTION_REFS.CONTACT}>Contact</a>
+                </li>
+              </motion.ul>
+            </div>
           )}
         </AnimatePresence>
       </div>
@@ -144,7 +146,7 @@ function Nav() {
 
 export default Nav;
 
-const HamburgerSVG = () => {
+const HamburgerIcon = () => {
   return (
     <svg
       width="41"
@@ -155,7 +157,7 @@ const HamburgerSVG = () => {
     >
       <path
         d="M34.1668 9.5H17.0835M34.1668 19H6.8335M34.1668 28.5H23.9168"
-        className="stroke-current"
+        stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"

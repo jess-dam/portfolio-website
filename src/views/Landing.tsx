@@ -32,10 +32,10 @@ function Landing() {
         initial={{
           opacity: 0,
         }}
-        animate={{
-          scale: [1, 1.5, 1, 1, 2, 1],
-          opacity: [0, 0.5, 0.5, 1, 0.5, 1, 0],
-        }}
+        // animate={{
+        //   scale: [1, 1.5, 1, 1, 2, 1],
+        //   opacity: [0, 0.5, 0.5, 1, 0.5, 1, 0],
+        // }}
         transition={{
           duration: 10,
           delay: 2.5,
@@ -43,7 +43,7 @@ function Landing() {
           repeat: Infinity,
         }}
       >
-        <img src="public/assets/images/cutouts/coot.png" width={300} />
+        <img src="/assets/images/cutouts/coot.png" width={300} />
       </motion.div>
 
       <motion.div
