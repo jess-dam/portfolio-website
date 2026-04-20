@@ -103,7 +103,7 @@ function EngineeringSkills() {
             'rasterio',
             'geopandas',
           ]}
-          isExpanded={false}
+          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="04"
