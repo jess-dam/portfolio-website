@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
 
@@ -131,16 +132,16 @@ const ContactButton = ({
   children,
 }: ContactButtonProps) => {
   return (
-    <a
+    <motion.a
       href={redirectLink}
-      className="group flex w-fit gap-8 border border-primary text-primary bg-accent justify-start content-center p-8 rounded-full hover:bg-primary hover:text-accent hover:border-primary h-fit"
+      className="group flex w-fit gap-8 border border-primary text-primary bg-accent justify-start content-center p-8 rounded-full h-fit hover:bg-primary hover:text-accent hover:border-primary"
     >
       <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
         {label}
       </label>
       {children}
       <TopRightArrow />
-    </a>
+    </motion.a>
   );
 };
 
