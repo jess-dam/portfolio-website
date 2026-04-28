@@ -34,7 +34,7 @@ export function AnimatedCounter({
 
     const controls = animate(from, to, {
       duration: 1.8,
-      delay: 0.4,
+      delay: 0.7,
       ease: 'easeOut',
       ...animateOptions,
       onUpdate(latest) {
@@ -47,5 +47,5 @@ export function AnimatedCounter({
     };
   }, [ref, inView, from, to]);
 
-  return <span className="font-mono font-bold" ref={ref} />;
+  return <span className="font-poppins" ref={ref} />;
 }

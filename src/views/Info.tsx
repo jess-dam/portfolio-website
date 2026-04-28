@@ -1,8 +1,9 @@
+import { AnimatedCounter } from '../components/atoms/AnimatedCounter';
 import ContentSectionContainer from '../components/ContentSectionContainer';
-import { SECTION_REFS } from '../pageRefs';
 import moment from 'moment';
-import { AnimatedCounter } from '../components/AnimatedCounter';
 import { motion } from 'framer-motion';
+import { SECTION_REFS } from '../pageRefs';
+
 const FIRST_COMMIT_DATE = '23/10/2019';
 
 const getYearsSinceFirstCommit = (): number => {
@@ -14,33 +15,37 @@ const getYearsSinceFirstCommit = (): number => {
 };
 
 /** Tailwind must see full class names in source; `md:${dynamic}` is not scanned. */
-const COL_START_MD_CLASSES: Record<3 | 4, string> = {
+const COL_START_MD_CLASSES: Record<1 | 2 | 3 | 4, string> = {
+  1: 'col-start-1 md:col-start-1',
+  2: 'col-start-1 md:col-start-2',
   3: 'col-start-2 md:col-start-3',
   4: 'col-start-2 md:col-start-4',
 };
 
-interface InfoBoxProps {
+interface ContentBoxProps {
   children: JSX.Element | JSX.Element[];
   bgColor: string;
   color: string;
+  borderColor?: string;
   /** Grid column start at `md` (1-based). Mobile uses `col-start-2` for alignment with the 2-col layout. */
-  colStartMd?: 3 | 4;
+  colStartMd?: 1 | 2 | 3 | 4;
   colSpan?: string;
 }
 
-const InfoBox = ({
+const ContentBox = ({
   children,
   bgColor,
   color,
+  borderColor,
   colSpan,
   colStartMd,
-}: InfoBoxProps) => {
+}: ContentBoxProps) => {
   const colStartClass =
     colStartMd != null ? COL_START_MD_CLASSES[colStartMd] : '';
+
+  const borderClass = borderColor != null ? `border ${borderColor}` : '';
   return (
-    <div
-      className={`overflow-hidden ${colSpan ?? ''} ${colStartClass}`.trim()}
-    >
+    <div className={`overflow-hidden ${colSpan ?? ''} ${colStartClass}`.trim()}>
       <motion.div
         variants={{
           initial: { opacity: 0, y: '-40%' },
@@ -52,7 +57,7 @@ const InfoBox = ({
           ease: 'easeInOut',
         }}
         viewport={{ amount: 'all' }}
-        className={`${bgColor} ${color} p-2 lg:p-4 h-full flex flex-col place-content-between`}
+        className={`${bgColor} ${color} ${borderClass} p-2 lg:p-4 h-full flex flex-col place-content-between`}
       >
         {children}
       </motion.div>
@@ -72,15 +77,70 @@ function Info() {
         whileInView="reveal"
         exit="exit"
         transition={{ staggerChildren: 0.08 }}
-        className="overflow-hidden self-center text-wrap max-w-[1200px] col-span-12 lg:col-start-2 lg:col-span-10 grid grid-flow-row auto-rows-fr grid-cols-2 md:grid-cols-4 md:grid-rows-2 md:min-h-[500px] gap-4 content-stretch xs:pt-8 py-4"
+        aria-label="A quick summary about me"
+        className="overflow-hidden grid justify-self-center text-wrap info-detail max-w-[900px] col-span-12 lg:col-start-2 lg:col-span-10 grid-flow-row auto-rows-fr grid-cols-2 md:grid-cols-3 md:grid-rows-2 md:min-h-[500px] gap-4 content-stretch xs:pt-8 py-4"
       >
-        <InfoBox bgColor="bg-primary" color="text-background">
-          <h4>
-            Hi! <br /> I'm a Full Stack Engineer
-          </h4>
-        </InfoBox>
+        <ContentBox
+          bgColor="bg-background"
+          color="text-primary"
+          borderColor="border-primary"
+        >
+          <p>Hi! I'm a Full Stack Engineer</p>
+        </ContentBox>
 
-        <InfoBox bgColor="bg-accent" color="text-primary" colStartMd={3}>
+        <ContentBox
+          bgColor="bg-primary"
+          color="text-background"
+          colStartMd={3}
+          aria-label="Programming professionally for 6+ years"
+        >
+          <p>Programming professionally for</p>
+          <p>
+            <AnimatedCounter from={0} to={getYearsSinceFirstCommit()} /> Years
+          </p>
+        </ContentBox>
+
+        <ContentBox
+          bgColor="bg-secondary"
+          color="text-background"
+          colStartMd={2}
+        >
+          <h4>Skilled at building</h4>
+          <ul className="list-none flex flex-col gap-1 info-detail">
+            <li className="flex items-center gap-2">
+              <BulletPointStar />
+              APIs
+            </li>
+            <li className="flex items-center gap-2">
+              <BulletPointStar />
+              Web Interfaces
+            </li>
+            <li className="flex items-center gap-2">
+              <BulletPointStar />
+              Machine Learning Pipelines
+            </li>
+          </ul>
+        </ContentBox>
+
+        <ContentBox bgColor="bg-accent2" color="text-primary" colStartMd={1}>
+          <h4>Working across</h4>
+          <ul className="list-none flex flex-col gap-1 info-detail">
+            <li className="flex items-center gap-2">
+              <BulletPointStar />
+              Climate
+            </li>
+            <li className="flex items-center gap-2">
+              <BulletPointStar />
+              Finance
+            </li>
+            <li className="flex items-center gap-2">
+              <BulletPointStar />
+              Social Impact
+            </li>
+          </ul>
+        </ContentBox>
+
+        <ContentBox bgColor="bg-accent" color="text-primary" colStartMd={3}>
           <h4>Based in</h4>
           <div className="flex flex-row flex-wrap">
             <img
@@ -88,41 +148,29 @@ function Info() {
               width={20}
               className="pr-2 md:w-30"
             ></img>
-            <h4>London, UK</h4>
+            <p>London, UK</p>
           </div>
-        </InfoBox>
-
-        <InfoBox bgColor="bg-primary" color="text-background">
-          <h4>Programming professionally for</h4>
-          <h4>
-            <AnimatedCounter from={0} to={getYearsSinceFirstCommit()} /> Years
-          </h4>
-        </InfoBox>
-
-        <InfoBox
-          bgColor="bg-secondary"
-          color="text-background"
-          colSpan="col-span-2"
-        >
-          <h4>Skilled at building</h4>
-          <ul className="info-detail">
-            <li>APIs</li>
-            <li>Web Interfaces</li>
-            <li>Machine Learning Pipelines</li>
-          </ul>
-        </InfoBox>
-
-        <InfoBox bgColor="bg-accent2" color="text-primary" colStartMd={4}>
-          <h4>Working across</h4>
-          <ul className="info-detail">
-            <li>Climate</li>
-            <li>Finance</li>
-            <li>Social Impact</li>
-          </ul>
-        </InfoBox>
+        </ContentBox>
       </motion.div>
     </ContentSectionContainer>
   );
 }
+
+const BulletPointStar = () => {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 13 13"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.5 0L8.25559 4.74441L13 6.5L8.25559 8.25559L6.5 13L4.74441 8.25559L0 6.5L4.74441 4.74441L6.5 0Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
 
 export default Info;

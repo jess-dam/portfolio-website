@@ -98,7 +98,7 @@ function Contact() {
     >
       <div className="col-span-12 md:col-start-2 md:col-span-9 relative flex flex-col w-full place-content-evenly md:place-content-center">
         <div className="">
-          <h1 className="text-center md:text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 ">
+          <h1 className="text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 ">
             Contact
           </h1>
         </div>
@@ -134,9 +134,24 @@ const ContactButton = ({
   return (
     <motion.a
       href={redirectLink}
-      className="group flex w-fit gap-8 border border-primary text-primary bg-accent justify-start content-center p-8 rounded-full h-fit hover:bg-primary hover:text-accent hover:border-primary"
+      className="flex w-fit gap-8 border justify-start content-center p-8 rounded-full h-fit"
+      // colours input manually to handle color transition
+      style={{
+        backgroundColor: '#C1E3FE',
+        color: '#274029',
+        borderColor: '#274029',
+      }}
+      whileHover={{
+        backgroundColor: '#274029',
+        color: '#C1E3FE',
+        borderColor: '#274029',
+      }}
+      transition={{ duration: 0.2, ease: 'circIn' }}
+      whileTap={{
+        scale: 0.95,
+      }}
     >
-      <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
+      <label className="flex items-center uppercase tracking-widest text-xs md:text-sm cursor-pointer">
         {label}
       </label>
       {children}

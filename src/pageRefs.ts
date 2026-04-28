@@ -3,4 +3,5 @@ export const SECTION_REFS = {
   SKILLS: 'skills',
   INFO: 'info',
   LANDING: 'landing',
+  PROJECTS: 'projects',
 };
