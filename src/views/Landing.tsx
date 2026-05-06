@@ -4,54 +4,76 @@ import {
   useScroll,
   useTransform,
   useTime,
+  AnimatePresence,
 } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { SECTION_REFS } from '../pageRefs';
 
-const CYCLE_MS = 8000;
-const SLOTS = 6;
-
-const PATH_WIDTH = 600;
-const PATH_HEIGHT = 200;
-
-const POOL = [
+const IMAGE_POOL = [
   '/assets/images/cutouts/coot.png',
   '/assets/images/cutouts/butterfly.png',
   '/assets/images/cutouts/jellyfish.png',
+  '/assets/images/doodles/accessibility.svg',
+  '/assets/images/doodles/apidesign.svg',
+  '/assets/images/doodles/cat_on_laptop.svg',
+  '/assets/images/doodles/sustainability.svg',
 ];
 
-const pathPoint = (t: number) => ({
-  x: -PATH_WIDTH / 2 + t * PATH_WIDTH,
-  y: Math.sin(t * Math.PI * 2) * PATH_HEIGHT,
-});
-
-interface TrailImageProps {
+interface ActiveImage {
+  id: string;
   src: string;
-  offset: number;
-  time: MotionValue<number>;
   x: number;
   y: number;
 }
+const TrailingImageCycle = () => {
+  const [activeImages, setActiveImages] = useState<ActiveImage[]>([]);
 
-const TrailImage = ({ src, offset, time, x, y }: TrailImageProps) => {
-  const xSpawn = `top-${x}`;
-  const ySpawn = `left-${y}`;
+  const ref = useRef<HTMLDivElement>(null);
+  const distance = 500;
+  const time = useTime();
+  const imageY = useTransform(() => Math.sin(time.get() / 1000) * distance);
+  const imageX = useTransform(() => Math.sin(time.get() / 800) * distance);
+
+  // Every 5 seconds, add the image elements to the DOM at the current imageX and imageY, staggering them by 1 second, then remove them after 3 seconds.
+  useEffect(() => {
+    const spawnBatch = () => {
+      IMAGE_POOL.forEach((src, index) => {
+        setTimeout(() => {
+          const id = `${Date.now()}-${index}`; // use timestamp to ensure unique id
+          setActiveImages((prev) => [
+            ...prev,
+            { id, src, x: imageX.get(), y: imageY.get() },
+          ]);
+          setTimeout(() => {
+            setActiveImages((prev) => prev.filter((img) => img.id !== id));
+          }, 3000); // remove 3s after appearing
+        }, index * 300); // stagger by 0.3s per image
+      });
+    };
+    const interval = setInterval(spawnBatch, 500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <motion.img
-      initial={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        duration: 10,
-        delay: 2.5,
-        ease: 'easeIn',
-        repeat: Infinity,
-      }}
-      src={src}
-      width={220}
-      style={{ x: x, y: y }}
-      className={`absolute pointer-events-none ${xSpawn} ${ySpawn}`}
-    />
+    <div
+      ref={ref}
+      aria-label="Collage imagery"
+      className="absolute z-30 inset-0 flex items-center justify-center pointer-events-none"
+    >
+      {activeImages.map(({ id, src, x, y }) => (
+        <motion.img
+          key={id}
+          src={src}
+          width={150}
+          initial={{ opacity: 0.7 }}
+          animate={{ opacity: 0.7 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
+          className="absolute pointer-events-none color-primary md:w-[200px]"
+          style={{ x, y, width: '150px' }}
+        />
+      ))}
+    </div>
   );
 };
 
@@ -64,66 +86,15 @@ function Landing() {
   });
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
 
-  const distance = 300;
-  const time = useTime();
-  const imageY = useTransform(() => Math.sin(time.get() / 1000) * distance);
-  const imageX = useTransform(() => Math.sin(time.get() / 1200) * distance);
-
-  const image2Y = useTransform(() => Math.sin(time.get() / 1500) * distance);
-  const image2X = useTransform(() => Math.sin(time.get() / 1300) * distance);
-
   return (
     <div
+      ref={ref}
       id={SECTION_REFS.LANDING}
       className="relative grid place-content-center h-screen w-full overflow-clip text-primary"
     >
-      {/* <motion.div
-        className="absolute z-20 bottom-[25vh] md:bottom-[20vh] left-[15vw]"
-        style={{ x: imageX, y: imageY }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 10,
-          delay: 2.5,
-          ease: 'easeIn',
-          repeat: Infinity,
-        }}
-      >
-        <img src="/assets/images/cutouts/coot.png" width={300} />
-      </motion.div>
+      <TrailingImageCycle />
 
-      <motion.div
-        className="absolute z-30 bottom-[25vh] md:bottom-[80vh] right-[15vw]"
-        style={{ x: image2X, y: image2Y }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.7 }}
-        transition={{
-          duration: 10,
-          delay: 2.5,
-          ease: 'backInOut',
-          repeat: Infinity,
-        }}
-      /> */}
-      <div
-        aria-label="Collage imagery"
-        className="absolute z-20 inset-0 flex items-center justify-center pointer-events-none"
-      >
-        {Array.from({ length: SLOTS }, (_, i) => (
-          <TrailImage
-            key={i}
-            src={POOL[i % POOL.length]}
-            offset={i / SLOTS}
-            time={time}
-            x={imageX.get()}
-            y={imageY.get()}
-          />
-        ))}
-      </div>
-
-      <div
-        ref={ref}
-        className="overflow-hidden z-20 p-10 grid place-content-center min-w-[300px] md:min-w-[710px] h-fit"
-      >
+      <div className="overflow-hidden z-20 p-10 grid place-content-center min-w-[300px] md:min-w-[710px] h-fit">
         <div className="relative grid place-content-center overflow-hidden w-[270px] md:w-[550px] lg:w-[800px] h-[150px] md:h-[250px]">
           <motion.div
             initial={{ y: '100%' }}
@@ -142,7 +113,7 @@ function Landing() {
               </motion.h1>
               <h3
                 aria-label="Software Engineer"
-                className="z-30 text-lg md:text-2xl text-secondary font-homemade-apple pb-8 pl-4 mt-4"
+                className="relative z-30 text-lg md:text-2xl text-secondary font-homemade-apple pb-8 pl-4 mt-4"
               >
                 Software Engineer
               </h3>
