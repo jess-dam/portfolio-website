@@ -45,7 +45,9 @@ const ContentBox = ({
 
   const borderClass = borderColor != null ? `border ${borderColor}` : '';
   return (
-    <div className={`overflow-hidden ${colSpan ?? ''} ${colStartClass}`.trim()}>
+    <div
+      className={`overflow-hidden info-detail ${colSpan ?? ''} ${colStartClass}`.trim()}
+    >
       <motion.div
         variants={{
           initial: { opacity: 0, y: '-40%' },
@@ -85,7 +87,7 @@ function Info() {
           color="text-primary"
           borderColor="border-primary"
         >
-          <p>Hi! I'm a Full Stack Engineer</p>
+          <p className="info-detail">Hi! I'm a Full Stack Engineer</p>
         </ContentBox>
 
         <ContentBox
@@ -94,8 +96,8 @@ function Info() {
           colStartMd={3}
           aria-label="Programming professionally for 6+ years"
         >
-          <p>Programming professionally for</p>
-          <p>
+          <p className="info-detail">Programming professionally for</p>
+          <p className="info-detail">
             <AnimatedCounter from={0} to={getYearsSinceFirstCommit()} /> Years
           </p>
         </ContentBox>
@@ -148,7 +150,7 @@ function Info() {
               width={20}
               className="pr-2 md:w-30"
             ></img>
-            <p>London, UK</p>
+            <p className="info-detail">London, UK</p>
           </div>
         </ContentBox>
       </motion.div>
