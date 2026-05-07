@@ -1,38 +1,66 @@
+import AnimatedStar from '../components/atoms/AnimatedStar';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 interface SkillSetProps {
   skillSetOrder: string;
   title: string;
   skills: string[];
-  isExpanded: boolean;
+  isActiveByDefault?: boolean;
 }
 
 const SkillSet = ({
   skillSetOrder,
   title,
   skills,
-  isExpanded,
+  isActiveByDefault = false,
 }: SkillSetProps) => {
+  const [isActive, setIsActive] = useState(isActiveByDefault);
   return (
-    <div className="border border-t-2 border-b-0 border-r-0 border-l-0 border-secondary p-2 py-4">
-      <h1 className="text-secondary text-2xl md:text-4xl">
-        {skillSetOrder}
-        <span className="font-homemade-apple text-primary">{title}</span>
-      </h1>
+    <div
+      className="border border-t-2 border-b-0 border-r-0 border-l-0 border-secondary p-2 py-4 md:py-8"
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
+      <div className="flex flex-row no-wrap">
+        <h1 className="text-secondary text-2xl md:text-4xl">
+          {skillSetOrder}
+          <span className="z-20 relative font-cedarville-cursive text-primary left-[-5px]">
+            {title}
+          </span>
+        </h1>
+        {isActive && (
+          <span
+            className="text-secondary px-2 grid items-center"
+            aria-label="Star icon active tab indicator"
+          >
+            <AnimatedStar />
+          </span>
+        )}
+      </div>
       <div className="overflow-hidden">
-        <AnimatePresence>
-          {isExpanded && (
+        {isActive && (
+          <AnimatePresence>
             <motion.ul
-              initial={{ opacity: 0, y: '-100%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '-100%' }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-                ease: [0, 0.71, 0.2, 1.01],
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  scaleY: 0,
+                  y: '-100%',
+                  transition: { duration: 0.2, ease: 'easeOut' },
+                },
+                visible: {
+                  opacity: 1,
+                  scaleY: 1,
+                  y: 0,
+                  transition: { duration: 0.4, ease: [0, 0.71, 0.2, 1.01] },
+                },
               }}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
               className="flex flex-row flex-wrap p-6 uppercase"
             >
               {skills.map((skill, index) => (
@@ -42,28 +70,14 @@ const SkillSet = ({
                 </>
               ))}
             </motion.ul>
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
+        )}
       </div>
     </div>
   );
 };
 
 function EngineeringSkills() {
-  // animation
-  // const skillsRef = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: skillsRef,
-  // });
-
-  // const [activeSkillSet, setActiveSkillSet] = useState(0);
-
-  // useEffect(() => {
-  //   console.log('scroll', scrollYProgress);
-  //   console.log('motion', motion);
-  //   // setActiveSkillSet();
-  // }, [scrollYProgress, useMotionValue]);
-
   return (
     <ContentSectionContainer
       id={SECTION_REFS.SKILLS}
@@ -76,7 +90,7 @@ function EngineeringSkills() {
           skillSetOrder="01"
           title="Languages"
           skills={['TypeScript', 'Python', 'Java', 'SQL', 'Javascript', 'C#']}
-          isExpanded={true}
+          isActiveByDefault={true}
         />
         <SkillSet
           skillSetOrder="02"
@@ -89,7 +103,6 @@ function EngineeringSkills() {
             'NodeJS',
             'Spring Boot',
           ]}
-          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="03"
@@ -103,7 +116,6 @@ function EngineeringSkills() {
             'rasterio',
             'geopandas',
           ]}
-          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="04"
@@ -116,13 +128,11 @@ function EngineeringSkills() {
             'Kubernetes',
             'Git',
           ]}
-          isExpanded={true}
         />
         <SkillSet
           skillSetOrder="05"
           title="AI Tooling"
           skills={['Claude Code', 'Codex']}
-          isExpanded={true}
         />
       </div>
     </ContentSectionContainer>

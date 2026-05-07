@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
+import { useReducedMotionState } from '../context/ReducedMotionContext';
 
 const TopRightArrow = () => {
   return (
@@ -97,9 +99,15 @@ function Contact() {
     >
       <div className="col-span-12 md:col-start-2 md:col-span-9 relative flex flex-col w-full place-content-evenly md:place-content-center">
         <div className="">
-          <h1 className="text-center md:text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 ">
+          <h1 className="text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 ">
             Contact
           </h1>
+          <img
+            src="/assets/images/doodles/cat_on_laptop_red.svg"
+            width={100}
+            alt="cat mascot typing rapidly on a laptop"
+            className="absolute top-16 right-0 z-20 w-[80px] md:left-[520px] md:top-20 md:w-[150px] rotate-[0.342rad]"
+          />
         </div>
 
         <div className="flex flex-col gap-10">
@@ -130,17 +138,35 @@ const ContactButton = ({
   label,
   children,
 }: ContactButtonProps) => {
+  const { shouldReduceMotion } = useReducedMotionState();
   return (
-    <a
+    <motion.a
       href={redirectLink}
-      className="group flex w-fit gap-8 border border-primary text-primary bg-accent justify-start content-center p-8 rounded-full hover:bg-primary hover:text-accent hover:border-primary h-fit"
+      className="flex w-fit gap-8 border justify-start content-center p-8 rounded-full h-fit"
+      // colours input manually to handle color transition
+      style={{
+        backgroundColor: '#C1E3FE',
+        color: '#274029',
+        borderColor: '#274029',
+      }}
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : {
+              backgroundColor: '#274029',
+              color: '#C1E3FE',
+              borderColor: '#274029',
+            }
+      }
+      transition={{ duration: 0.2, ease: 'circIn' }}
+      whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
     >
-      <label className="flex items-center uppercase tracking-widest text-xs md:text-sm">
+      <label className="flex items-center uppercase tracking-widest text-xs md:text-sm cursor-pointer">
         {label}
       </label>
       {children}
       <TopRightArrow />
-    </a>
+    </motion.a>
   );
 };
 

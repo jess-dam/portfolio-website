@@ -21,7 +21,7 @@ function ContentSectionContainer({ id, children }: Props) {
     <AnimatePresence>
       <section
         id={id}
-        className={`grid grid-cols-12 justify-items-stretch m-4 md:m-8 pb-20 md:py-20 place-items-between min-h-screen overflow-hidden`}
+        className={`grid grid-cols-12 justify-items-stretch m-4 md:m-8 pb-40 md:py-40 place-items-between min-h-screen overflow-hidden`}
       >
         {children}
       </section>

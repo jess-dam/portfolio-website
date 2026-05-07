@@ -7,6 +7,23 @@ import {
   useMotionValueEvent,
   useScroll,
 } from 'framer-motion';
+import { useReducedMotionState } from '../context/ReducedMotionContext';
+
+const ReducedMotionButton = () => {
+  const { reducedMotion, setReducedMotion } = useReducedMotionState();
+  return (
+    <button
+      className="text-primary bg-transparent border-none hover:text-secondary hover:bg-transparent hover:border-none"
+      onClick={() => {
+        const next = reducedMotion === 'always' ? 'user' : 'always';
+        setReducedMotion(next);
+      }}
+      aria-label="Toggle reduced motion"
+    >
+      {reducedMotion === 'always' ? 'Motion On' : 'Motion Off'}
+    </button>
+  );
+};
 
 function Nav() {
   const [isUsingMobileDropdown, setIsUsingMobileDropdown] =
@@ -123,6 +140,7 @@ function Nav() {
         </div>
 
         <div className="flex items-center gap-8 px-8">
+          <ReducedMotionButton />
           <a href={linkedinUrl} className="flex col-span-1 justify-center">
             <img
               src="/assets/images/linkedin.svg"
