@@ -1,22 +1,20 @@
 import {
   motion,
-  type MotionValue,
   useScroll,
   useTransform,
   useTime,
-  AnimatePresence,
+  useReducedMotion,
 } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { SECTION_REFS } from '../pageRefs';
 
 const IMAGE_POOL = [
   '/assets/images/cutouts/coot.png',
-  '/assets/images/cutouts/butterfly.png',
-  '/assets/images/cutouts/jellyfish.png',
-  '/assets/images/doodles/accessibility.svg',
-  '/assets/images/doodles/apidesign.svg',
-  '/assets/images/doodles/cat_on_laptop.svg',
   '/assets/images/doodles/sustainability.svg',
+  '/assets/images/cutouts/butterfly.png',
+  '/assets/images/doodles/accessibility.svg',
+  '/assets/images/doodles/ux.svg',
+  '/assets/images/doodles/art.svg',
 ];
 
 interface ActiveImage {
@@ -58,13 +56,13 @@ const TrailingImageCycle = () => {
     <div
       ref={ref}
       aria-label="Collage imagery"
-      className="absolute z-30 inset-0 flex items-center justify-center pointer-events-none"
+      className="absolute z-20 inset-0 flex items-center justify-center pointer-events-none"
     >
       {activeImages.map(({ id, src, x, y }) => (
         <motion.img
           key={id}
           src={src}
-          width={150}
+          width={120}
           initial={{ opacity: 0.7 }}
           animate={{ opacity: 0.7 }}
           exit={{ opacity: 0 }}
@@ -85,6 +83,8 @@ function Landing() {
     offset: ['start start', 'end start'],
   });
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
+  const shouldReduceMotion = useReducedMotion();
+  console.log(shouldReduceMotion);
 
   return (
     <div
@@ -92,9 +92,9 @@ function Landing() {
       id={SECTION_REFS.LANDING}
       className="relative grid place-content-center h-screen w-full overflow-clip text-primary"
     >
-      <TrailingImageCycle />
+      {shouldReduceMotion == false ? <TrailingImageCycle /> : <></>}
 
-      <div className="overflow-hidden z-20 p-10 grid place-content-center min-w-[300px] md:min-w-[710px] h-fit">
+      <div className="overflow-hidden z-10 p-10 grid place-content-center min-w-[300px] md:min-w-[710px] h-fit">
         <div className="relative grid place-content-center overflow-hidden w-[270px] md:w-[550px] lg:w-[800px] h-[150px] md:h-[250px]">
           <motion.div
             initial={{ y: '100%' }}
@@ -113,7 +113,7 @@ function Landing() {
               </motion.h1>
               <h3
                 aria-label="Software Engineer"
-                className="relative z-30 text-lg md:text-2xl text-secondary font-homemade-apple pb-8 pl-4 mt-4"
+                className="relative z-20 text-lg md:text-2xl text-secondary font-cedarville-cursive pb-8 pl-4 mt-4"
               >
                 Software Engineer
               </h3>

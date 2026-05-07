@@ -14,7 +14,7 @@ export default {
       },
       fontFamily: {
         'climate-crisis': ['Climate Crisis', 'sans-serif'],
-        'homemade-apple': ['Homemade Apple'],
+        'cedarville-cursive': ['Cedarville Cursive'],
         poppins: ['Poppins']
       },
     },

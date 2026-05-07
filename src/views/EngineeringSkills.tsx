@@ -1,10 +1,7 @@
 import AnimatedStar from '../components/atoms/AnimatedStar';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import {
-  motion,
-  AnimatePresence,
-} from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 interface SkillSetProps {
@@ -30,7 +27,9 @@ const SkillSet = ({
       <div className="flex flex-row no-wrap">
         <h1 className="text-secondary text-2xl md:text-4xl">
           {skillSetOrder}
-          <span className="font-homemade-apple text-primary">{title}</span>
+          <span className="z-20 relative font-cedarville-cursive text-primary left-[-5px]">
+            {title}
+          </span>
         </h1>
         {isActive && (
           <span

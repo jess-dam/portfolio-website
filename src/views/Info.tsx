@@ -1,7 +1,7 @@
 import { AnimatedCounter } from '../components/atoms/AnimatedCounter';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import moment from 'moment';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { SECTION_REFS } from '../pageRefs';
 
 const FIRST_COMMIT_DATE = '23/10/2019';
@@ -67,6 +67,66 @@ const ContentBox = ({
   );
 };
 
+const StickerOverlay = () => {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={{
+          initial: { opacity: 0 },
+          animate: { opacity: 1 },
+          exit: { opacity: 0 },
+        }}
+        transition={{ duration: 0.5, ease: 'easeInOut', delay: 2 }}
+        className="absolute z-20 inset-0 flex justify-between pointer-events-none"
+      >
+        <img
+          src="/assets/images/doodles/accessibility.svg"
+          width={100}
+          alt="illustration representing accessibility"
+          className="relative bottom-[15%]"
+        />
+        <motion.img
+          animate={{
+            rotate: 360,
+            transition: {
+              duration: 2,
+              ease: 'linear',
+              repeat: Infinity,
+            },
+          }}
+          src="/assets/images/doodles/star_red.svg"
+          width={30}
+          alt="star illustration"
+          className="relative bottom-[45%] -left-10"
+        />
+        <img
+          src="/assets/images/doodles/sustainability.svg"
+          width={100}
+          alt="illustration representing sustainability"
+          className="relative top-[5%] right-0"
+        />
+        <motion.img
+          animate={{
+            rotate: 360,
+            transition: {
+              duration: 2,
+              ease: 'linear',
+              repeat: Infinity,
+            },
+          }}
+          src="/assets/images/doodles/star_green.svg"
+          width={30}
+          alt="star illustration"
+          className="relative top-[30%]"
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 function Info() {
   return (
     <ContentSectionContainer
@@ -80,7 +140,7 @@ function Info() {
         exit="exit"
         transition={{ staggerChildren: 0.08 }}
         aria-label="A quick summary about me"
-        className="overflow-hidden grid justify-self-center text-wrap info-detail max-w-[900px] col-span-12 lg:col-start-2 lg:col-span-10 grid-flow-row auto-rows-fr grid-cols-2 md:grid-cols-3 md:grid-rows-2 md:min-h-[500px] gap-4 content-stretch xs:pt-8 py-4"
+        className="relative overflow-hidden grid justify-self-center text-wrap info-detail max-w-[900px] col-span-12 lg:col-start-2 lg:col-span-10 grid-flow-row auto-rows-fr grid-cols-2 md:grid-cols-3 md:grid-rows-2 md:min-h-[500px] gap-4 content-stretch xs:pt-8 py-4"
       >
         <ContentBox
           bgColor="bg-background"
@@ -153,6 +213,7 @@ function Info() {
             <p className="info-detail">London, UK</p>
           </div>
         </ContentBox>
+        <StickerOverlay />
       </motion.div>
     </ContentSectionContainer>
   );

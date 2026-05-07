@@ -101,6 +101,12 @@ function Contact() {
           <h1 className="text-left text-[3rem] md:text-[4rem] lg:text-[6rem] z-10 md:pb-20 ">
             Contact
           </h1>
+          <img
+            src="/assets/images/doodles/cat_on_laptop_red.svg"
+            width={100}
+            alt="cat mascot typing rapidly on a laptop"
+            className="absolute top-16 right-0 z-20 w-[80px] md:left-[520px] md:top-20 md:w-[150px] rotate-[0.342rad]"
+          />
         </div>
 
         <div className="flex flex-col gap-10">

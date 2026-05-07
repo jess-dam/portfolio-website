@@ -8,7 +8,32 @@ import {
   useScroll,
 } from 'framer-motion';
 
-function Nav() {
+const ReducedMotionButton = ({
+  reducedMotion,
+  setReducedMotion,
+}: {
+  reducedMotion: 'always' | 'never' | 'user';
+  setReducedMotion: (reducedMotion: 'always' | 'never' | 'user') => void;
+}) => {
+  return (
+    <button
+      className="text-primary bg-transparent border-none hover:text-secondary hover:bg-transparent hover:border-none"
+      onClick={() =>
+        setReducedMotion(reducedMotion === 'always' ? 'never' : 'always')
+      }
+      aria-label="Toggle reduced motion"
+    >
+      {reducedMotion === 'always' ? 'Motion Off' : 'Motion On'}
+    </button>
+  );
+};
+
+interface NavProps {
+  reducedMotion: 'always' | 'never' | 'user';
+  setReducedMotion: (reducedMotion: 'always' | 'never' | 'user') => void;
+}
+
+function Nav({ reducedMotion, setReducedMotion }: NavProps) {
   const [isUsingMobileDropdown, setIsUsingMobileDropdown] =
     useState<boolean>(false);
 
@@ -123,6 +148,10 @@ function Nav() {
         </div>
 
         <div className="flex items-center gap-8 px-8">
+          <ReducedMotionButton
+            reducedMotion={reducedMotion}
+            setReducedMotion={setReducedMotion}
+          />
           <a href={linkedinUrl} className="flex col-span-1 justify-center">
             <img
               src="/assets/images/linkedin.svg"
