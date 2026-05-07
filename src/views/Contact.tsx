@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
+import { useReducedMotionState } from '../context/ReducedMotionContext';
 
 const TopRightArrow = () => {
   return (
@@ -137,6 +138,7 @@ const ContactButton = ({
   label,
   children,
 }: ContactButtonProps) => {
+  const { shouldReduceMotion } = useReducedMotionState();
   return (
     <motion.a
       href={redirectLink}
@@ -147,15 +149,17 @@ const ContactButton = ({
         color: '#274029',
         borderColor: '#274029',
       }}
-      whileHover={{
-        backgroundColor: '#274029',
-        color: '#C1E3FE',
-        borderColor: '#274029',
-      }}
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : {
+              backgroundColor: '#274029',
+              color: '#C1E3FE',
+              borderColor: '#274029',
+            }
+      }
       transition={{ duration: 0.2, ease: 'circIn' }}
-      whileTap={{
-        scale: 0.95,
-      }}
+      whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
     >
       <label className="flex items-center uppercase tracking-widest text-xs md:text-sm cursor-pointer">
         {label}

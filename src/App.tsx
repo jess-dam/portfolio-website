@@ -5,34 +5,13 @@ import Footer from './components/Footer';
 import Info from './views/Info';
 import Landing from './views/Landing';
 import Nav from './components/Nav';
-import { MotionConfig } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { ReducedMotionProvider } from './context/ReducedMotionContext';
 
 function App() {
-  const [reducedMotion, setReducedMotion] = useState<
-    'always' | 'never' | 'user'
-  >('user');
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    // Check for initial state from the user
-    setReducedMotion(mediaQuery.matches ? 'always' : 'user');
-    // Check for OS changes from the user
-    mediaQuery.addEventListener('change', (e) =>
-      setReducedMotion(e.matches ? 'always' : 'user'),
-    );
-  }, []);
-
-  useEffect(() => {
-    console.log(reducedMotion);
-  }, [reducedMotion]);
-
   return (
-    <MotionConfig reducedMotion={reducedMotion}>
+    <ReducedMotionProvider>
       <div className="h-auto w-screen">
-        <Nav
-          reducedMotion={reducedMotion}
-          setReducedMotion={setReducedMotion}
-        />
+        <Nav />
         <main id="main">
           <Landing />
           <Info />
@@ -41,7 +20,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </MotionConfig>
+    </ReducedMotionProvider>
   );
 }
 

@@ -1,12 +1,7 @@
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useTime,
-  useReducedMotion,
-} from 'framer-motion';
+import { motion, useScroll, useTransform, useTime } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { SECTION_REFS } from '../pageRefs';
+import { useReducedMotionState } from '../context/ReducedMotionContext';
 
 const IMAGE_POOL = [
   '/assets/images/cutouts/coot.png',
@@ -83,8 +78,11 @@ function Landing() {
     offset: ['start start', 'end start'],
   });
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
-  const shouldReduceMotion = useReducedMotion();
-  console.log(shouldReduceMotion);
+  const { shouldReduceMotion } = useReducedMotionState();
+  console.log('[Landing] shouldReduceMotion:', shouldReduceMotion);
+  // #region agent log
+  fetch('http://127.0.0.1:7545/ingest/6735d593-907b-48c7-ba73-a082e8c1fb86',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f1bdbb'},body:JSON.stringify({sessionId:'f1bdbb',hypothesisId:'post-fix',location:'Landing.tsx:render',message:'Landing rendered after fix',data:{shouldReduceMotion},timestamp:Date.now()})}).catch(()=>{});
+  // #endregion
 
   return (
     <div
@@ -92,7 +90,7 @@ function Landing() {
       id={SECTION_REFS.LANDING}
       className="relative grid place-content-center h-screen w-full overflow-clip text-primary"
     >
-      {shouldReduceMotion == false ? <TrailingImageCycle /> : <></>}
+      {!shouldReduceMotion && <TrailingImageCycle />}
 
       <div className="overflow-hidden z-10 p-10 grid place-content-center min-w-[300px] md:min-w-[710px] h-fit">
         <div className="relative grid place-content-center overflow-hidden w-[270px] md:w-[550px] lg:w-[800px] h-[150px] md:h-[250px]">

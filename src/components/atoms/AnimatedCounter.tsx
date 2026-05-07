@@ -5,6 +5,7 @@ import {
   useInView,
 } from 'framer-motion';
 import { useRef } from 'react';
+import { useReducedMotionState } from '../../context/ReducedMotionContext';
 
 type AnimatedCounterProps = {
   from: number;
@@ -19,6 +20,7 @@ export function AnimatedCounter({
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref);
+  const { shouldReduceMotion } = useReducedMotionState();
 
   useIsomorphicLayoutEffect(() => {
     const element = ref.current;
@@ -27,7 +29,7 @@ export function AnimatedCounter({
     if (!inView) return;
     // remove animation if reduced motion is active
     // TODO move into hook to make available for other animations
-    if (window.matchMedia('prefers-reduced-motion').matches) {
+    if (shouldReduceMotion) {
       element.textContent = String(to);
       return;
     }

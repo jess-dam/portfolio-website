@@ -3,6 +3,7 @@ import ContentSectionContainer from '../components/ContentSectionContainer';
 import moment from 'moment';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SECTION_REFS } from '../pageRefs';
+import { useReducedMotionState } from '../context/ReducedMotionContext';
 
 const FIRST_COMMIT_DATE = '23/10/2019';
 
@@ -44,30 +45,48 @@ const ContentBox = ({
     colStartMd != null ? COL_START_MD_CLASSES[colStartMd] : '';
 
   const borderClass = borderColor != null ? `border ${borderColor}` : '';
+  const { shouldReduceMotion } = useReducedMotionState();
+
   return (
     <div
       className={`overflow-hidden info-detail ${colSpan ?? ''} ${colStartClass}`.trim()}
     >
-      <motion.div
-        variants={{
-          initial: { opacity: 0, y: '-40%' },
-          reveal: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: '-40%' },
-        }}
-        transition={{
-          duration: 0.4,
-          ease: 'easeInOut',
-        }}
-        viewport={{ amount: 'all' }}
-        className={`${bgColor} ${color} ${borderClass} p-2 lg:p-4 h-full flex flex-col place-content-between`}
-      >
-        {children}
-      </motion.div>
+      {shouldReduceMotion ? (
+        <div
+          className={`${bgColor} ${color} ${borderClass} p-2 lg:p-4 h-full flex flex-col place-content-between`}
+        >
+          {children}
+        </div>
+      ) : (
+        <motion.div
+          variants={{
+            initial: { opacity: 0, y: '-40%' },
+            reveal: { opacity: 1, y: 0 },
+            exit: { opacity: 0, y: '-40%' },
+          }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
+          viewport={{ amount: 'some' }}
+          className={`${bgColor} ${color} ${borderClass} p-2 lg:p-4 h-full flex flex-col place-content-between`}
+        >
+          {children}
+        </motion.div>
+      )}
     </div>
   );
 };
 
 const StickerOverlay = () => {
+  const { shouldReduceMotion } = useReducedMotionState();
+  const spinAnimation = shouldReduceMotion
+    ? undefined
+    : {
+        rotate: 360,
+        transition: {
+          duration: 2,
+          ease: 'linear' as const,
+          repeat: Infinity,
+        },
+      };
   return (
     <AnimatePresence>
       <motion.div
@@ -89,14 +108,7 @@ const StickerOverlay = () => {
           className="relative bottom-[15%]"
         />
         <motion.img
-          animate={{
-            rotate: 360,
-            transition: {
-              duration: 2,
-              ease: 'linear',
-              repeat: Infinity,
-            },
-          }}
+          animate={spinAnimation}
           src="/assets/images/doodles/star_red.svg"
           width={30}
           alt="star illustration"
@@ -109,14 +121,7 @@ const StickerOverlay = () => {
           className="relative top-[5%] right-0"
         />
         <motion.img
-          animate={{
-            rotate: 360,
-            transition: {
-              duration: 2,
-              ease: 'linear',
-              repeat: Infinity,
-            },
-          }}
+          animate={spinAnimation}
           src="/assets/images/doodles/star_green.svg"
           width={30}
           alt="star illustration"

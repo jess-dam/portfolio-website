@@ -7,33 +7,26 @@ import {
   useMotionValueEvent,
   useScroll,
 } from 'framer-motion';
+import { useReducedMotionState } from '../context/ReducedMotionContext';
 
-const ReducedMotionButton = ({
-  reducedMotion,
-  setReducedMotion,
-}: {
-  reducedMotion: 'always' | 'never' | 'user';
-  setReducedMotion: (reducedMotion: 'always' | 'never' | 'user') => void;
-}) => {
+const ReducedMotionButton = () => {
+  const { reducedMotion, setReducedMotion } = useReducedMotionState();
   return (
     <button
       className="text-primary bg-transparent border-none hover:text-secondary hover:bg-transparent hover:border-none"
-      onClick={() =>
-        setReducedMotion(reducedMotion === 'always' ? 'never' : 'always')
-      }
+      onClick={() => {
+        const next = reducedMotion === 'always' ? 'user' : 'always';
+        console.log('[ReducedMotionButton] click:', reducedMotion, '->', next);
+        setReducedMotion(next);
+      }}
       aria-label="Toggle reduced motion"
     >
-      {reducedMotion === 'always' ? 'Motion Off' : 'Motion On'}
+      {reducedMotion === 'always' ? 'Motion On' : 'Motion Off'}
     </button>
   );
 };
 
-interface NavProps {
-  reducedMotion: 'always' | 'never' | 'user';
-  setReducedMotion: (reducedMotion: 'always' | 'never' | 'user') => void;
-}
-
-function Nav({ reducedMotion, setReducedMotion }: NavProps) {
+function Nav() {
   const [isUsingMobileDropdown, setIsUsingMobileDropdown] =
     useState<boolean>(false);
 
@@ -148,10 +141,7 @@ function Nav({ reducedMotion, setReducedMotion }: NavProps) {
         </div>
 
         <div className="flex items-center gap-8 px-8">
-          <ReducedMotionButton
-            reducedMotion={reducedMotion}
-            setReducedMotion={setReducedMotion}
-          />
+          <ReducedMotionButton />
           <a href={linkedinUrl} className="flex col-span-1 justify-center">
             <img
               src="/assets/images/linkedin.svg"
