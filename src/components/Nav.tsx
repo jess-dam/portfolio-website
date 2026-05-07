@@ -16,7 +16,6 @@ const ReducedMotionButton = () => {
       className="text-primary bg-transparent border-none hover:text-secondary hover:bg-transparent hover:border-none"
       onClick={() => {
         const next = reducedMotion === 'always' ? 'user' : 'always';
-        console.log('[ReducedMotionButton] click:', reducedMotion, '->', next);
         setReducedMotion(next);
       }}
       aria-label="Toggle reduced motion"

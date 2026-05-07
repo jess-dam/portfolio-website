@@ -79,10 +79,6 @@ function Landing() {
   });
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
   const { shouldReduceMotion } = useReducedMotionState();
-  console.log('[Landing] shouldReduceMotion:', shouldReduceMotion);
-  // #region agent log
-  fetch('http://127.0.0.1:7545/ingest/6735d593-907b-48c7-ba73-a082e8c1fb86',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f1bdbb'},body:JSON.stringify({sessionId:'f1bdbb',hypothesisId:'post-fix',location:'Landing.tsx:render',message:'Landing rendered after fix',data:{shouldReduceMotion},timestamp:Date.now()})}).catch(()=>{});
-  // #endregion
 
   return (
     <div

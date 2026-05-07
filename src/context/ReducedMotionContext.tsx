@@ -35,7 +35,6 @@ export function ReducedMotionProvider({ children }: { children: ReactNode }) {
 
   const shouldReduceMotion = reducedMotion === 'always';
 
-  // #region agent log
   useEffect(() => {
     fetch('http://127.0.0.1:7545/ingest/6735d593-907b-48c7-ba73-a082e8c1fb86',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f1bdbb'},body:JSON.stringify({sessionId:'f1bdbb',hypothesisId:'post-fix',location:'ReducedMotionContext.tsx:state-effect',message:'reducedMotion provider state',data:{reducedMotion,shouldReduceMotion},timestamp:Date.now()})}).catch(()=>{});
   }, [reducedMotion, shouldReduceMotion]);

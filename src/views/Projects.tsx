@@ -1,7 +1,5 @@
 import ContentSectionContainer from '../components/ContentSectionContainer';
 import { SECTION_REFS } from '../pageRefs';
-import moment from 'moment';
-import { AnimatedCounter } from '../components/atoms/AnimatedCounter';
 import { motion } from 'framer-motion';
 
 /** Tailwind must see full class names in source; `md:${dynamic}` is not scanned. */
