@@ -106,7 +106,7 @@ function Contact() {
             src="/assets/images/doodles/cat_on_laptop_red.svg"
             width={100}
             alt="cat mascot typing rapidly on a laptop"
-            className="absolute top-16 right-0 z-20 w-[80px] md:left-[520px] md:top-20 md:w-[150px] rotate-[0.342rad]"
+            className="absolute top-16 right-0 z-20 w-[75px] lg:left-[520px] md:top-[16%] lg:top-20 md:w-[150px] rotate-[0.342rad]"
           />
         </div>
 

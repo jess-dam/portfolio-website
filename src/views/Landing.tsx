@@ -20,7 +20,6 @@ interface ActiveImage {
 }
 const TrailingImageCycle = () => {
   const [activeImages, setActiveImages] = useState<ActiveImage[]>([]);
-
   const ref = useRef<HTMLDivElement>(null);
   const distance = 500;
   const time = useTime();
@@ -32,10 +31,15 @@ const TrailingImageCycle = () => {
     const spawnBatch = () => {
       IMAGE_POOL.forEach((src, index) => {
         setTimeout(() => {
-          const id = `${Date.now()}-${index}`; // use timestamp to ensure unique id
+          const id = `${Date.now()}-${index}`;
           setActiveImages((prev) => [
             ...prev,
-            { id, src, x: imageX.get(), y: imageY.get() },
+            {
+              id,
+              src,
+              x: imageX.get(),
+              y: imageY.get(),
+            },
           ]);
           setTimeout(() => {
             setActiveImages((prev) => prev.filter((img) => img.id !== id));
