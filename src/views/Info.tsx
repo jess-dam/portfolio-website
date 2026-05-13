@@ -105,27 +105,27 @@ const StickerOverlay = () => {
           src="/assets/images/doodles/accessibility.svg"
           width={100}
           alt="illustration representing accessibility"
-          className="relative bottom-[15%]"
+          className="relative bottom-[15%] hidden md:block"
         />
         <motion.img
           animate={spinAnimation}
           src="/assets/images/doodles/star_red.svg"
           width={30}
           alt="star illustration"
-          className="relative bottom-[45%] -left-10"
+          className="relative bottom-[18%] md:bottom-[45%] left-20 md:-left-10"
         />
         <img
           src="/assets/images/doodles/sustainability.svg"
           width={100}
           alt="illustration representing sustainability"
-          className="relative top-[5%] right-0"
+          className="relative top-[2%] md:top-[5%] right-0"
         />
         <motion.img
           animate={spinAnimation}
           src="/assets/images/doodles/star_green.svg"
           width={30}
           alt="star illustration"
-          className="relative top-[30%]"
+          className="relative top-[25%] md:top-[30%]"
         />
       </motion.div>
     </AnimatePresence>
